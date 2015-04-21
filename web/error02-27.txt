@@ -1,0 +1,76 @@
+[Sun Feb 22 01:17:01 2015] [notice] Digest: generating secret for digest authentication ...
+[Sun Feb 22 01:17:01 2015] [notice] Digest: done
+[Sun Feb 22 01:17:01 2015] [notice] Apache/2.2.15 (Unix) DAV/2 PHP/5.4.34 configured -- resuming normal operations
+[Sun Feb 22 06:23:52 2015] [error] [client 75.118.230.96] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /tmUnblock.cgi
+[Sun Feb 22 10:38:38 2015] [error] [client 37.187.182.16] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.DFind:)
+[Sun Feb 22 11:29:24 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/admin.cgi
+[Sun Feb 22 11:29:24 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/AT-admin.cgi
+[Sun Feb 22 11:29:25 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/AT-generate.cgi
+[Sun Feb 22 11:29:25 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/bb-ack.sh
+[Sun Feb 22 11:29:26 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/bb-hist.sh
+[Sun Feb 22 11:29:26 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/blog
+[Sun Feb 22 11:29:26 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/blog
+[Sun Feb 22 11:29:27 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/calendar
+[Sun Feb 22 11:29:27 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/mail
+[Sun Feb 22 11:29:27 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/mail
+[Sun Feb 22 11:29:28 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/printenv
+[Sun Feb 22 11:29:28 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/test
+[Sun Feb 22 11:29:28 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/mail
+[Sun Feb 22 11:29:30 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/whois
+[Sun Feb 22 11:29:30 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/status
+[Sun Feb 22 11:29:30 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/traffic.cgi
+[Sun Feb 22 11:29:31 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/upload.cgi
+[Sun Feb 22 11:29:31 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/ezadmin.cgi
+[Sun Feb 22 11:29:31 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/search.cgi
+[Sun Feb 22 11:29:32 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/test.cgi
+[Sun Feb 22 11:29:35 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/test-cgi
+[Sun Feb 22 11:29:36 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/test
+[Sun Feb 22 11:29:36 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/login.cgi
+[Sun Feb 22 11:29:38 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/maillist.cgi
+[Sun Feb 22 11:30:29 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/admin.cgi
+[Sun Feb 22 11:30:29 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/AT-admin.cgi
+[Sun Feb 22 11:30:29 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/AT-generate.cgi
+[Sun Feb 22 11:30:30 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/bb-ack.sh
+[Sun Feb 22 11:30:30 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/bb-hist.sh
+[Sun Feb 22 11:30:31 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/blog
+[Sun Feb 22 11:30:31 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/blog
+[Sun Feb 22 11:30:31 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/calendar
+[Sun Feb 22 11:30:31 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/mail
+[Sun Feb 22 11:30:32 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/mail
+[Sun Feb 22 11:30:32 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/printenv
+[Sun Feb 22 11:30:32 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/test
+[Sun Feb 22 11:30:33 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/mail
+[Sun Feb 22 11:30:34 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/whois
+[Sun Feb 22 11:30:34 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/status
+[Sun Feb 22 11:30:35 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/traffic.cgi
+[Sun Feb 22 11:30:35 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/upload.cgi
+[Sun Feb 22 11:30:35 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/ezadmin.cgi
+[Sun Feb 22 11:30:35 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/search.cgi
+[Sun Feb 22 11:30:36 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/test.cgi
+[Sun Feb 22 11:30:39 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/test-cgi
+[Sun Feb 22 11:30:40 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/test
+[Sun Feb 22 11:30:41 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/login.cgi
+[Sun Feb 22 11:30:42 2015] [error] [client 204.110.9.197] script not found or unable to stat: /var/www/cgi-bin/maillist.cgi
+[Sun Feb 22 16:55:05 2015] [error] [client 200.136.214.133] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.Win32:)
+[Sun Feb 22 19:12:43 2015] [error] [client 77.246.171.144] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.DFind:)
+[Sun Feb 22 23:53:14 2015] [error] [client 62.210.189.161] script not found or unable to stat: /var/www/cgi-bin/php
+[Mon Feb 23 14:00:06 2015] [error] [client 37.187.182.16] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.DFind:)
+[Tue Feb 24 05:06:49 2015] [error] [client 95.211.226.71] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.DFind:)
+[Tue Feb 24 15:08:36 2015] [error] [client 198.154.63.131] script not found or unable to stat: /var/www/cgi-bin/php
+[Tue Feb 24 16:39:35 2015] [error] [client 103.30.91.80] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /tmUnblock.cgi
+[Tue Feb 24 18:24:11 2015] [error] [client 37.187.182.16] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.DFind:)
+[Wed Feb 25 03:55:43 2015] [error] [client 200.136.214.133] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.Win32:)
+[Wed Feb 25 07:30:50 2015] [error] [client 149.129.155.125] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /tmUnblock.cgi
+[Thu Feb 26 11:14:00 2015] [error] [client 46.105.38.38] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.DFind:)
+[Thu Feb 26 12:28:35 2015] [error] [client 37.187.182.16] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.DFind:)
+[Thu Feb 26 18:43:01 2015] [error] [client 198.211.30.100] script not found or unable to stat: /var/www/cgi-bin/test-cgi
+[Thu Feb 26 20:40:58 2015] [error] [client 111.95.157.35] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /tmUnblock.cgi
+[Thu Feb 26 23:06:58 2015] [error] [client 5.196.174.201] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.DFind:)
+[Fri Feb 27 09:55:28 2015] [error] [client 119.18.104.124] script not found or unable to stat: /var/www/cgi-bin/php
+[Fri Feb 27 09:55:29 2015] [error] [client 119.18.104.124] script not found or unable to stat: /var/www/cgi-bin/php5
+[Fri Feb 27 09:55:30 2015] [error] [client 119.18.104.124] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Fri Feb 27 09:55:31 2015] [error] [client 119.18.104.124] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Fri Feb 27 09:55:32 2015] [error] [client 119.18.104.124] script not found or unable to stat: /var/www/cgi-bin/php4
+[Fri Feb 27 16:10:45 2015] [error] [client 200.136.214.133] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.Win32:)
+[Fri Feb 27 21:49:36 2015] [error] [client 118.139.181.37] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.Win32:)
+[Sun Mar 01 01:17:01 2015] [notice] SIGHUP received.  Attempting to restart

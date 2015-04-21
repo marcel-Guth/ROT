@@ -1,0 +1,11 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Wijzig vereniging "{{vereniging}}"{% endblock %}
+{% block inner_content %}
+    {{ include('ROTIISBundle:Vereniging:_object_actions.html.twig', {"vereniging": vereniging}) }}
+    <form novalidate action="{{path('rot_iis_vereniging_update', {'id': vereniging.id})}}" method="POST" {{form_enctype(form)}}>
+        {{ include('ROTIISBundle:Vereniging:_form.html.twig', {'form': form}) }}
+        {{ form_rest(form) }}
+        <input type="hidden" name="_method" value="PUT" />
+        <input type="submit" value="Opslaan" />
+    </form>
+{% endblock %}

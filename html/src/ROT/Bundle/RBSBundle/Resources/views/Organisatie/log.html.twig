@@ -1,0 +1,17 @@
+{% extends "ROTRBSBundle::layout.html.twig" %}
+{% block title %}Organisatie "{{organisatie}}"{% endblock %}
+{% block inner_content %}
+    {{ include('ROTRBSBundle:Organisatie:_object_actions.html.twig', {"organisatie": organisatie}) }}
+    <table>
+        <thead>
+            <tr>
+                <th>Versie</th>
+                <th>Wijziging</th>
+                <th>Door</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+{% endblock %}

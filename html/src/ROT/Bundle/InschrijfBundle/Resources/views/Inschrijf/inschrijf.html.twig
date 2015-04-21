@@ -1,0 +1,59 @@
+{% extends "ROTInschrijfBundle::layout.html.twig" %}
+
+{# Zorgen dat de pagina titel, Hoofdtitel en subtitel worden aangepast aan de taal van de user #}
+
+{% block pageTitle %}
+    {% if lang == 'nl' %}
+        {{ siteRegistratieTitel | raw }}
+    {% else %}
+        {{ siteRegistratieTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{%  block siteTitle %}
+    {% if lang == 'nl' %}
+        {{ siteTitel | raw }}
+    {% else %}
+        {{ siteTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{%  block subTitle %}
+    {% if lang == 'nl' %}
+        {{ siteOnderTitel | raw }}
+    {% else %}
+        {{ siteOnderTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+
+{% block page %}
+
+    <div class="text-wrapper">
+        <div class="NL" {% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="boldlabel">{{ content | raw }}</span>
+        </div>
+        <div class="EN" {% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="boldlabel">{{ contentENG | raw }}</span>
+        </div>
+    </div>
+
+    <form class="inschrijving" name="inschrijfStap0" action="{{ path('rot_inschrijf_inschrijf_saveinschrijf') }}" method="post">
+        <div class="input input-radio-button">
+            {{ form_widget(form.taal) }}
+            <div class="field-input field-input-radio-button">
+                <img class="flag" src="{{ asset("bundles/rotinschrijf/images/NED.gif") }}" alt="flag_en_US"/>
+                <img class="flag clear-both" src="{{ asset("bundles/rotinschrijf/images/GBR.gif") }}" alt="flag_en_US"/>
+            </div>
+            <div class="clear-both"></div>
+        </div>
+
+        {{ form_rest(form) }}
+
+        {{ include('ROTInschrijfBundle:Inschrijf:formControls.html.twig', {
+            step: step,
+            pStep: pStep
+        }) }}
+    </form>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+<div class="form-buttons">
+    <div class="warning" id="isError"></div>
+    
+        <div class="button-wrapper">
+                {% if step == 1 and pstep == 8 %}
+                    <button type="button" title="Vorige" class="button" onclick="location.href='{{ path('rot_inschrijf_inschrijf_inschrijf') }}'" style="display:none">
+                    {% if lang == 'nl' %} Vorige {% else %} Previous {% endif %}
+                </button>
+            </div>
+        {% endif %}
+        {% if step != 8 %}
+            <div class="button-wrapper">
+                <input type="submit" class="button" value="{% if lang == 'nl' %} Volgende {% else %} Next {% endif %}" />
+
+
+                {#<a class="button" href="#" id="volgende">#}
+                    {#{% if lang == 'nl' %} Volgende {% else %} Next {% endif %}#}
+                {#</a>#}
+                {#<input type="submit" value="{% if lang == 'nl' %} Volgende {% else %} Next {% endif %}">#}
+            </div>
+        {% endif %}
+</div>

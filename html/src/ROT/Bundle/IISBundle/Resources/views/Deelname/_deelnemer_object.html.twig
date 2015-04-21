@@ -1,0 +1,52 @@
+<table>
+    <tbody>
+        <tr>
+            <td>Voornaam</td>
+            <td>{{ show_row('', deelnemer.voornaam) }}</td>
+        </tr>
+        <tr>
+            <td>Tussenvoegsel</td>
+            <td>{{ show_row('', deelnemer.tussenvoegsel) }}</td>
+        </tr><tr>
+            <td>Achternaam</td>
+            <td>{{ show_row('', deelnemer.achternaam) }}</td>
+        </tr><tr>
+            <td>Adres</td>
+            <td>{{ show_row('', deelnemer.adres) }}</td>
+        </tr><tr>
+            <td>Huisnummer</td>
+            <td>{{ show_row('', deelnemer.huisnummer) }}</td>
+        </tr><tr>
+            <td>Woonplaats</td>
+            <td>{{ show_row('', deelnemer.woonplaats) }}</td>
+        </tr><tr>
+            <td>Postcode</td>
+            <td>{{ show_row('', deelnemer.postcode) }}</td>
+        </tr><tr>
+            <td>Geslacht</td>
+            <td>{{ show_row('', deelnemer.geslacht) }}</td>
+        </tr><tr>
+            <td>Telefoon</td>
+            <td>{{ show_row('', deelnemer.telefoon) }}</td>
+        </tr><tr>
+            <td>Noodtelefoon</td>
+            <td>{{ show_row('', deelnemer.noodtelefoon) }}</td>
+        </tr><tr>
+            <td>Geboortedatum</td>
+            <td>{{ show_row('', deelnemer.geboortedatum|date('d-m-Y')) }}</td>
+        </tr><tr>
+            <td>Email</td>
+            <td>{{ show_row('', deelnemer.email) }}</td>
+        </tr><tr>
+            <td>Nationaliteit</td>
+            <td>{{ show_row('', deelnemer.nationaliteit) }}</td>
+        </tr><tr>
+            <td>Rotmember</td>
+            <td>{{ show_row('', deelnemer.rotmember) }}</td>
+        </tr><tr>
+            <td>Rotmembernummer</td>
+            <td>{{ show_row('', deelnemer.rotmembernummer) }}</td>
+        </tr>
+    </tbody>
+</table>
+

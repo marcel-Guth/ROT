@@ -1,0 +1,9 @@
+{{ form_row(form.organisatie) }}
+{{ form_row(form.voornaam) }}
+{{ form_row(form.tussenvoegsel) }}
+{{ form_row(form.achternaam) }}
+{{ form_row(form.soort) }}
+<h3>{{ form_label(form.parkeerkaart) }} {{ form_widget(form.hasparkeerkaart) }}</h3>
+<div id="betrokkeneFilter_parkeerkaart_subform" class="admin-subform">
+    {{ include('ROTPBSBundle:Parkeerkaart:_form_filter.html.twig', {"form": form.parkeerkaart}) }}
+</div>

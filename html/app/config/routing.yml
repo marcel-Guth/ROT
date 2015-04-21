@@ -1,0 +1,8 @@
+rot_inschrijf:
+    resource: "@ROTInschrijfBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+rot_admin:
+    resource: "@ROTAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin

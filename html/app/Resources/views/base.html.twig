@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script language="javascript" type="text/javascript"> 
+            function closeWindow() { 
+            window.open('','_parent',''); 
+            window.close(); 
+            } 
+        </script>
+        <meta charset="UTF-8" />
+        <title>{% block pageTitle %}{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,6 @@
+{% extends "ROTAdminBundle::admin_layout.html.twig" %}
+{% block title %}Gebruiker{% endblock %}
+{% block inner_content %}
+    {{ include('ROTAdminBundle:Gebruiker:_object_actions.html.twig', {"gebruiker": gebruiker}) }}
+    {{ include('ROTAdminBundle:Gebruiker:_object.html.twig', {"gebruiker": gebruiker}) }}
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "ROTInschrijfBundle::layout.html.twig" %}
+
+{# Zorgen dat de pagina titel, Hoofdtitel en subtitel worden aangepast aan de taal van de user #}
+
+{% block pageTitle %}
+    {% if lang == 'nl' %}
+        {{ siteRegistratieTitel | raw }}
+    {% else %}
+        {{ siteRegistratieTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{%  block siteTitle %}
+    {% if lang == 'nl' %}
+        {{ siteTitel | raw }}
+    {% else %}
+        {{ siteTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{%  block subTitle %}
+    {% if lang == 'nl' %}
+        {{ siteOnderTitel | raw }}
+    {% else %}
+        {{ siteOnderTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{% block page %}
+
+    <div class="text-wrapper" {% if content == NULL %}style="display: none"{% endif %}>
+        <div class="NL" {% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="boldlabel">{{ content | raw }}</span><div class="clear-both"></div>
+        </div>
+        <div class="EN" {% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="boldlabel">{{ contentENG | raw }}</span><div class="clear-both"></div>
+        </div>
+    </div>
+
+    {#
+    {% set filter = app.session.get('filter') %}
+    {% set account-filter = filter['accounts'] %}
+    {% if app.session.foo %}
+    #}
+
+
+
+    <form class="inschrijving" name="inschrijfStap8" action="{{ path('rot_inschrijf_inschrijf_savestap8') }}" method="post">
+
+        {{ form_rest(form) }}
+
+        {{ include('ROTInschrijfBundle:Inschrijf:formControls.html.twig', {
+            step: step,
+            pStep: pStep
+        }) }}
+    </form>
+{% endblock %}

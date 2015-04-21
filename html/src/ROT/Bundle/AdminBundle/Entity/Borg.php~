@@ -1,0 +1,46 @@
+<?php
+
+namespace ROT\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Borg
+ *
+ * @ORM\Table(name="borg")
+ * @ORM\Entity
+ */
+class Borg
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="betaalwijze", type="string", length=255, nullable=false)
+     */
+    private $betaalwijze;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="betaaldatum", type="date", nullable=false)
+     */
+    private $betaaldatum;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="terugbetaald", type="boolean", nullable=false)
+     */
+    private $terugbetaald;
+
+
+}

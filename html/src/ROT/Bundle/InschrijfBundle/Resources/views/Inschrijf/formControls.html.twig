@@ -1,0 +1,43 @@
+<div class="form-buttons">
+    <div class="warning" id="isError"></div>
+
+        {% if step == 1 %}
+            <div class="button-wrapper">
+                <button type="button" title="Vorige" class="button" onclick="location.href='{{ path('rot_inschrijf_inschrijf_inschrijf') }}'" style="display:none">
+                {% if lang == 'nl' %} Vorige {% else %} Previous {% endif %}
+                        
+                </button>
+            </div>
+        {% else %}
+
+            <div class="button-wrapper">
+                {% if step == 2 %}
+                    <button type="button" title="Vorige" class="button" onclick="location.href='{{ path('rot_inschrijf_inschrijf_inschrijf') }}'">
+                {% elseif step == 3 %}
+                    <button type="button" title="Vorige" class="button" onclick="location.href='{{ path('rot_inschrijf_inschrijf_stap2') }}'">
+                {% elseif step == 4 %}
+                 <button type="button" title="Vorige" class="button" onclick="location.href='{{ path('rot_inschrijf_inschrijf_stap2') }}'">
+                {% elseif step == 5 %}
+                    <button type="button" title="Vorige" class="button" onclick="location.href='{{ path('rot_inschrijf_inschrijf_stap4') }}'">
+                {% elseif step == 6 %}
+                    <button type="button" title="Vorige" class="button" onclick="location.href='{{ path('rot_inschrijf_inschrijf_stap5') }}'">
+                {% elseif step == 7 %}
+                    <button type="button" title="Vorige" class="button" onclick="location.href='{{ path('rot_inschrijf_inschrijf_stap6') }}'">
+                {% else %}
+                    <button type="button" title="Vorige" class="button" onclick="location.href='{{ path('rot_inschrijf_inschrijf_stap7') }}'">
+                {% endif %}
+                    {% if lang == 'nl' %} Vorige {% else %} Previous {% endif %}
+                </button>
+            </div>
+        {% endif %}
+        {% if step != 8 %}
+            <div class="button-wrapper">
+                <input type="submit" class="button" value="{% if lang == 'nl' %} Volgende {% else %} Next {% endif %}" />
+            </div>
+        {% endif %}
+        {% if step == 8 %}
+            <div class="button-wrapper">
+                <input type="submit" class="button" value="{% if lang == 'nl' %} Opslaan {% else %} Save {% endif %}" />
+            </div>
+        {% endif %}
+</div>

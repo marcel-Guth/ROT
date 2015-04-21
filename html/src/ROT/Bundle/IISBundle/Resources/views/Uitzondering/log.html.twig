@@ -1,0 +1,17 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Uitzondering "{{uitzondering}}"{% endblock %}
+{% block inner_content %}
+    {{ include('ROTIISBundle:Uitzondering:_object_actions.html.twig', {"uitzondering": uitzondering}) }}
+    <table>
+        <thead>
+            <tr>
+                <th>Versie</th>
+                <th>Wijziging</th>
+                <th>Door</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+{% endblock %}

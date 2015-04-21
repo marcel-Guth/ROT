@@ -1,0 +1,13 @@
+{% extends "ROTAdminBundle::admin_layout.html.twig" %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/rotrbs/js/rbs.js') }}"></script>
+{% endblock %}
+{% block navigation_small %}
+{% set route = app.request.attributes.get('_route') %}
+<ul id="subtabnav">
+    <li class="{{"rot_rbs_overzicht" in route ? 'actievetab' : ''}}"><a href="{{path("rot_rbs_overzicht_overzicht")}}">Overzicht</a></li>
+    <li class="{{"rot_rbs_betrokkene" in route ? 'actievetab' : ''}}"><a href="{{path("rot_rbs_betrokkene_index")}}">Betrokkenen</a></li>
+    <li class="{{"rot_rbs_organisatie" in route ? 'actievetab' : ''}}"><a href="{{path("rot_rbs_organisatie_index")}}">Organisaties</a></li>
+</ul>
+{% endblock %}

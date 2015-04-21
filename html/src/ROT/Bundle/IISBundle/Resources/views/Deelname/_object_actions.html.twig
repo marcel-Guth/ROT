@@ -1,0 +1,21 @@
+{% set route = app.request.attributes.get('_route') %}
+<table>
+    <thead>
+        <th colspan="2">
+            <a href="{{path('rot_iis_deelname_index')}}">Index</a>
+            {% if route != 'rot_iis_deelname_new' %}
+                {% if route != 'rot_iis_deelname_show' %}
+                    <a href="{{path('rot_iis_deelname_show', {'id': deelname.id})}}">Bekijk</a>
+                {% endif %}
+                {% if is_granted('ROLE_WIJZIG_IIS') %}
+                    {% if route != 'rot_iis_deelname_edit' %}
+                        <a href="{{path('rot_iis_deelname_edit', {'id': deelname.id})}}">Wijzig</a>
+                    {% endif %}
+                    <a href="{{path('rot_iis_deelname_delete', {'id': deelname.id})}}" data-method="DELETE">Verwijder</a>
+                {% endif %}
+                {% if route != 'rot_iis_deelname_log' %}
+                    <a href="{{ path('rot_iis_deelname_log', {'id': deelname.id}) }}">Log</a>
+                {% endif %}
+            {% endif %}
+    </thead>
+</table>

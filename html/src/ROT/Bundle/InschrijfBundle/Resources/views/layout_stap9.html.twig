@@ -1,0 +1,36 @@
+{% extends "ROTCoreBundle::layout.html.twig" %}
+{% block pageTitle %}{{ parent() }} - Inschrijving{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+        'bundles/rotinschrijf/css/screen-core.css'
+        'bundles/rotinschrijf/css/screen-inschrijf.css'
+        'bundles/rotinschrijf/css/inschrijf.css'
+        filter="cssrewrite"
+    %}
+        <link type="text/css" rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+{% block body %}
+    {{ render_esi(controller('ROTInschrijfBundle:Inschrijf:showHeader')) }}
+    <div id="content">
+        {% block content %}
+            <div id="page">
+                {% block page %}
+
+                {% endblock %}
+            </div>
+            <div class="clear-both"></div>
+        {% endblock %}
+    </div>
+    <div id="footer">
+        <div class="inner_wrapper">
+            <p class="left">
+                © 2013  - Ronde om Texel
+            </p>
+            <p class="right">
+                Powered by <a href="http://www.rocmondriaan.nl/default.aspx" target="_blank">ROC Mondriaan</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

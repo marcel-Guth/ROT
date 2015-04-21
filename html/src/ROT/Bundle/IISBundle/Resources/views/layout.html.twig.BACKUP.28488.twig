@@ -1,0 +1,47 @@
+<<<<<<< HEAD
+{% extends "ROTAdminBundle::admin_layout.html.twig" %}
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts 'bundles/rotiis/js/iis.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{%  endblock %}
+{% block navigation_small %}
+{% set route = app.request.attributes.get('_route') %}
+<ul id="subtabnav">
+    <li class="{{"rot_iis_overzicht" in route ? 'actievetab' : ''}}"><a href="{{path("rot_iis_overzicht_overzicht")}}">Overzicht</a></li>
+    <li class="{{"rot_iis_deelname" in route ? 'actievetab' : ''}}"><a href="{{path("rot_iis_deelname_index")}}">Deelnames</a></li>
+    <li class="{{"rot_iis_klasse" in route ? 'actievetab' : ''}}"><a href="{{path("rot_iis_klasse_index")}}">Klassen</a></li>
+    <li class="{{"rot_iis_boot" in route ? 'actievetab' : ''}}"><a href="{{path("rot_iis_boot_index")}}">Boten</a></li>
+    <li class="{{"rot_iis_vereniging" in route ? 'actievetab' : ''}}"><a href="{{path("rot_iis_vereniging_index")}}">Verenigingen</a></li>
+    <li class="{{"rot_iis_nationaliteit" in route ? 'actievetab' : ''}}"><a href="{{path("rot_iis_nationaliteit_index")}}">Nationaliteiten</a></li>
+    <li class="{{"rot_iis_uitzondering" in route ? 'actievetab' : ''}}"><a href="{{path("rot_iis_uitzondering_index")}}">Uitzonderingen</a></li>
+    <li class="{{"rot_iis_finish" in route ? 'actievetab' : ''}}"><a href="{{path("finish")}}">Finishtijden</a></li>
+    <li class="{{"rot_iis_corrigeren" in route ? 'actievetab' : ''}}"><a href="{{path("corrigeren")}}">Corrigeren</a></li>
+    <li class="{{"rot_iis_results" in route ? 'actievetab' : ''}}"><a href="{{path("results")}}">Resultaten</a></li>
+</ul>
+{% endblock %}
+=======
+{% extends "ROTAdminBundle::admin_layout.html.twig" %}
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts 'bundles/rotiis/js/iis.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{%  endblock %}
+{% block navigation_small %}
+{% set route = app.request.attributes.get('_route') %}
+<ul id="subtabnav">
+    <li class="{{"rot_iis_overzicht" in route ? 'actievetab' : ''}}"><a href="{{path("rot_iis_overzicht_overzicht")}}">Overzicht</a></li>
+    <li class="{{"rot_iis_deelname" in route ? 'actievetab' : ''}}"><a href="{{path("rot_iis_deelname_index")}}">Deelnames</a></li>
+    <li class="{{"rot_iis_nawexport" in route ? 'actievetab' : ''}}"><a href="{{path("NAWExport")}}">NAW Export</a></li>
+    <li class="{{"rot_iis_klasse" in route ? 'actievetab' : ''}}"><a href="{{path("rot_iis_klasse_index")}}">Klassen</a></li>
+    <li class="{{"rot_iis_boot" in route ? 'actievetab' : ''}}"><a href="{{path("rot_iis_boot_index")}}">Boten</a></li>
+    <li class="{{"rot_iis_vereniging" in route ? 'actievetab' : ''}}"><a href="{{path("rot_iis_vereniging_index")}}">Verenigingen</a></li>
+    <li class="{{"rot_iis_nationaliteit" in route ? 'actievetab' : ''}}"><a href="{{path("rot_iis_nationaliteit_index")}}">Nationaliteiten</a></li>
+    <li class="{{"rot_iis_uitzondering" in route ? 'actievetab' : ''}}"><a href="{{path("rot_iis_uitzondering_index")}}">Uitzonderingen</a></li>
+    <li class="{{"rot_iis_finish" in route ? 'actievetab' : ''}}"><a href="{{path("finish")}}">Finishtijden</a></li>
+    <li class="{{"rot_iis_results" in route ? 'actievetab' : ''}}"><a href="{{path("results")}}">Resultaten</a></li>
+</ul>
+{% endblock %}
+>>>>>>> 4745123c367a5e1174ebfe0366802e3e7d31cf3d

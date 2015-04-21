@@ -1,0 +1,6 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Uitzondering {{uitzondering}}{% endblock %}
+{% block inner_content %}
+    {{ include('ROTIISBundle:Uitzondering:_object_actions.html.twig', {"uitzondering": uitzondering}) }}
+    {{ include('ROTIISBundle:Uitzondering:_object.html.twig', {"uitzondering": uitzondering}) }}
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Boot {{boot}}{% endblock %}
+{% block inner_content %}
+    {{ include('ROTIISBundle:Boot:_object_actions.html.twig', {"boot": boot}) }}
+    {{ include('ROTIISBundle:Boot:_object.html.twig', {"boot": boot}) }}
+{% endblock %}

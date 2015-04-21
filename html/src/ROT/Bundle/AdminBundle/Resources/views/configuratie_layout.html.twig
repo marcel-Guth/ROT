@@ -1,0 +1,18 @@
+{% extends "ROTAdminBundle::admin_layout.html.twig" %}
+{% block navigation_small %}
+{% set route = app.request.attributes.get('_route') %}
+<ul id="subtabnav">
+    <li class="{{"rot_admin_configuratie_algemeen" in route ? 'actievetab' : ''}}"><a href="{{path("rot_admin_configuratie_algemeen")}}">Algemeen</a></li>
+    <li class="{{"rot_admin_configuratie_stap" in route and app.request.get('stap') == 1 ? 'actievetab' : ''}}"><a href="{{path("rot_admin_configuratie_stap", {'stap': 1})}}">Stap 1</a></li>
+    <li class="{{"rot_admin_configuratie_stap" in route and app.request.get('stap') == 2 ? 'actievetab' : ''}}"><a href="{{path("rot_admin_configuratie_stap", {'stap': 2})}}">Stap 2</a></li>
+    <li class="{{"rot_admin_configuratie_stap" in route and app.request.get('stap') == 3 ? 'actievetab' : ''}}"><a href="{{path("rot_admin_configuratie_stap", {'stap': 3})}}">Stap 3</a></li>
+    <li class="{{"rot_admin_configuratie_stap" in route and app.request.get('stap') == 4 ? 'actievetab' : ''}}"><a href="{{path("rot_admin_configuratie_stap", {'stap': 4})}}">Stap 4</a></li>
+    <li class="{{"rot_admin_configuratie_stap" in route and app.request.get('stap') == 5 ? 'actievetab' : ''}}"><a href="{{path("rot_admin_configuratie_stap", {'stap': 5})}}">Stap 5</a></li>
+    <li class="{{"rot_admin_configuratie_stap" in route and app.request.get('stap') == 6 ? 'actievetab' : ''}}"><a href="{{path("rot_admin_configuratie_stap", {'stap': 6})}}">Stap 6</a></li>
+    <li class="{{"rot_admin_configuratie_stap" in route and app.request.get('stap') == 7 ? 'actievetab' : ''}}"><a href="{{path("rot_admin_configuratie_stap", {'stap': 7})}}">Stap 7</a></li>
+    <li class="{{"rot_admin_configuratie_stap" in route and app.request.get('stap') == 8 ? 'actievetab' : ''}}"><a href="{{path("rot_admin_configuratie_stap", {'stap': 8})}}">Stap 8</a></li>
+    <li class="{{"rot_admin_configuratie_stap" in route and app.request.get('stap') == 9 ? 'actievetab' : ''}}"><a href="{{path("rot_admin_configuratie_stap", {'stap': 9})}}">Stap 9</a></li>
+    <li class="{{"rot_admin_configuratie_mail" in route and app.request.get('mail_type') == 'aanmelding' ? 'actievetab' : ''}}"><a href="{{path("rot_admin_configuratie_mail", {'mail_type': 'aanmelding'})}}">Aanmeldingsmail</a></li>
+    <li class="{{"rot_admin_configuratie_mail" in route and app.request.get('mail_type') == 'bevestiging' ? 'actievetab' : ''}}"><a href="{{path("rot_admin_configuratie_mail", {'mail_type': 'bevestiging'})}}">Bevestigingsmail</a></li>
+</ul>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "ROTRBSBundle::layout.html.twig" %}
+{% block title %}Nieuwe betrokkenen filter{% endblock %}
+{% block inner_content %}
+<form novalidate action="{{path('rot_rbs_betrokkene_createfilter')}}" method="POST" {{form_enctype(form)}}>
+    {{ include('ROTAdminBundle:FilterWrapping:_form.html.twig', {'form': form, 'content_template': 'ROTRBSBundle:Betrokkene:_form_filter.html.twig'}) }}
+    {{ form_rest(form) }}
+	<input type="submit" value="Aanmaken" />
+</form>
+{% endblock %}

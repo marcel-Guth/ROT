@@ -1,0 +1,12 @@
+<div class="form-row {% if form.nationaliteit.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.nationaliteit) }}</div>
+    <div class="widget">{{ form_widget(form.nationaliteit) }}</div>
+    <div class="error">{{ form_errors(form.nationaliteit) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.landcode.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.landcode) }}</div>
+    <div class="widget">{{ form_widget(form.landcode) }}</div>
+    <div class="error">{{ form_errors(form.landcode) }}</div>
+    <div class="clearfix"></div>
+</div>

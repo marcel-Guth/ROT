@@ -1,0 +1,119 @@
+<?php
+
+namespace ROT\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Deelnemer
+ *
+ * @ORM\Table(name="deelnemer")
+ * @ORM\Entity
+ */
+class Deelnemer
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="voornaam", type="string", length=255, nullable=false)
+     */
+    private $voornaam;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="achternaam", type="string", length=255, nullable=false)
+     */
+    private $achternaam;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tussenvoegsel", type="string", length=255, nullable=false)
+     */
+    private $tussenvoegsel;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adres", type="string", length=255, nullable=false)
+     */
+    private $adres;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="huisnummer", type="string", length=255, nullable=false)
+     */
+    private $huisnummer;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="woonplaats", type="string", length=100, nullable=false)
+     */
+    private $woonplaats;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="postcode", type="string", length=255, nullable=false)
+     */
+    private $postcode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="geslacht", type="string", length=1, nullable=false)
+     */
+    private $geslacht;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mobiel", type="string", length=255, nullable=false)
+     */
+    private $mobiel;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefoon", type="string", length=255, nullable=false)
+     */
+    private $telefoon;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="geboortedatum", type="date", nullable=false)
+     */
+    private $geboortedatum;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var \Nationaliteit
+     *
+     * @ORM\ManyToOne(targetEntity="Nationaliteit")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="nationaliteitid", referencedColumnName="id")
+     * })
+     */
+    private $nationaliteitid;
+
+
+}

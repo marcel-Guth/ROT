@@ -1,0 +1,78 @@
+{% extends "ROTInschrijfBundle::layout.html.twig" %}
+
+{# Zorgen dat de pagina titel, Hoofdtitel en subtitel worden aangepast aan de taal van de user #}
+
+{% block pageTitle %}
+    {% if lang == 'nl' %}
+        {{ siteRegistratieTitel | raw }}
+    {% else %}
+        {{ siteRegistratieTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{%  block siteTitle %}
+    {% if lang == 'nl' %}
+        {{ siteTitel | raw }}
+    {% else %}
+        {{ siteTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{%  block subTitle %}
+    {% if lang == 'nl' %}
+        {{ siteOnderTitel | raw }}
+    {% else %}
+        {{ siteOnderTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{% block page %}
+
+    {#The NOR met een query ophalen en in een <iframe> </iframe> plaatsen#}
+    {#Als je alles op wilt halen dat ->getResult()#}
+    {# De baantekening.png kan worden gedownload #}
+    {# De PDF kan worden gedownload #}
+    {# De HTML versie komt in het iframe #}
+    {# Met een query dus alle actieve ophalen (png, pdf en HTML #}
+
+    <div class="text-wrapper" {% if content == NULL %}style="display: none"{% endif %}>
+        <div class="NL" {% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="boldlabel">{{ content | raw }}</span><div class="clear-both"></div>
+        </div>
+        <div class="EN" {% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="boldlabel">{{ contentENG | raw }}</span><div class="clear-both"></div>
+        </div>
+    </div>
+
+    <div class="downloadable-content">
+        <div class="NL" {% if lang == 'nl' %} style="display:block;" {% else %} style="display: none" {% endif %}>
+           <span class="clear-both pagina-text">
+               Open de NOR <a href="{{ asset("uploads/rotadmin/nor/") }}{{ norPDFFile }}" target="_blank">hier</a>, om de 'Notice of Race' te lezen heeft u <a href="http://www.adobe.com/products/acrobat/readstep2.html" target="_new" class="pdf"> Adobe Reader</a> nodig.
+           </span>
+           <span class="clear-both pagina-text">
+               Bekijk alvast de <a href="{{ asset("uploads/rotadmin/nor/") }}{{ pngFile }}" target="_blank">baantekening</a>.
+           </span>
+        </div>
+        <div class="EN" {% if lang != 'nl' %} style="display:block;" {% else %} style="display: none" {% endif %}>
+           Open the NOR <a href="{{ asset("uploads/rotadmin/nor/") }}{{ norPDFFile }}" target="_blank">here</a>, to read the 'Notice of Race' u need <a href="http://www.adobe.com/products/acrobat/readstep2.html" target="_new" class="pdf"> Adobe Reader</a>
+        </div>
+    </div>
+
+    <iframe src="{{ asset("uploads/rotadmin/nor/") }}{{ norHtmlFile }}" class="iframe-NOR" id="nor-frame" scrolling="yes"></iframe>
+
+    <form class="inschrijving" name="inschrijfStap2" action="{{ path('rot_inschrijf_inschrijf_savestap2') }}" method="post">
+        <div class="input input-checkbox">
+            <div class="label-input pagina-text"> {{ form_label(form.Akkoord, lang == 'nl' ? "Ik ga akkoord met de NOR" : "I agree") }} </div>
+            <div class="field-input field-input-checkbox"> {{ form_widget(form.Akkoord) }} </div>
+            <div class="clear-both"></div>
+        </div>
+
+        {{ form_rest(form) }}
+
+        {{ include('ROTInschrijfBundle:Inschrijf:formControls.html.twig', {
+            step: step,
+            pStep: pStep
+        }) }}
+    </form>
+
+{% endblock %}

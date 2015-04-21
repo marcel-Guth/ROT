@@ -1,0 +1,10 @@
+{% extends "ROTRBSBundle::layout.html.twig" %}
+{% block title %}Nieuwe organisatie{% endblock %}
+{% block inner_content %}
+    {{ include('ROTRBSBundle:Organisatie:_object_actions.html.twig') }}
+    <form novalidate action="{{path('rot_rbs_organisatie_create')}}" method="POST" {{form_enctype(form)}}>
+        {{ include('ROTRBSBundle:Organisatie:_form.html.twig', {'form': form}) }}
+        {{ form_rest(form) }}
+        <input type="submit" value="Aanmaken" />
+    </form>
+{% endblock %}

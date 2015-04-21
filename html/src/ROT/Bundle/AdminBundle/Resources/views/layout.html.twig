@@ -1,0 +1,55 @@
+{% extends "ROTCoreBundle::layout.html.twig" %}
+{% block pageTitle %}RoT - Admin{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+        'bundles/pinanodatatables/js/jquery.dataTables.js'
+        'bundles/pinanodatatables/extras/TableTools/media/js/TableTools.js'
+        'bundles/pinanodatatables/extras/TableTools/media/js/ZeroClipboard.js'
+        'bundles/rotadmin/js/admin.js'
+    %}
+        <script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+        'bundles/pinanodatatables/css/jquery.dataTables.css'
+        'bundles/pinanodatatables/extras/TableTools/media/css/TableTools.css'
+        'bundles/rotadmin/css/admin.css'
+        filter="cssrewrite"
+    %}
+        <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+{% block body %}
+    <div id="header">
+        <h1>Ronde om Texel - Admin</h1>
+    </div>
+    <div id="navigation">
+        {% block navigation %}
+        {% endblock %}
+    </div>
+    <div id="navigation_small">
+        {% block navigation_small %}
+        {% endblock %}
+    </div>
+    <div id="content">
+        <div class="admin-flash">
+            <ul class="notices">
+                {% for message in app.session.flashbag.get('notice') %}
+                    <li><p>{{ message }}</p></li>
+                {% endfor %}
+            </ul>
+            <ul class="errors">
+                {% for message in app.session.flashbag.get('error') %}
+                    <li><p>{{ message }}</p></li>
+                {%  endfor %}
+            </ul>
+        </div>
+        {#<h2>{% block title %}{% endblock %}</h2>#}
+        <div class="inner_content">
+            {% block inner_content %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

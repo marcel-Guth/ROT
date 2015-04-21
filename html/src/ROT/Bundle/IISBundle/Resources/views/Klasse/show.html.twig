@@ -1,0 +1,6 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Klasse {{klasse}}{% endblock %}
+{% block inner_content %}
+    {{ include('ROTIISBundle:Klasse:_object_actions.html.twig', {"klasse": klasse}) }}
+    {{ include('ROTIISBundle:Klasse:_object.html.twig', {"klasse": klasse}) }}
+{% endblock %}

@@ -1,0 +1,185 @@
+</br>
+<div class="sub">
+    <table>
+        <thead>
+            <h3>Algemene informatie</h3>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Inschrijfdatum</td>
+                <td>{{ show_row("", deelname.inschrijfdatum|date('d-m-Y')) }}</td>
+            </tr>
+            <tr>
+                <td>Nederlands</td>
+                <td>{{ show_row("", deelname.nederlands ? 'Ja': 'Nee') }}</td>
+            </tr>
+            <tr>
+                <td>Reserveringscode</td>
+                <td>{{ show_row("", deelname.reserveringscode) }}</td>
+            </tr>
+            <tr>
+                <td>Zeilnummer</td>
+                <td>{{ show_row("", deelname.zeilnummer) }}</td>
+            </tr>
+            <tr>
+                <td>Startnummer</td>
+                <td>{{ show_row("", deelname.startnummer) }}</td>
+            </tr>
+            <tr>
+                <td>Meetbrief</td>
+                <td>{{ show_row("", deelname.meetbrief ? 'Ja' : 'Nee') }}</td>
+            </tr>
+            {% if deelname.meetbrief %}
+                <tr>
+                    <td>Meetbriefnummer</td>
+                    <td>{{ show_row("", deelname.meetbriefnummer) }}</td>
+                </tr>
+            {% endif %}
+            <tr>
+                <td>Reclame</td>
+                <td>{{ show_row('', deelname.reclame ? 'Ja' : 'Nee') }}</td>
+            </tr>
+            <tr>
+                <td>Sponsor</td>
+                <td>{{ show_row('', deelname.sponsor ? 'Ja' : 'Nee') }}</td>
+            </tr>
+            <tr>
+                <td>Spinnaker</td>
+                <td>{{ show_row('', deelname.spinnaker ? 'Ja' : 'Nee') }}</td>
+            </tr>
+            <tr>
+                <td>Fleet</td>
+                <td>{{ show_row('', deelname.fleet ? 'Ja' : 'Nee') }}</td>
+            </tr>
+            <tr>
+                <td>Boot</td>
+                <td>{{ show_row('', "<a href=\"" ~ path('rot_iis_boot_show', {'id': deelname.boot.id}) ~ "\">" ~ deelname.boot ~ "</a>") }}</td>
+            </tr>
+            {% if deelname.vereniging %}
+                <tr>
+                    <td>Vereniging</td>
+                    <td>{{ show_row('', "<a href=\"" ~ path('rot_iis_vereniging_show', {'id': deelname.vereniging.id}) ~ "\">" ~ deelname.vereniging ~ "</a>") }}</td>
+                </tr>
+            {% endif %}
+            <tr>
+                <td>Bootklasse</td>
+                <td>{{ show_row('', deelname.bootklasse) }}</td>
+            </tr>  
+        </tbody>
+    </table>
+</div>
+
+</br>
+<div class="sub">
+    <table>
+        <thead>
+            <h3>Ingeschreven voor</h3>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Dutch open</td>
+                <td>{{ show_row('', deelname.dutchopenstatus ? 'Ja' : 'Nee') }}</td>
+            </tr>
+            <tr>
+                <td>Horstocht</td>
+                <td>{{ show_row('', deelname.horstochtstatus ? 'Ja' : 'Nee') }}</td>
+            </tr>
+            <tr>
+                <td>Nacra championships</td>
+                <td>{{ show_row('', deelname.nacrachampstatus ? 'Ja' : 'Nee') }}</td>
+            </tr>
+            <tr>
+                <td>Tocht naar de noord</td>
+                <td>{{ show_row('', deelname.tochtnoordstatus ? 'Ja' : 'Nee') }}</td>
+            </tr>  
+        </tbody>
+    </table>
+</div>    
+
+</br>
+<div class="sub">
+    <table>
+        <thead>
+            <h3>Statussen</h3>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Aangemeld</td>
+                <td>{{ show_row('', deelname.aangemeld ? 'Ja' : 'Nee') }}</td>
+            </tr>
+            <tr>
+                <td>Afgemeld</td>
+                <td>{{ show_row('', deelname.afgemeld ? 'Ja' : 'Nee') }}</td>
+            </tr>
+            <tr>
+                <td>Racestatus</td>
+                <td>{{ show_row('', deelname.racestatus) }}</td>
+            </tr>
+            <tr>
+                <td>Verzekeringsbewijsstatus</td>
+                <td>{{ show_row('', deelname.verzekeringsbewijsstatus ? 'Ja' : 'Nee') }}</td>
+            </tr>
+            <tr>
+                <td>Xcbstatus</td>
+                <td>{{ show_row('', deelname.xcbstatus) }}</td>
+            </tr>
+            <tr>
+                <td>Bevestigingbriefstatus</td>
+                <td>{{ show_row('', deelname.bevestigingbriefstatus ? 'Ja' : 'Nee') }}</td>
+            </tr>
+            <tr>
+                <td>Memberstatus</td>
+                <td>{{ show_row('', deelname.memberstatus) }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</br>
+<div class="sub">
+    <table> 
+        <thead>
+            <h3>Race</h3>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Finishtijd</td>
+                <td>{{ show_row('', deelname.finishtijd) }}</td>
+            </tr>
+            <tr>
+                <td>Modrating</td>
+                <td>{{ show_row('', deelname.modrating) }}</td>
+            </tr>
+            <tr>
+                <td>Gecorrigeerde finishtijd</td>
+                <td>{{ show_row('', deelname.gecorrigeerdeFinishtijd) }}</td>
+            </tr>
+            <tr>
+                <td>Finishtijd</td>
+                <td>{{ show_row('', deelname.finishtijd) }}</td>
+            </tr>
+            <tr>
+                <td>Uitzondering</td>
+                <td>{{ show_row('', (deelname.uitzondering ? "<a href=\"" ~ path('rot_iis_uitzondering_show', {'id': deelname.uitzondering.id}) ~ "\">" ~ deelname.uitzondering ~ "</a>" : '')) }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</br>
+    <h3>Stuurman</h3> 
+        {{ include('ROTIISBundle:Deelname:_stuurman_object.html.twig', {'stuurman': deelname.stuurman}) }} 
+
+    {% if deelname.fokkemaat %}
+        </br>
+        <h3>Fokkemaat</h3>
+            {{ include('ROTIISBundle:Deelname:_fokkemaat_object.html.twig', {'fokkemaat': deelname.fokkemaat}) }}            
+    {% endif %}
+    {% if deelname.betaling %}
+        </br>
+            {{ include('ROTIISBundle:Deelname:_betaling_object.html.twig', {'borg': deelname.betaling}) }}           
+    {% endif %}
+    {% if deelname.borg %}
+        </br>
+            {{ include('ROTIISBundle:Deelname:_borg_object.html.twig', {'borg': deelname.borg}) }}          
+    {% endif %}

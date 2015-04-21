@@ -1,0 +1,35 @@
+voornaam: Fistname
+tussenvoegsel: Middlename
+achternaam: Lastname
+adres: Address
+huisnummer: housenumber
+postcode: Zipcode
+woonplaats: City
+land: Country
+geboortedatum: Date of birth
+nationaliteit: Nationality
+geslacht: Gender
+startlicentie: Do you have a start licence number?
+startlicentienummer: Start licence number
+telefoonnummer: Telephonenumber
+noodtelefoon: Emergency telephonenumber
+email_bevestig: Comfirm your e-mailaddress
+fokkemaat_bevestig: Do you sail with a co-sailor?
+
+stuurman: sailor
+fokkemaat: co-sailor
+bemaningslicentie: Do you have a crew licence?
+bemaningslicentienummer:  Crew licence number
+
+boottype: Type of boat
+boottype_toevoeging: When your type of boat isn't on the list, please add here
+zeilnummer: Sail number
+spinnaker: Spinnaker
+meetbrief: Do you have a tonnage certificate
+meetbriefnummer: Tonnage certificate number
+reclamelicentie: Do you have a advertisement licence?
+reclamelicentienummer: Advertising licence number
+vereniging: Sailing club
+vereniging_toevoeging: When your sailing club isn't on the list, please add here
+kenteken: Car licenceplate
+gerbuik_gegevens: Do you allow to use your personal information?

@@ -1,0 +1,39 @@
+<?php
+
+namespace ROT\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Nationaliteit
+ *
+ * @ORM\Table(name="nationaliteit")
+ * @ORM\Entity
+ */
+class Nationaliteit
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nationaliteit", type="string", length=255, nullable=false)
+     */
+    private $nationaliteit;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="landcode", type="string", length=5, nullable=false)
+     */
+    private $landcode;
+
+
+}

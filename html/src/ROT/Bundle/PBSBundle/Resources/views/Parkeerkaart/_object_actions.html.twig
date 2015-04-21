@@ -1,0 +1,18 @@
+{% set route = app.request.attributes.get('_route') %}
+<ul class="buttons_large">
+    <li><a href="{{path('rot_pbs_parkeerkaart_index')}}">Index</a></li>
+    {% if route != 'rot_pbs_parkeerkaart_new' %}
+        {% if route != 'rot_pbs_parkeerkaart_show' %}
+            <li><a href="{{path('rot_pbs_parkeerkaart_show', {'id': parkeerkaart.id})}}">Bekijk</a></li>
+        {% endif %}
+        {% if is_granted('ROLE_WIJZIG_RBS') %}
+            {% if route != 'rot_pbs_parkeerkaart_edit' %}
+                <li><a href="{{path('rot_pbs_parkeerkaart_edit', {'id': parkeerkaart.id})}}">Wijzig</a></li>
+            {% endif %}
+            <li><a href="{{path('rot_pbs_parkeerkaart_delete', {'id': parkeerkaart.id})}}" data-method="DELETE">Verwijder</a></li>
+        {% endif %}
+        {% if route != 'rot_pbs_parkeerkaart_log' %}
+            <li><a href="{{ path('rot_pbs_parkeerkaart_log', {'id': parkeerkaart.id}) }}">Log</a></li>
+        {% endif %}
+    {% endif %}
+</ul>

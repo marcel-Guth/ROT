@@ -1,0 +1,21 @@
+{% extends "ROTAdminBundle::configuratie_layout.html.twig" %}
+{% block title %}Stap {{ stap }}{% endblock %}
+{% block inner_content %}
+<form novalidate action={{ path('rot_admin_configuratie_updatestap', {'stap': stap}) }} method="POST" enctype="{{ form_enctype(form) }}">
+    <div class="form-row {% if form.nl.content.vars.errors %}form-row-error{% endif %}">
+        <div class="label"><label>Nederlands</label></div>
+        <div class="widget">{{ form_widget(form.nl.content) }}</div>
+        <div class="error">{{ form_errors(form.nl.content) }}</div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="form-row {% if form.en.content.vars.errors %}form-row-error{% endif %}">
+        <div class="label"><label>Engels</label></div>
+        <div class="widget">{{ form_widget(form.en.content) }}</div>
+        <div class="error">{{ form_errors(form.en.content) }}</div>
+        <div class="clearfix"></div>
+    </div>
+    {{ form_rest(form) }}
+    <input type="hidden" name="_method" value="PUT" />
+    <input type="submit" value="Opslaan" />
+</form>
+{% endblock %}

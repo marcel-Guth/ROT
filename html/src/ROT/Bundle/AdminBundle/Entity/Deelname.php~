@@ -1,0 +1,213 @@
+<?php
+
+namespace ROT\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Deelname
+ *
+ * @ORM\Table(name="deelname")
+ * @ORM\Entity
+ */
+class Deelname
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="inschrijfdatum", type="date", nullable=false)
+     */
+    private $inschrijfdatum;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="reserveringscode", type="string", length=255, nullable=false)
+     */
+    private $reserveringscode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="zeilnummer", type="string", length=255, nullable=false)
+     */
+    private $zeilnummer;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="startnummer", type="integer", nullable=false)
+     */
+    private $startnummer;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="meetbrief", type="boolean", nullable=false)
+     */
+    private $meetbrief;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meetbriefnummer", type="string", length=255, nullable=false)
+     */
+    private $meetbriefnummer;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="persoonlijkereclamelicentie", type="boolean", nullable=false)
+     */
+    private $persoonlijkereclamelicentie;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="watersportverbondlidmaatschapnummer", type="string", length=255, nullable=false)
+     */
+    private $watersportverbondlidmaatschapnummer;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="watersportverbondstartlicentie", type="boolean", nullable=false)
+     */
+    private $watersportverbondstartlicentie;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bootklasse", type="string", length=255, nullable=false)
+     */
+    private $bootklasse;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="reclame", type="boolean", nullable=false)
+     */
+    private $reclame;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="sponsor", type="boolean", nullable=false)
+     */
+    private $sponsor;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="spinnaker", type="boolean", nullable=false)
+     */
+    private $spinnaker;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fleet", type="string", length=255, nullable=false)
+     */
+    private $fleet;
+
+    /**
+     * @var \Boot
+     *
+     * @ORM\ManyToOne(targetEntity="Boot")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="bootid", referencedColumnName="id")
+     * })
+     */
+    private $bootid;
+
+    /**
+     * @var \Parkeerkaart
+     *
+     * @ORM\ManyToOne(targetEntity="Parkeerkaart")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="parkeerkaartid", referencedColumnName="id")
+     * })
+     */
+    private $parkeerkaartid;
+
+    /**
+     * @var \Deelnemer
+     *
+     * @ORM\ManyToOne(targetEntity="Deelnemer")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="stuurmanid", referencedColumnName="id")
+     * })
+     */
+    private $stuurmanid;
+
+    /**
+     * @var \Vereniging
+     *
+     * @ORM\ManyToOne(targetEntity="Vereniging")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="verenigingid", referencedColumnName="id")
+     * })
+     */
+    private $verenigingid;
+
+    /**
+     * @var \Betaling
+     *
+     * @ORM\ManyToOne(targetEntity="Betaling")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="betalingid", referencedColumnName="id")
+     * })
+     */
+    private $betalingid;
+
+    /**
+     * @var \Finishtijd
+     *
+     * @ORM\ManyToOne(targetEntity="Finishtijd")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="finishtijdid", referencedColumnName="id")
+     * })
+     */
+    private $finishtijdid;
+
+    /**
+     * @var \Borg
+     *
+     * @ORM\ManyToOne(targetEntity="Borg")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="borgid", referencedColumnName="id")
+     * })
+     */
+    private $borgid;
+
+    /**
+     * @var \Status
+     *
+     * @ORM\ManyToOne(targetEntity="Status")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="statusid", referencedColumnName="id")
+     * })
+     */
+    private $statusid;
+
+    /**
+     * @var \Deelnemer
+     *
+     * @ORM\ManyToOne(targetEntity="Deelnemer")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fokkemaatid", referencedColumnName="id")
+     * })
+     */
+    private $fokkemaatid;
+
+
+}

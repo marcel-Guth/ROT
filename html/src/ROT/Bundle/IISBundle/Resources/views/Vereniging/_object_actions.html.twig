@@ -1,0 +1,18 @@
+{% set route = app.request.attributes.get('_route') %}
+<ul class="buttons_large">
+    <li><a href="{{path('rot_iis_vereniging_index')}}">Index</a></li>
+    {% if route != 'rot_iis_vereniging_new' %}
+        {% if route != 'rot_iis_vereniging_show' %}
+            <li><a href="{{path('rot_iis_vereniging_show', {'id': vereniging.id})}}">Bekijk</a></li>
+        {% endif %}
+        {% if is_granted('ROLE_WIJZIG_IIS') %}
+            {% if route != 'rot_iis_vereniging_edit' %}
+                <li><a href="{{path('rot_iis_vereniging_edit', {'id': vereniging.id})}}">Wijzig</a></li>
+            {% endif %}
+            <li><a href="{{path('rot_iis_vereniging_delete', {'id': vereniging.id})}}" data-method="DELETE">Verwijder</a></li>
+        {% endif %}
+        {% if route != 'rot_iis_vereniging_log' %}
+            <li><a href="{{ path('rot_iis_vereniging_log', {'id': vereniging.id}) }}">Log</a></li>
+        {% endif %}
+    {% endif %}
+</ul>

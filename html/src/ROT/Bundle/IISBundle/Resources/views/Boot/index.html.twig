@@ -1,0 +1,62 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Boten{% if active_filter %} (gefilterd - "{{ active_filter.name }}"){% endif %}{% endblock %}
+{% block inner_content %}
+    <ul class="buttons_large">
+        <li>
+            <a href="#" id="admin-filter-toggle">Filter</a>
+        </li>
+        {% if is_granted('ROLE_WIJZIG_IIS') %}
+        <li>
+            <a href="{{path('rot_iis_boot_new')}}">Toevoegen</a>
+        </li>
+        {% endif %}
+    </ul>
+    <div id="admin-filter" style="{{ active_filter ? '' : 'display: none'}}" class="ui-widget-header ui-corner-all">
+        <ul class="buttons_small">
+            <li>Filters</li>
+            <li>
+                <select id="admin-filter-select">
+                    <option value="{{ path('rot_iis_boot_index') }}">-</option>
+                    {% for filter in filters %}
+                        <option value="{{ path('rot_iis_boot_filter', {'id': filter.id}) }}" {{ active_filter == filter ? 'selected' : '' }}>{{ filter.name }}</option>
+                    {%  endfor %}
+                </select>
+            </li>
+            <li><a href="{{ path('rot_iis_boot_newfilter') }}">Nieuwe filter</a></li>
+            {% if active_filter %}
+                <li><a href="{{ path('rot_iis_boot_editfilter', {'id': active_filter.id}) }}">Wijzig filter</a></li>
+                <li><a href="{{ path('rot_iis_boot_deletefilter', {'id': active_filter.id}) }}" data-method="DELETE">Verwijder filter</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Klasse</th>
+                <th>Spinnaker Rating</th>
+                <th>Normale Rating</th>
+                <th>Custom</th>
+                <th>Acties</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for boot in boten%}
+            <tr data-id="{{boot.id}}">
+                <td>{{boot.type}}</td>
+                <td>{{boot.klasse}}</td>
+                <td>{{boot.spinnakerrating}}</td>
+                <td>{{boot.normalrating}}</td>
+                <td>{{boot.iscustom ? "ja" : "nee"}}</td>
+                <td>
+                    <a href="{{path('rot_iis_boot_show', {'id': boot.id})}}"><img src="{{asset("bundles/rotadmin/images/show.png")}}" /></a>
+                    {% if is_granted("ROLE_WIJZIG_IIS") %}
+                        <a href="{{path('rot_iis_boot_edit', {'id': boot.id})}}"><img src="{{asset("bundles/rotadmin/images/edit.png")}}" /></a>
+                        <a href="{{path('rot_iis_boot_delete', {'id': boot.id})}}" data-method="DELETE"><img src="{{asset("bundles/rotadmin/images/trash.png")}}" /></a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

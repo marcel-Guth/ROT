@@ -1,0 +1,70 @@
+{% extends "ROTCoreBundle::layout.html.twig" %}
+{% block pageTitle %}{{ parent() }} - Inschrijving{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+        'bundles/rotinschrijf/css/screen-core.css'
+        'bundles/rotinschrijf/css/screen-inschrijf.css'
+        'bundles/rotinschrijf/css/inschrijf.css'
+        filter="cssrewrite"
+    %}
+        <link type="text/css" rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+{% block body %}
+    {{ render_esi(controller('ROTInschrijfBundle:Inschrijf:showHeader')) }}
+    <div class="navigation_inschrijf">
+        {% block navigation_inschrijf %}
+            {% set route = app.request.attributes.get('_route') %}
+            {% set hStap = app.request.session.get('hStap') %}
+            {% set fokkemaat = app.request.session.get('fokkemaat') %}
+            <ul>
+                <li class="{{route == "rot_inschrijf_inschrijf_inschrijf" ? 'current' : ''}}"><a href="{{path("rot_inschrijf_inschrijf_inschrijf")}}">Taal</a></li>
+                {% if hStap > 1%}
+                    <li class="{{route == "rot_inschrijf_inschrijf_stap2" ? 'current' : ''}}"><a href="{{path("rot_inschrijf_inschrijf_stap2")}}">Notice of Race</a></li>
+                {% endif %}
+                {#{% if hStap >= 2 %}#}
+                {#<li class="{{route == "rot_inschrijf_inschrijf_stap3" ? 'current' : ''}}"><a href="{{path("rot_inschrijf_inschrijf_stap3")}}"></a></li>#}
+                {#{% endif %}#}
+                {% if hStap > 3 %}
+                    <li class="{{route == "rot_inschrijf_inschrijf_stap4" ? 'current' : ''}}"><a href="{{path("rot_inschrijf_inschrijf_stap4")}}">Stuurman</a></li>
+                {% endif %}
+
+                {% if fokkemaat == 1 %}
+                    {% if hStap > 4 %}
+                        <li class="{{route == "rot_inschrijf_inschrijf_stap5" ? 'current' : ''}}"><a href="{{path("rot_inschrijf_inschrijf_stap5")}}">Fokkemaat</a></li>
+                    {% endif %}
+                {% endif %}
+                {% if hStap > 5 %}
+                    <li class="{{route == "rot_inschrijf_inschrijf_stap6" ? 'current' : ''}}"><a href="{{path("rot_inschrijf_inschrijf_stap6")}}">Bootgegevens</a></li>
+                {% endif %}
+                {% if hStap > 6 %}
+                    <li class="{{route == "rot_inschrijf_inschrijf_stap7" ? 'current' : ''}}"><a href="{{path("rot_inschrijf_inschrijf_stap7")}}">Controle</a></li>
+                {% endif %}
+                {% if hStap > 7 %}
+                    <li class="{{route == "rot_inschrijf_inschrijf_stap8" ? 'current' : ''}}"><a href="{{path("rot_inschrijf_inschrijf_stap8")}}">Akkoord</a></li>
+                {% endif %}
+            </ul>
+        {% endblock %}
+    </div>
+    <div id="content">
+        {% block content %}
+            <div id="page">
+                {% block page %}
+
+                {% endblock %}
+            </div>
+            <div class="clear-both"></div>
+        {% endblock %}
+    </div>
+    <div id="footer">
+        <div class="inner_wrapper">
+            <p class="left">
+                © 2013  - Ronde om Texel
+            </p>
+            <p class="right">
+                Powered by <a href="http://www.rocmondriaan.nl/default.aspx" target="_blank">ROC Mondriaan</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

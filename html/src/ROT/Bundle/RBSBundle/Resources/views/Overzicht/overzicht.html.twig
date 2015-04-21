@@ -1,0 +1,22 @@
+{% extends "ROTRBSBundle::layout.html.twig" %}
+{% block title %}Overzicht{% endblock %}
+{% block inner_content %}
+<table class="overzichtstabel">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Aantal</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>Organisaties</th>
+			<td>{{overzicht.organisaties.aantal}}</td>
+		</tr>
+		<tr>
+			<th>Betrokkenen</th>
+			<td>{{overzicht.betrokkenen.aantal}}</td>
+		</tr>
+	</tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "ROTAdminBundle::admin_layout.html.twig" %}
+{% block navigation_small %}
+{% set route = app.request.attributes.get('_route') %}
+<ul id="subtabnav">
+	{% if is_granted('ROLE_CONFIGUREER_RACE') %}
+		<li class="{{"rot_admin_beheer_startnummers" in route ? 'actievetab' : ''}}"><a href="{{path("rot_admin_beheer_startnummers")}}">Startnummers</a></li>
+		<li class="{{"rot_admin_beheer_finishtijden" in route ? 'actievetab' : ''}}"><a href="{{path("rot_admin_beheer_finishtijden")}}">Finishtijden</a></li>
+		<li class="{{"rot_admin_beheer_klassen" in route ? 'actievetab' : ''}}"><a href="{{path("rot_admin_beheer_klassen")}}">Klassen</a></li>
+	{% endif %}
+	{% if is_granted('ROLE_CONFIGUREER_APPLICATIE') %}
+		<li class="{{"rot_admin_beheer_norfiles" in route ? 'actievetab' : ''}}"><a href="{{path("rot_admin_beheer_norfiles")}}">NOR</a></li>
+		<li class="{{"rot_admin_beheer_variabelen" in route ? 'actievetab' : ''}}"><a href="{{path("rot_admin_beheer_variabelen")}}">Variabelen</a></li>
+		<li class="{{"rot_admin_beheer_powerpoint" in route ? 'actievetab' : ''}}"><a href="{{path("rot_admin_beheer_powerpoint")}}">Powerpoint</a></li>
+	{% endif %}
+</ul>
+{% endblock %}

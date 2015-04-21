@@ -1,0 +1,28 @@
+/* element styles */
+h1 { font-size: 20px; }
+
+table td { overflow: hidden; text-overflow: ellipsis; }
+
+/* layout */
+#header { background-image: linear-gradient(to bottom, #f8d8af, #fdf9f6); border-bottom: 2px solid #d9010f; }
+#header h1 { padding: 10px 40px; color: white; text-shadow: 0 1px 2px #666666; }
+
+#navigation, #navigation_small { background-color: #474747 }
+
+#navigation ul, #navigation_small ul { color: white; }
+#navigation ul { padding: 0 20px; }
+#navigation_small ul { padding: 0 20px; }
+#navigation li, #navigation_small li { display: inline-block;  }
+#navigation a, #navigation_small a { display: block; color: white; text-decoration: none; }
+#navigation a { padding: 10px; }
+#navigation_small a {padding: 10px; }
+#navigation li.actievetab a, #navigation_small li.actievetab a { background-color: #a3a3a3; }
+
+#sidebar { width: 200px; float: left; }
+#inner_sidebar{ margin: 2px; background-color: #d3d3d3; border: 1px solid #808080; }
+
+#content { margin-left: 20px; padding: 2px; overflow: hidden; }
+#content_inner { width: 100%; }
+
+#footer { position: fixed; bottom: 0px; left: 0px; height: 40px; width: 100%; background-color: #474747 }
+#footer-inner {}

@@ -1,0 +1,11 @@
+{% extends "ROTRBSBundle::layout.html.twig" %}
+{% block title %}Wijzig betrokkene "{{betrokkene}}"{% endblock %}
+{% block inner_content %}
+    {{ include('ROTRBSBundle:Betrokkene:_object_actions.html.twig', {"betrokkene": betrokkene}) }}
+    <form novalidate action="{{path('rot_rbs_betrokkene_update', {'id': betrokkene.id})}}" method="POST" {{form_enctype(form)}}>
+        {{ include('ROTRBSBundle:Betrokkene:_form.html.twig', {'form': form}) }}
+        {{ form_rest(form) }}
+        <input type="hidden" name="_method" value="PUT" />
+        <input type="submit" value="Opslaan" />
+    </form>
+{% endblock %}

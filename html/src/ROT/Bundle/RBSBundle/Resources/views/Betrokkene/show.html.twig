@@ -1,0 +1,6 @@
+{% extends "ROTRBSBundle::layout.html.twig" %}
+{% block title %}Betrokkene "{{betrokkene}}"{% endblock %}
+{% block inner_content %}
+    {{ include('ROTRBSBundle:Betrokkene:_object_actions.html.twig', {"betrokkene": betrokkene}) }}
+    {{ include('ROTRBSBundle:Betrokkene:_object.html.twig', {"betrokkene": betrokkene}) }}
+{% endblock %}

@@ -1,0 +1,116 @@
+<div class="form-row {% if form.inschrijfdatum.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.inschrijfdatum) }}</div>
+    <div class="widget">{{ form_widget(form.inschrijfdatummodifier) }}{{ form_widget(form.inschrijfdatum) }}</div>
+    <div class="error">{{ form_errors(form.inschrijfdatum) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.reserveringscode.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.reserveringscode) }}</div>
+    <div class="widget">{{ form_widget(form.reserveringscode) }}</div>
+    <div class="error">{{ form_errors(form.reserveringscode) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.zeilnummer.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.zeilnummer) }}</div>
+    <div class="widget">{{ form_widget(form.zeilnummer) }}</div>
+    <div class="error">{{ form_errors(form.zeilnummer) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.startnummer.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.startnummer) }}</div>
+    <div class="widget">{{ form_widget(form.startnummer) }}</div>
+    <div class="error">{{ form_errors(form.startnummer) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.meetbrief.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.meetbrief) }}</div>
+    <div class="widget subform-toggle">{{ form_widget(form.meetbrief) }}</div>
+    <div class="error">{{ form_errors(form.meetbrief) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div id="deelname_meetbrief_subform" class="form-row {% if form.meetbriefnummer.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.meetbriefnummer) }}</div>
+    <div class="widget">{{ form_widget(form.meetbriefnummer) }}</div>
+    <div class="error">{{ form_errors(form.meetbriefnummer) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.persoonlijkereclamelicentie.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.persoonlijkereclamelicentie) }}</div>
+    <div class="widget">{{ form_widget(form.persoonlijkereclamelicentie) }}</div>
+    <div class="error">{{ form_errors(form.persoonlijkereclamelicentie) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.watersportverbondstartlicentie.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.watersportverbondstartlicentie) }}</div>
+    <div class="widget">{{ form_widget(form.watersportverbondstartlicentie) }}</div>
+    <div class="error">{{ form_errors(form.watersportverbondstartlicentie) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.watersportverbondlidmaatschapnummer.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.watersportverbondlidmaatschapnummer) }}</div>
+    <div class="widget">{{ form_widget(form.watersportverbondlidmaatschapnummer) }}</div>
+    <div class="error">{{ form_errors(form.watersportverbondlidmaatschapnummer) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.bootklasse.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.bootklasse) }}</div>
+    <div class="widget">{{ form_widget(form.bootklasse) }}</div>
+    <div class="error">{{ form_errors(form.bootklasse) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.reclame.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.reclame) }}</div>
+    <div class="widget">{{ form_widget(form.reclame) }}</div>
+    <div class="error">{{ form_errors(form.reclame) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.sponsor.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.sponsor) }}</div>
+    <div class="widget">{{ form_widget(form.sponsor) }}</div>
+    <div class="error">{{ form_errors(form.sponsor) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.spinnaker.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.spinnaker) }}</div>
+    <div class="widget">{{ form_widget(form.spinnaker) }}</div>
+    <div class="error">{{ form_errors(form.spinnaker) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.fleet.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.fleet) }}</div>
+    <div class="widget">{{ form_widget(form.fleet) }}</div>
+    <div class="error">{{ form_errors(form.fleet) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.boot.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.boot) }}</div>
+    <div class="widget">{{ form_widget(form.boot) }}</div>
+    <div class="error">{{ form_errors(form.boot) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.vereniging.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.vereniging) }}</div>
+    <div class="widget">{{ form_widget(form.vereniging) }}</div>
+    <div class="error">{{ form_errors(form.vereniging) }}</div>
+    <div class="clearfix"></div>
+</div>
+<h3>Status</h3>
+<!-- include status form -->
+<h3>Stuurman</h3>
+{{ include('ROTIISBundle:Deelname:_deelnemer_form.html.twig', {'form': form.stuurman}) }}
+<h3>Fokkemaat {{ form_widget(form.hasfokkemaat) }}</h3>
+<div id="deelname_fokkemaat_subform" class="admin-subform">
+    {{ include('ROTIISBundle:Deelname:_deelnemer_form.html.twig', {'form': form.fokkemaat}) }}
+</div>
+<h3>Betaling {{ form_widget(form.hasbetaling) }}</h3>
+<div id="deelname_betaling_subform" class="admin-subform">
+    {{ include('ROTIISBundle:Deelname:_betaling_form.html.twig', {'form': form.betaling}) }}
+</div>
+<h3>Borg {{ form_widget(form.hasborg) }}</h3>
+<div id="deelname_borg_subform" class="admin-subform">
+    {{ include('ROTIISBundle:Deelname:_borg_form.html.twig', {'form': form.borg}) }}
+</div>
+<h3>Finishtijd {{ form_widget(form.hasfinishtijd) }}</h3>
+<div id="deelname_finishtijd_subform" class="admin-subform">
+    {{ include('ROTIISBundle:Deelname:_finishtijd_form.html.twig', {'form': form.finishtijd}) }}
+</div>

@@ -1,0 +1,11 @@
+{% extends "ROTPBSBundle::layout.html.twig" %}
+{% block title %}Wijzig parkeerkaart "{{parkeerkaart}}"{% endblock %}
+{% block inner_content %}
+    {{ include('ROTPBSBundle:Parkeerkaart:_object_actions.html.twig', {"parkeerkaart": parkeerkaart}) }}
+    <form novalidate action="{{path('rot_pbs_parkeerkaart_update', {'id': parkeerkaart.id})}}" method="POST" {{form_enctype(form)}}>
+        {{ include('ROTPBSBundle:Parkeerkaart:_form.html.twig', {'form': form}) }}
+        {{ form_rest(form) }}
+        <input type="hidden" name="_method" value="PUT" />
+        <input type="submit" value="Opslaan" />
+    </form>
+{% endblock %}

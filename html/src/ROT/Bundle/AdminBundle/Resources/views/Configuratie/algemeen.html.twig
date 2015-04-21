@@ -1,0 +1,48 @@
+{% extends "ROTAdminBundle::configuratie_layout.html.twig" %}
+{% block title %}Algemeen{% endblock %}
+{% block inner_content %}
+<form novalidate action={{ path('rot_admin_configuratie_updatealgemeen') }} method="POST" enctype="{{ form_enctype(form) }}">
+    <h3>Site titel</h3>
+    <div class="form-row {% if form.sitetitel_nl.content.vars.errors %}form-row-error{% endif %}">
+        <div class="label"><label>Nederlands</label></div>
+        <div class="widget">{{ form_widget(form.sitetitel_nl.content) }}</div>
+        <div class="error">{{ form_errors(form.sitetitel_nl.content) }}</div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="form-row {% if form.sitetitel_en.content.vars.errors %}form-row-error{% endif %}">
+        <div class="label"><label>Engels</label></div>
+        <div class="widget">{{ form_widget(form.sitetitel_en.content) }}</div>
+        <div class="error">{{ form_errors(form.sitetitel_en.content) }}</div>
+        <div class="clearfix"></div>
+    </div>
+    <h3>Site ondertitel</h3>
+    <div class="form-row {% if form.siteondertitel_nl.content.vars.errors %}form-row-error{% endif %}">
+        <div class="label"><label>Nederlands</label></div>
+        <div class="widget">{{ form_widget(form.siteondertitel_nl.content) }}</div>
+        <div class="error">{{ form_errors(form.siteondertitel_nl.content) }}</div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="form-row {% if form.siteondertitel_en.content.vars.errors %}form-row-error{% endif %}">
+        <div class="label"><label>Engels</label></div>
+        <div class="widget">{{ form_widget(form.siteondertitel_en.content) }}</div>
+        <div class="error">{{ form_errors(form.siteondertitel_en.content) }}</div>
+        <div class="clearfix"></div>
+    </div>
+    <h3>Site registratie titel</h3>
+    <div class="form-row {% if form.siteregistratietitel_nl.content.vars.errors %}form-row-error{% endif %}">
+        <div class="label"><label>Nederlands</label></div>
+        <div class="widget">{{ form_widget(form.siteregistratietitel_nl.content) }}</div>
+        <div class="error">{{ form_errors(form.siteregistratietitel_nl.content) }}</div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="form-row {% if form.siteregistratietitel_en.content.vars.errors %}form-row-error{% endif %}">
+        <div class="label"><label>Engels</label></div>
+        <div class="widget">{{ form_widget(form.siteregistratietitel_en.content) }}</div>
+        <div class="error">{{ form_errors(form.siteregistratietitel_en.content) }}</div>
+        <div class="clearfix"></div>
+    </div>
+    {{ form_rest(form) }}
+    <input type="hidden" name="_method" value="PUT" />
+    <input type="submit" value="Opslaan" />
+</form>
+{% endblock %}

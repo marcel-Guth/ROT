@@ -1,0 +1,10 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Wijzig boten filter "{{ filter.name }}"{% endblock %}
+{% block inner_content %}
+<form novalidate action="{{path('rot_iis_klasse_updatefilter', {'id': filter.id})}}" method="POST" {{form_enctype(form)}}>
+	{{ include('ROTAdminBundle:FilterWrapping:_form.html.twig', {'form': form, 'content_template': 'ROTIISBundle:Klasse:_form_filter.html.twig'}) }}
+    {{ form_rest(form) }}
+    <input type="hidden" name="_method" value="PUT" />
+	<input type="submit" value="Opslaan" />
+</form>
+{% endblock %}

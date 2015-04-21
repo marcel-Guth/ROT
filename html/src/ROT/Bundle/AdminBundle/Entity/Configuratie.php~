@@ -1,0 +1,46 @@
+<?php
+
+namespace ROT\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Configuratie
+ *
+ * @ORM\Table(name="configuratie")
+ * @ORM\Entity
+ */
+class Configuratie
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenttarget", type="string", length=255, nullable=false)
+     */
+    private $contenttarget;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="text", nullable=false)
+     */
+    private $content;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="nederlands", type="boolean", nullable=false)
+     */
+    private $nederlands;
+
+
+}

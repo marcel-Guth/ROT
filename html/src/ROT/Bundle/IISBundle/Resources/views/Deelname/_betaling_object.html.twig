@@ -1,0 +1,31 @@
+<table>
+    <thead>
+        <h3>Betaling</h3>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Bedrag</td>
+            <td>{{ show_row('', deelname.betaling.bedrag) }}</td>
+        </tr>
+        <tr>
+            <td>Betaaldatum</td>
+            <td>{{ show_row('', deelname.betaling.betaaldatum|date('d-m-Y')) }}</td>
+        </tr>
+        <tr>
+            <td>Afschriftnummer</td>
+            <td>{{ show_row('', deelname.betaling.afschriftnummer) }}</td>
+        </tr>
+        <tr>
+            <td>2e Bedrag</td>
+            <td>{{ show_row('', deelname.betaling.bedrag2) }}</td>
+        </tr>
+        <tr>
+            <td>2e Betaaldatum</td>
+            <td>{{ show_row('', deelname.betaling.betaaldatum2) }}</td>
+        </tr>
+        <tr>
+            <td>2e Afschriftnummer</td>
+            <td>{{ show_row('', deelname.betaling.afschriftnummer2) }}</td>
+        </tr>
+    </tbody>
+</table>

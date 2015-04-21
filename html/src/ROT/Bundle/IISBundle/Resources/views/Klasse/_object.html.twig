@@ -1,0 +1,30 @@
+{{ show_row('Klasse', klasse.naam) }}
+{{ show_row('Type', klasse.type) }}
+<h3>Deelnames</h3>
+<table class="admin-table dataTable">
+    <thead>
+        <tr>
+            <th>Startnummer</th>
+            <th>Finishtijd</th>
+            <th>Gecorrigeerd</th>
+            <th>Stuurman</th>
+            <th>Fokkemaat</th>
+            <th>Acties</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for deelname in klasse.deelnames %}
+            <tr>
+                <td>{{ deelname.startnummer }}</td>
+                <td>{{ deelname.finishtijd|format_seconds }}</td>
+                <td>{{ deelname.gecorrigeerdeFinishtijd|format_seconds }}</td>
+                <td>{{ deelname.stuurman }}</td>
+                <td>{{ deelname.fokkemaat }}</td>
+                <td>
+                    <a href="{{ path('rot_iis_deelname_show', {'id': deelname.id}) }}"><img src="{{ asset('bundles/rotadmin/images/show.png') }}" /></a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+

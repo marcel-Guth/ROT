@@ -1,0 +1,9 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Nieuwe verenigingen filter{% endblock %}
+{% block inner_content %}
+<form novalidate action="{{path('rot_iis_vereniging_createfilter')}}" method="POST" {{form_enctype(form)}}>
+    {{ include('ROTAdminBundle:FilterWrapping:_form.html.twig', {'form': form, 'content_template': 'ROTIISBundle:Vereniging:_form_filter.html.twig'}) }}
+    {{ form_rest(form) }}
+	<input type="submit" value="Aanmaken" />
+</form>
+{% endblock %}

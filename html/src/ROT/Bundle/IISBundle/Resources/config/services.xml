@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="rot.iis.listener.deelname_mailer" class="ROT\Bundle\IISBundle\EventListener\DeelnameMailer">
+            <argument type="service" id="mailer" />
+            <argument type="service" id="translator" />
+            <tag name="doctrine.event_subscriber" />
+        </service>
+    </services>
+    <!--
+    <parameters>
+        <parameter key="rotiis.example.class">ROT\IISBundle\Example</parameter>
+    </parameters>
+
+    <services>
+        <service id="rotiis.example" class="%rotiis.example.class%">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
+        </service>
+    </services>
+    -->
+</container>

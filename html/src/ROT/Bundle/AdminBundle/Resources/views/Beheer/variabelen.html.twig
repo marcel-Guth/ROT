@@ -1,0 +1,19 @@
+{% extends "ROTAdminBundle::beheer_layout.html.twig" %}
+{% block title %}Variabelen{% endblock %}
+{% block inner_content %}
+<form novalidate action="{{ path('rot_admin_beheer_updatevariabelen') }}" method="POST" enctype="{{ form_enctype(form) }}">
+    {%  for variable_form in form.variablecollection %}
+    <div class="form-row {% if variable_form.variable.vars.errors %}form-row-error{% endif %}">
+        <div class="label">
+            <label>{{ variable_form.vars.data.description }}</label>
+        </div>
+        <div class="widget">{{ form_widget(variable_form.variable) }}</div>
+        <div class="error">{{ form_errors(variable_form.variable) }}</div>
+        <div class="clearfix"></div>
+    </div>
+    {%  endfor %}
+    {{ form_rest(form) }}
+    <input type="hidden" name="_method" value="PUT" />
+    <input type="submit" value="Opslaan" />
+</form>
+{% endblock %}

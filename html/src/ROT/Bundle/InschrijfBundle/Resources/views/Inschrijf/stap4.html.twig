@@ -1,0 +1,323 @@
+{% extends "ROTInschrijfBundle::layout.html.twig" %}
+
+
+{# Zorgen dat de pagina titel, Hoofdtitel en subtitel worden aangepast aan de taal van de user #}
+
+{% block pageTitle %}
+    {% if lang == 'nl' %}
+        {{ siteRegistratieTitel | raw }}
+    {% else %}
+        {{ siteRegistratieTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{%  block siteTitle %}
+    {% if lang == 'nl' %}
+        {{ siteTitel | raw }}
+    {% else %}
+        {{ siteTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{%  block subTitle %}
+    {% if lang == 'nl' %}
+        {{ siteOnderTitel | raw }}
+    {% else %}
+        {{ siteOnderTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+
+{% block page %}
+
+    <div class="text-wrapper" {% if content == NULL %}style="display: none"{% endif %}>
+        <div class="NL" {% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="boldlabel">{{ content | raw }}</span><div class="clear-both"></div>
+        </div>
+        <div class="EN" {% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="boldlabel">{{ content | raw }}</span><div class="clear-both"></div>
+        </div>
+    </div>
+
+    <form class="inschrijving" name="inschrijfStap4" action="{{ path('rot_inschrijf_inschrijf_savestap4') }}" method="post">
+
+        <div class="inschrijf-block inschrijf-naw inschrijf-naw-stuurman">
+
+            <div class="text-wrapper">
+                <div class="NL" {% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+                    <span class="boldlabel">Gegevens code van de stuurman</span><div class="clear-both"></div>
+                </div>
+                <div class="EN" {% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+                    <span class="boldlabel">Personalia of the Sailor</span><div class="clear-both"></div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-text-field">
+                    <div class="label-input">
+                        {{ form_errors(form.stuurmanVoornaam) }}
+                        {{ form_label(form.stuurmanVoornaam, lang == 'nl' ? "Voornaam" : "Firstname" ) }}
+
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.stuurmanVoornaam) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-text-field">
+                    <div class="label-input">
+                        {{ form_label(form.stuurmanTussenVoegsel, lang == 'nl' ? "Tussenvoegsel" : "Middlename" ) }}
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.stuurmanTussenVoegsel) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-text-field">
+                    <div class="label-input">
+                        {{ form_label(form.stuurmanAchternaam, lang == 'nl' ? "Achternaam" : "Lastname" ) }}
+
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.stuurmanAchternaam) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-text-field clear-both">
+                    <div class="label-input">
+                        {{ form_label(form.stuurmanAdres, lang == 'nl' ? "Adres" : "Street" ) }}
+
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.stuurmanAdres) }}
+                    </div>
+                </div>
+
+                <div class="input input-number clear-both">
+                    <div class="label-input">{{ form_label(form.stuurmanHuisnummer, lang == 'nl' ? "Huisnummer" : "Number" ) }}
+
+                    </div>
+                    <div class="field-input field-input-number">
+                        {{ form_widget(form.stuurmanHuisnummer) }}
+                    </div>
+                </div>
+
+                <div class="input input-postcode clear-both">
+                    <div class="label-input">
+                        {{ form_label(form.stuurmanPostcode, lang == 'nl' ? "Postcode" : "Zip-code" ) }}
+
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.stuurmanPostcode) }}
+                    </div>
+                </div>
+                <div class="input input-postcode clear-both">
+                    <div class="label-input">
+                        {{ form_label(form.stuurmanWoonplaats, lang == 'nl' ? "Woonplaats" : "City" ) }}
+
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.stuurmanWoonplaats) }}
+                    </div>
+                </div>
+                <div class="input input-land clear-both">
+                    <div class="label-input">
+                        {{ form_label(form.stuurmanLand, lang == 'nl' ? "Land" : "Country" ) }}
+
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.stuurmanLand) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-datum">
+                    <div class="label-input">
+                        {{ form_label(form.stuurmanDOB, lang == 'nl' ? "Geboortedatum" : "Date of birth" ) }}
+
+                    </div>
+                    <div class="field-input field-input-datum">
+                        {{ form_widget(form.stuurmanDOB) }}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="inschrijf-row clear-both">
+                <div class="input input-option">
+                    <div class="label-input">
+                        {{ form_errors(form.stuurmanNationaliteit) }}
+                        {{ form_label(form.stuurmanNationaliteit, lang == 'nl' ? "Nationaliteit" : "Nationality" ) }}
+
+                    </div>
+                    <div class="field-input field-input-option">
+                        {{ form_widget(form.stuurmanNationaliteit) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-radio-button">
+                    <div class="label-input">
+                        {{ form_label(form.stuurmanGeslacht, lang == 'nl' ? "Geslacht" : "Gender" ) }}
+
+                    </div>
+                    <div class="field-input field-input-radio-button">
+                        {{ form_widget(form.stuurmanGeslacht) }}
+                        {{ form_widget(form.stuurmanGeslacht) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="inschrijf-block inschrijf-watersport inschrijf-watersport-stuurman">
+            <div class="text-wrapper">
+                <div class="NL" {% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+                    <span class="boldlabel">Watersportverbond</span><div class="clear-both"></div>
+                </div>
+                <div class="EN" {% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+                    <span class="boldlabel">Watersportverbond</span><div class="clear-both"></div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-watersportbond">
+                    <div class="label-input">
+                        {{ form_label(form.watersportStuurman, lang == 'nl' ? "Heeft u een startlicentie van het Watersportverbond?" : "Do you have a Watersportverbond start licence?" ) }}
+                    </div>
+                    <div class="field-input field-input-number" onchange="ToggleField();">
+                        {{ form_widget(form.watersportStuurman) }}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="inschrijf-row clear-both" id="watersportbondNrId">
+                <div class="input input-watersportbondNr">
+                    <div class="label-input">
+                        {{ form_label(form.watersportNrStuurman, lang == 'nl' ? "Watersportverbond licentie nummer" : "Watersportverbond licence number" ) }}
+                    </div>
+                    <div class="field-input field-input-number">
+                        {{ form_widget(form.watersportNrStuurman) }}
+                    </div>
+                </div>
+            </div>
+        </div>            
+
+        <!-------------------------- Robin Verweij 5-12-2013 Opgelost met JavaScript i.v.m. gebrek aan kennis. Latere aanpassing naar PhP gewenst.--->
+        <script type="text/javascript">
+            var c = document.getElementById("stap4_watersportStuurman").value;
+                if(c === "1")
+                {
+                    document.getElementById('watersportbondNrId').style.display = 'block';
+                    document.getElementById("stap4_watersportNrStuurman").required = true;
+                }
+                else
+                {
+                    document.getElementById('watersportbondNrId').style.display = 'none';
+                    document.getElementById("stap4_watersportNrStuurman").value = "";
+                    document.getElementById("stap4_watersportNrStuurman").required = false;
+                }            
+            
+            function ToggleField()
+            {
+                var c = document.getElementById("stap4_watersportStuurman").value;
+                if(c === "1")
+                {
+                    document.getElementById('watersportbondNrId').style.display = 'block';
+                    document.getElementById("stap4_watersportNrStuurman").required = true;
+                }
+                else
+                {
+                    document.getElementById('watersportbondNrId').style.display = 'none';
+                    document.getElementById("stap4_watersportNrStuurman").value = "";
+                    document.getElementById("stap4_watersportNrStuurman").required = false;
+                }
+            }
+         </script>
+
+
+
+        <div class="inschrijf-block inschrijf-contact inschrijf-contact-stuurman">
+            <div class="text-wrapper">
+                <div class="NL" {% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+                    <span class="boldlabel">Contactgegevens van de stuurman</span><div class="clear-both"></div>
+                </div>
+                <div class="EN" {% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+                    <span class="boldlabel">Contactinformation of the Sailor</span><div class="clear-both"></div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input label-input-number">
+                    <div class="label-input">
+                        {{ form_label(form.stuurmanMobielnr, lang == 'nl' ? "Telefoonnummer" : "Telephone" ) }}
+
+                    </div>
+                    <div class="field-input field-input-number" minlength="10" maxlength="14">
+                        {{ form_widget(form.stuurmanMobielnr) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-number">
+                    <div class="label-input">
+                        {{ form_label(form.stuurmanNoodnr, lang == 'nl' ? "Telefoonnummer bij nood" : "Emergency number" ) }}
+
+                    </div>
+                    <div class="field-input field-input-number">
+                        {{ form_widget(form.stuurmanNoodnr) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-email">
+                    <div class="label-input">
+                        {{ form_label(form.stuurmanEmail, lang == 'nl' ? "E-mail adres" : "Email address" ) }}
+
+                    </div>
+                    <div class="field-input field-input-email">
+                        {{ form_widget(form.stuurmanEmail) }}
+                    </div>
+                </div>
+
+                <div class="input input-email clear-both">
+                    <div class="label-input">
+                        {{ form_label(form.stuurmanEmailConf, lang == 'nl' ? "Bevestig uw e-mail adres" : "Confirm email" ) }}
+
+                    </div>
+                    <div class="field-input field-input-email">
+                        {{ form_widget(form.stuurmanEmailConf) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-checkbox">
+                    <div class="label-input">
+                        {{ form_label(form.stuurmanFokmaat, lang == 'nl' ? "Vaart u met een fokkemaat?" : "Do you sail with a co-sailor?" ) }}
+                    </div>
+                    <div class="field-input field-input-checkbox">
+                        {{ form_widget(form.stuurmanFokmaat) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {{ form_rest(form) }}
+        {{ form_errors(form) }}
+
+        {{ include('ROTInschrijfBundle:Inschrijf:formControls.html.twig', {
+            step: step,
+            pStep: pStep
+        }) }}
+    </form>
+{% endblock %}

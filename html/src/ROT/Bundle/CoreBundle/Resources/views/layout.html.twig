@@ -1,0 +1,23 @@
+{% extends "::base.html.twig" %}
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+        'bundles/sonatajquery/jquery-1.8.3.js'
+        'bundles/sonatajquery/jquery-ui-1.8.23.js'
+        'bundles/sonatajquery/jquery-ui-i18n.js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+        'bundles/rotcore/css/reset.css'
+        'bundles/rotcore/css/core.css'
+        filter="cssrewrite"
+    %}
+    <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+{% block pageTitle %}Ronde om Texel{% endblock %}
+{% block body %}{% endblock %}

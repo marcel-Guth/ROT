@@ -1,0 +1,23 @@
+{% extends "ROTAdminBundle::beheer_layout.html.twig" %}
+{% block title %}Startnummers{% endblock %}
+{% block inner_content %}
+    <h3>Genereer startnummers</h3>
+    <form action="{{ path('rot_admin_beheer_generatestartnummers') }}" method="POST" {{ form_enctype(generate_form) }}>
+        {{ form_rest(generate_form) }}
+        <input type="submit" value="Uitvoeren">
+    </form>
+    <h3>Reset startnummers</h3>
+    <form action="{{ path('rot_admin_beheer_resetstartnummers') }}" method="POST" {{ form_enctype(reset_form) }}>
+        {{ form_rest(reset_form) }}
+        <input type="submit" value="Uitvoeren">
+    </form>
+    </br>
+    
+    <h3> Handmatig startnummers toewijzen </h3>
+    <form action="{{ path('rot_admin_beheer_generatehandmatig') }}" method="POST" {{ form_enctype(generate_form) }}>
+        {{ form_rest(generate_form) }}
+        <input type="text" name="persoon" placeholder='Naam'></br>
+        <input type="number" name="nummer" placeholder='Startnummer'></br>
+        <input type='submit' value='Uitvoeren'>
+    </form>
+{% endblock %}

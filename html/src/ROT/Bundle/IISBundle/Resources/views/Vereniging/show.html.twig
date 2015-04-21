@@ -1,0 +1,6 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Vereniging {{vereniging}}{% endblock %}
+{% block inner_content %}
+    {{ include('ROTIISBundle:Vereniging:_object_actions.html.twig', {"vereniging": vereniging}) }}
+    {{ include('ROTIISBundle:Vereniging:_object.html.twig', {"vereniging": vereniging}) }}
+{% endblock %}

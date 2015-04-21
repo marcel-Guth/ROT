@@ -1,0 +1,19 @@
+<table>
+    <thead>
+        <h3>Borg</h3>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Betaalwijze</td>
+            <td>{{ show_row('', deelname.borg.betaalwijze) }}</td>
+        </tr>
+        <tr>
+            <td>Betaaldatum</td>
+            <td>{{ show_row('', deelname.borg.betaaldatum|date('d-m-Y')) }}</td>
+        </tr>
+        <tr>
+            <td>Terugbetaald</td>
+            <td>{{ show_row('', deelname.borg.terugbetaald ? 'Ja' : 'Nee') }}</td>
+        </tr>
+    </tbody>
+</table>

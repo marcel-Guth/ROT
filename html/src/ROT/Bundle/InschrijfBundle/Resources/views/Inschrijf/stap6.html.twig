@@ -1,0 +1,372 @@
+{% extends "ROTInschrijfBundle::layout.html.twig" %}
+
+{# Zorgen dat de pagina titel, Hoofdtitel en subtitel worden aangepast aan de taal van de user #}
+
+{% block pageTitle %}
+    {% if lang == 'nl' %}
+        {{ siteRegistratieTitel | raw }}
+    {% else %}
+        {{ siteRegistratieTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{%  block siteTitle %}
+    {% if lang == 'nl' %}
+        {{ siteTitel | raw }}
+    {% else %}
+        {{ siteTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{%  block subTitle %}
+    {% if lang == 'nl' %}
+        {{ siteOnderTitel | raw }}
+    {% else %}
+        {{ siteOnderTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{% block page %}
+
+    <div class="text-wrapper" {% if content == NULL %}style="display: none"{% endif %}>
+        <div class="NL" {% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="boldlabel">{{ content | raw }}</span><div class="clear-both"></div>
+        </div>
+        <div class="EN" {% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="boldlabel">{{ content | raw }}</span><div class="clear-both"></div>
+        </div>
+    </div>
+
+    <form class="inschrijving" name="inschrijfStap6" action="{{ path('rot_inschrijf_inschrijf_savestap6') }}" method="post">
+
+        <div class="inschrijf-block inschrijf-boot inschrijf-boot-gevevens">
+
+            <div class="text-wrapper">
+                <div class="NL" {% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+                    <span class="boldlabel">Boot gegevens</span><div class="clear-both"></div>
+                </div>
+                <div class="EN" {% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+                    <span class="boldlabel">Information about the boat</span><div class="clear-both"></div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-text-field">
+                    <div class="label-input">
+                        {{ form_label(form.boottype, lang == 'nl' ? "Boottype" : "Type of boat" ) }}
+                    </div>
+                    <div class="field-input field-input-text-field" onchange="ToggleBootField();">
+                        {{ form_widget(form.boottype) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both" id="bootTypeId">
+                <div class="input input-text-field">
+                    <div class="label-input label-input-extend">
+                        {{ form_label(form.boottypeCustom, lang == 'nl' ? "Staat uw boottype er niet bij, voeg hem dan hier toe" : "If your type of boat is not listed, you can add it here" ) }}
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.boottypeCustom) }}
+                    </div>
+                </div>
+            </div>
+            
+        <!-------------------------- Robin Verweij 5-12-2013 Opgelost met JavaScript i.v.m. gebrek aan kennis. Latere aanpassing naar PhP gewenst.--->
+        <script type="text/javascript">
+            var c = document.getElementById("stap6_boottype").value;
+                if(c === "145")
+                {
+                    document.getElementById('bootTypeId').style.display = 'block';
+                    document.getElementById("stap6_boottypeCustom").required = true;
+                }
+                else
+                {
+                    document.getElementById('bootTypeId').style.display = 'none';
+                    document.getElementById("stap6_boottypeCustom").value = ""
+                    document.getElementById("stap6_boottypeCustom").required = false;
+                }
+            
+            function ToggleBootField()
+            {
+                var c = document.getElementById("stap6_boottype").value;
+                if(c === "145")
+                {
+                    document.getElementById('bootTypeId').style.display = 'block';
+                    document.getElementById("stap6_boottypeCustom").required = true;
+                }
+                else
+                {
+                    document.getElementById('bootTypeId').style.display = 'none';
+                    document.getElementById("stap6_boottypeCustom").value = ""
+                    document.getElementById("stap6_boottypeCustom").required = false;
+                }
+            }
+         </script>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-text-field">
+                    <div class="label-input">
+                        {{ form_label(form.zeilnummer, lang == 'nl' ? "Zeilnummer" : "Sail number" ) }}
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.zeilnummer) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-text-field">
+                    <div class="label-input">
+                        {{ form_label(form.spinnaker, lang == 'nl' ? "Spinnaker" : "Spinnaker" ) }}
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.spinnaker) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-text-field">
+                    <div class="label-input">
+                        {{ form_label(form.meetbrief, lang == 'nl' ? "Heeft u een Meetbrief" : "Measurement certificate" ) }}
+                    </div>
+                    <div class="field-input field-input-text-field" onchange="ToggleMeetbriefField();">
+                        {{ form_widget(form.meetbrief) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both" id="meetbriefId">
+                <div class="input input-text-field">
+                    <div class="label-input">
+                        {{ form_label(form.meetbriefNr, lang == 'nl' ? "Meetbriefnummer" : "Tonnage certificate number" ) }}
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.meetbriefNr) }}
+                    </div>
+                </div>
+            </div>
+         
+        <!-------------------------- Robin Verweij 5-12-2013 Opgelost met JavaScript i.v.m. gebrek aan kennis. Latere aanpassing naar PhP gewenst.--->
+        <script type="text/javascript">
+            var d = document.getElementById("stap6_meetbrief").value;
+                if(d === "1")
+                {
+                    document.getElementById('meetbriefId').style.display = 'block';
+                    document.getElementById("stap6_meetbriefNr").required = true;
+                }
+                else
+                {
+                    document.getElementById('meetbriefId').style.display = 'none';
+                    document.getElementById("stap6_meetbriefNr").value = "";
+                    document.getElementById("stap6_meetbriefNr").required = false;
+                }
+            
+            function ToggleMeetbriefField()
+            {
+                var d = document.getElementById("stap6_meetbrief").value;
+                if(d === "1")
+                {
+                    document.getElementById('meetbriefId').style.display = 'block';
+                    document.getElementById("stap6_meetbriefNr").required = true;
+                }
+                else
+                {
+                    document.getElementById('meetbriefId').style.display = 'none';
+                    document.getElementById("stap6_meetbriefNr").value = "";
+                    document.getElementById("stap6_meetbriefNr").required = false;
+                }
+            }
+         </script>
+
+            <!--<div class="inschrijf-row clear-both">
+                <div class="input input-text-field">
+                    <div class="label-input">
+                        {{ form_label(form.reclame, lang == 'nl' ? "Gaat u met reclame varen?" : "Are you going to sail with advertisement on your boat?" ) }}
+                    </div>
+                    <div class="field-input field-input-text-field" onchange="ToggleReclameField();">
+                        {{ form_widget(form.reclame) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both" id="reclameId">
+                <div class="input input-text-field">
+                    <div class="label-input">
+                        {{ form_label(form.reclameLicentie, lang == 'nl' ? "Reclamelicentie nummer" : "Advertising licence number" ) }}
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.reclameLicentie) }}
+                    </div>
+                </div>
+            </div>-->
+         
+        <!-------------------------- Robin Verweij 5-12-2013 Opgelost met JavaScript i.v.m. gebrek aan kennis. Latere aanpassing naar PhP gewenst.--->
+        <script type="text/javascript">
+            /*var e = document.getElementById("stap6_reclame").value;
+                if(e === "1")
+                {
+                    document.getElementById('reclameId').style.display = 'block';
+                    document.getElementById("stap6_reclameLicentie").required = true;
+                }
+                else
+                {
+                    document.getElementById('reclameId').style.display = 'none';
+                    document.getElementById("stap6_reclameLicentie").value = "";
+                    document.getElementById("stap6_reclameLicentie").required = false;
+                }
+            
+            function ToggleReclameField()
+            {
+                var e = document.getElementById("stap6_reclame").value;
+                if(e === "1")
+                {
+                    document.getElementById('reclameId').style.display = 'block';
+                    document.getElementById("stap6_reclameLicentie").required = true;
+                }
+                else
+                {
+                    document.getElementById('reclameId').style.display = 'none';
+                    document.getElementById("stap6_reclameLicentie").value = "";
+                    document.getElementById("stap6_reclameLicentie").required = false;
+                }
+            }*/
+         </script>
+
+        </div>
+
+
+        <div class="inschrijf-block inschrijf-boot inschrijf-algemene-gegevens">
+
+            <div class="text-wrapper">
+                <div class="NL" {% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+                    <span class="boldlabel">Algemene gegevens</span><div class="clear-both"></div>
+                </div>
+                <div class="EN" {% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+                    <span class="boldlabel">General information</span><div class="clear-both"></div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-text-field">
+                    <div class="label-input">
+                        {{ form_label(form.vereniging, lang == 'nl' ? "Vereniging" : "Association" ) }}
+                    </div>
+                    <div class="field-input field-input-text-field" onchange="ToggleVerenigingField();">
+                        {{ form_widget(form.vereniging) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both" id="verenigingTypeId">
+                <div class="input input-text-field">
+                    <div class="label-input label-input-extend">
+                        {{ form_label(form.verenigingCustom, lang == 'nl' ? "Staat uw vereniging er niet bij, voeg hem dan hier toe" : "If your association is not listed, you can add it here" ) }}
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.verenigingCustom) }}
+                    </div>
+                </div>
+            </div>
+            
+        <!-------------------------- Robin Verweij 5-12-2013 Opgelost met JavaScript i.v.m. gebrek aan kennis. Latere aanpassing naar PhP gewenst.--->
+        <script type="text/javascript">
+            var f = document.getElementById("stap6_vereniging").value;
+                if(f === "67")
+                {
+                    document.getElementById('verenigingTypeId').style.display = 'block';
+                    document.getElementById("stap6_verenigingCustom").required = true;
+                }
+                else
+                {
+                    document.getElementById('verenigingTypeId').style.display = 'none';
+                    document.getElementById("stap6_verenigingCustom").value = "";
+                    document.getElementById("stap6_verenigingCustom").required = false;
+                }
+            
+            function ToggleVerenigingField()
+            {
+                var f = document.getElementById("stap6_vereniging").value;
+                if(f === "67")
+                {
+                    document.getElementById('verenigingTypeId').style.display = 'block';
+                    document.getElementById("stap6_verenigingCustom").required = true;
+                }
+                else
+                {
+                    document.getElementById('verenigingTypeId').style.display = 'none';
+                    document.getElementById("stap6_verenigingCustom").value = "";
+                    document.getElementById("stap6_verenigingCustom").required = false;
+                }
+            }
+         </script>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-text-field">
+                    <div class="label-input">
+                        {{ form_label(form.kenteken, lang == 'nl' ? "Kenteken" : "Licence plate number" ) }}
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.kenteken) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-text-field">
+                    <div class="label-input">
+                        {{ form_label(form.DutchOpen, lang == 'nl' ? "Dutch Open" : "" ) }}
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.DutchOpen) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-text-field">
+                    <div class="label-input">
+                        {{ form_label(form.horstocht, lang == 'nl' ? "Horstocht" : "" ) }}
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.horstocht) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-text-field">
+                    <div class="label-input">
+                        {{ form_label(form.tochtNoord, lang == 'nl' ? "Tocht naar de Noord" : "" ) }}
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.tochtNoord) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
+                <div class="input input-text-field">
+                    <div class="label-input">
+                        {{ form_label(form.akkoordSponsor, lang == 'nl' ? "Sponsoren mogen uw gegeven gebruiken" : "Use of information" ) }}
+                    </div>
+                    <div class="field-input field-input-text-field">
+                        {{ form_widget(form.akkoordSponsor) }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        {{ form_rest(form) }}
+
+        {{ include('ROTInschrijfBundle:Inschrijf:formControls.html.twig', {
+            step: step,
+            pStep: pStep
+        }) }}
+    </form>
+{% endblock %}

@@ -1,0 +1,31 @@
+<div class="form-row {% if form.type.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.type) }}</div>
+    <div class="widget">{{ form_widget(form.type) }}</div>
+    <div class="error">{{ form_errors(form.type) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.klasse.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.klasse) }}</div>
+    <div class="widget">{{ form_widget(form.klasse) }}</div>
+    <div class="error">{{ form_errors(form.klasse) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.spinnakerrating.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.spinnakerrating) }}</div>
+    <div class="widget">{{ form_widget(form.spinnakerrating) }}</div>
+    <div class="error">{{ form_errors(form.spinnakerrating) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.normalrating.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.normalrating) }}</div>
+    <div class="widget">{{ form_widget(form.normalrating) }}</div>
+    <div class="error">{{ form_errors(form.normalrating) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.iscustom.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.iscustom) }}</div>
+    <div class="widget">{{ form_widget(form.iscustom) }}</div>
+    <div class="error">{{ form_errors(form.iscustom) }}</div>
+    <div class="clearfix"></div>
+</div>
+{{ form_rest(form) }}

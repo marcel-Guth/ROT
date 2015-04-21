@@ -1,0 +1,17 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     localhost
+    database_port:     ~
+    database_name:     rot
+    database_user:     RoT
+    database_password: "B2aLpsdQQ5fZYZB6"
+
+    mailer_transport: gmail
+    mailer_host:      ~
+    mailer_user:      inschrijving.rot@gmail.com
+    mailer_password:  !RoT2048
+
+    dev_mailer_target: me@example.com
+
+    locale:            en
+    secret:            ThisTokenIsNotSoSecretChangeIt

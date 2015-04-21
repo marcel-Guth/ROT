@@ -1,0 +1,109 @@
+<?php
+
+namespace ROT\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Zoekopdracht
+ *
+ * @ORM\Table(name="zoekopdracht")
+ * @ORM\Entity
+ */
+class Zoekopdracht
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="visible", type="boolean", nullable=false)
+     */
+    private $visible;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="naam", type="string", length=255, nullable=false)
+     */
+    private $naam;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255, nullable=false)
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="boot", type="text", nullable=false)
+     */
+    private $boot;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vereniging", type="text", nullable=false)
+     */
+    private $vereniging;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="stuurman", type="text", nullable=false)
+     */
+    private $stuurman;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fokkemaat", type="text", nullable=false)
+     */
+    private $fokkemaat;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="betaling", type="text", nullable=false)
+     */
+    private $betaling;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="borg", type="text", nullable=false)
+     */
+    private $borg;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="finishtijd", type="text", nullable=false)
+     */
+    private $finishtijd;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="text", nullable=false)
+     */
+    private $status;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="overig", type="text", nullable=false)
+     */
+    private $overig;
+
+
+}

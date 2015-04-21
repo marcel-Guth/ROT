@@ -1,0 +1,995 @@
+/*--------------------------------------------------------------------------------------------------
+Style Sheet Discover TNO Admin Interface v01 (all browsers)
+
+version:		1
+author:		Damien van Holten
+email:		damien@maximum.nl
+website:		http://www.maximum.nl
+--------------------------------------------------------------------------------------------------*/
+
+/* Imports & Fonts
+--------------------------------------------------------------------------------------------------*/
+
+/*
+@font-face { font-family: 'HelveticaLight'; src: url('/admin/fonts/helveticalight-webfont.eot'); src: url('/admin/fonts/helveticalight-webfont.eot?#iefix') format('eot'), url('/admin/fonts/helveticalight-webfont.woff') format('woff'), url('/admin/fonts/helveticalight-webfont.ttf') format('truetype'), url('/admin/fonts/helveticalight-webfont.svg#') format('svg'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'HelveticaNeueBold'; src: url('/admin/fonts/helveticaneue-webfont.eot'); src: url('/admin/fonts/helveticaneue-webfont.eot?#iefix') format('eot'), url('/admin/fonts/helveticaneue-webfont.woff') format('woff'), url('/admin/fonts/helveticaneue-webfont.ttf') format('truetype'), url('/admin/fonts/helveticaneue-webfont.svg#webfontfybaK2GR') format('svg'); font-weight: normal; font-style: normal; }
+*/
+
+/* Generic classes
+--------------------------------------------------------------------------------------------------*/
+
+body
+{
+	background: #474747;/*#393b3a;*/
+}
+
+.left
+{
+	float: left;
+}
+
+.right
+{
+	float: right;
+}
+
+.clear
+{
+	clear: both;
+}
+
+/* Typography
+--------------------------------------------------------------------------------------------------*/
+
+h1
+{
+	font-size: 28px;
+	font-family: HelveticaLight, arial, verdana, sans-serif;
+	color: #3a6b9e;
+	margin: 0 0 10px 0;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.9);
+}
+
+#header h3
+{
+	font-size: 28px;
+	font-family: HelveticaLight, arial, verdana, sans-serif;
+	color: #fff;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+p
+{
+	margin: 0 0 15px 0;
+}
+
+p.introduction
+{
+	font-family: HelveticaLight, arial, verdana, sans-serif;
+	font-size: 16px;
+	color: #999;
+	display: block;
+	margin: 0 0 20px 0;
+	padding: 0 0 20px 0;
+	border-bottom: 1px solid #d6d8d8;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.9);
+}
+
+/* Buttons
+--------------------------------------------------------------------------------------------------*/
+
+a.button_large:link,
+a.button_large:visited
+{
+	margin-bottom: 15px;
+	padding: 6px 13px;
+	background: url(../../bundles/rotinschrijf/images/bg-button-large.png) 0 0 repeat-x #e4e4e4;
+	color: #535353;
+	font-size: 13px;
+	text-shadow: 0 1px 1px rgba(255,255,255,1);
+	border: 1px solid #c8c8c8;
+	font-weight: bold;
+	text-decoration: none;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+a.button_large:hover,
+a.button_large:active
+{
+	background: url(../../bundles/rotinschrijf/images/bg-button-large-hover.png) 0 0 repeat-x #fbfbfb;
+	text-shadow: 0 -1px 1px rgba(255,255,255,1);
+	border: 1px solid #c1c1c1;
+}
+
+a.button_small:link,
+a.button_small:visited
+{
+	padding: 3px 7px;
+	background: url(../../bundles/rotinschrijf/images/bg-button-small.png) 0 0 repeat-x #e4e4e4;
+	color: #535353;
+	font-size: 11px;
+	text-shadow: 0 1px 1px rgba(255,255,255,1);
+	border: 1px solid #c8c8c8;
+	font-weight: bold;
+	text-decoration: none;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+a.button_small:hover,
+a.button_small:active
+{
+	background: url(../../bundles/rotinschrijf/images/bg-button-small-hover.png) 0 0 repeat-x #fbfbfb;
+	text-shadow: 0 -1px 1px rgba(255,255,255,1);
+	border: 1px solid #c1c1c1;
+}
+
+a.button_small.button_negative:hover,
+a.button_small.button_negative:active
+{
+	color: #d10000;
+}
+
+a.setting_choice
+{
+	line-height: 27px;
+	font-size: 11px;
+	color: #0d56dd;
+}
+
+.overview_sortable_item .item_link:link,
+.overview_sortable_item .item_link:active
+{
+	width: 250px;
+	display: inline-block;
+	text-decoration: underline;
+}
+
+.overview_sortable_item .item_link:hover,
+.overview_sortable_item .item_link:active
+{
+	color: #3a6b9e;
+}
+
+.overview_sortable_item .dragme
+{
+	margin-right: 3px;
+	cursor: pointer;
+}
+
+/* Layout
+--------------------------------------------------------------------------------------------------*/
+
+#header
+{
+	background: #91E8F5;
+	padding: 35px 0;
+}
+
+#content
+{
+	background-color: #fff;
+	padding: 20px 0;
+}
+
+#footer
+{
+	padding: 25px 0 35px 0;
+}
+
+#footer p,
+#footer p a
+{
+	color: #999;
+	font-size: 11px;
+}
+
+#navigation
+{
+	background: #474747;
+	overflow: hidden;
+}
+
+
+.inner_wrapper,
+#navigation ul
+{
+	position: relative;
+	width: 900px;
+	margin: 0 auto;
+}
+
+#navigation ul li
+{
+	float: left;
+}
+
+#navigation ul li a:link,
+#navigation ul li a:visited
+{
+	display: inline-block;
+	padding: 15px;
+	font-size: 15px;
+	font-family: HelveticaLight, arial, verdana, sans-serif;
+	color: #fff;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+	text-decoration: none;
+	border-left: 1px solid #474747;
+}
+
+#navigation ul li a:hover,
+#navigation ul li a:active,
+#navigation ul li.actievetab a:link,
+#navigation ul li.actievetab a:visited,
+#navigation ul li.actievetab a:hover,
+#navigation ul li.actievetab a:active
+{
+	background: #686868;
+}
+
+#navigation ul li a:last-child
+{
+	border-right: 1px solid #474747;
+}
+
+
+#navigation_small
+{
+	background: #474747;
+	overflow: hidden;
+}
+
+
+.inner_wrapper,
+#navigation_small ul
+{
+	position: relative;
+	width: 900px;
+	margin: 0 auto;
+}
+
+#navigation_small ul li
+{
+	float: left;
+}
+
+#navigation_small ul li a:link,
+#navigation_small ul li a:visited
+{
+	display: inline-block;
+	padding: 10px 5px 10px 5px;
+	font-size: 14px;
+	font-family: HelveticaLight, arial, verdana, sans-serif;
+	color: #fff;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+	text-decoration: none;
+	border-left: 1px solid #474747;
+	border-top: 1px solid #474747;;
+}
+
+#navigation_small ul li a:hover,
+#navigation_small ul li a:active,
+#navigation_small ul li.actievetab a:link,
+#navigation_small ul li.actievetab a:visited,
+#navigation_small ul li.actievetab a:hover,
+#navigation_small ul li.actievetab a:active
+{
+	background: #686868;
+}
+
+#navigation_small ul li a:last-child
+{
+	border-right: 1px solid #474747;
+}
+
+/* Settings
+--------------------------------------------------------------------------------------------------*/
+
+.settings_publication
+{
+	background: #323232;
+}
+
+.settings_actions
+{
+	background: #fff;
+}
+
+.settings_publication,
+.settings_actions
+{
+	border-radius: 5px;
+	border: 1px solid #c3c3c3;
+	margin-bottom: 15px;
+}
+
+.settings_publication .settings_holder,
+.settings_actions .settings_holder
+{
+	padding: 14px;
+	overflow: hidden;
+}
+
+.settings_actions .settings_holder
+{
+	padding-bottom: 0;
+}
+
+.settings_publication .settings_holder
+{
+	border-top: 1px solid #4f4e4e;
+}
+
+.settings_publication h3
+{
+	border-bottom: 1px solid #161616;
+}
+
+.settings_actions .button_large
+{
+	margin-right: 8px;
+}
+
+.settings_publication h3,
+.settings_actions h3
+{
+	text-transform: uppercase;
+	font-family: HelveticaLight, arial, verdana, sans-serif;
+	font-size: 10px;
+	letter-spacing: 1px;
+	padding: 9px 14px;
+	color: #fff;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.9);
+	background: url(../../bundles/rotinschrijf/images/bg-header-settings.png) 0 100% repeat-x #4a4949;
+}
+
+span.copy_pagestatus
+{
+	float: left;
+	font-size: 11px;
+	color: #fff;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.9);
+	line-height: 32px;
+}
+
+.jquery-checkbox
+{
+	float: left;
+	margin: 0 10px 0 0;
+	display: inline-block; 
+	width: 81px; 
+	height: 32px;
+	cursor: pointer; 
+	cursor: hand;
+}
+
+.jquery-checkbox .mark
+{
+	display: none;
+}
+
+.jquery-checkbox img
+{
+	display: none;
+	vertical-align: middle; 
+	width: 81px; 
+	height: 32px;
+}
+
+.jquery-checkbox
+{
+	background: transparent url(../../bundles/rotinschrijf/images/bg-switch-pagestatus.png) no-repeat;
+	background-position: 0px -64px;
+}
+
+.jquery-checkbox:hover
+{
+	background-position: 0px -96px;
+}
+
+.jquery-checkbox-checked
+{
+	background-position: 0 0;
+}
+
+.jquery-checkbox-checked:hover
+{
+	background-position: 0px -32px;
+}
+
+/* Form elements
+--------------------------------------------------------------------------------------------------*/
+
+/*#content_edit
+{
+	float: left;
+	width: 580px;
+}*/
+
+#content_actions
+{
+	width: 315px;
+	position: fixed;
+	margin-left: 585px;
+}
+
+label{
+}
+
+label.boldlabel {
+	display: block;
+	font-weight:bold;
+	padding: 0 0 5px 0;
+}
+
+label span
+{
+	color: #999;
+	font-weight: normal;
+}
+
+input[type=text], input[type=password]
+{
+	color: #464646;
+	width: 300px;
+	border: 1px solid #999;
+}
+textarea
+{
+	color: #464646;
+/*	width:450px;*/
+	margin-bottom: 15px;
+	border: 1px solid #999;
+	padding: 5px;
+}
+
+input.important
+{
+	font-size: 21px;
+}
+
+textarea
+{
+/*	height: 120px;*/
+	line-height: 17px;
+}
+
+input:focus,
+textarea:focus
+{
+	border: 1px solid #555;
+}
+
+.selection_group
+{
+	margin-bottom: 15px;
+}
+/*--------------------------------------------------------------------------------------------------
+Style Sheet Discover TNO Admin Interface v01 (all browsers)
+
+version:		1
+author:		Damien van Holten
+email:		damien@maximum.nl
+website:		http://www.maximum.nl
+--------------------------------------------------------------------------------------------------*/
+
+/* Imports & Fonts
+--------------------------------------------------------------------------------------------------*/
+
+
+/*
+@font-face { font-family: 'HelveticaLight'; src: url('/admin/fonts/helveticalight-webfont.eot'); src: url('/admin/fonts/helveticalight-webfont.eot?#iefix') format('eot'), url('/admin/fonts/helveticalight-webfont.woff') format('woff'), url('/admin/fonts/helveticalight-webfont.ttf') format('truetype'), url('/admin/fonts/helveticalight-webfont.svg#') format('svg'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'HelveticaNeueBold'; src: url('/admin/fonts/helveticaneue-webfont.eot'); src: url('/admin/fonts/helveticaneue-webfont.eot?#iefix') format('eot'), url('/admin/fonts/helveticaneue-webfont.woff') format('woff'), url('/admin/fonts/helveticaneue-webfont.ttf') format('truetype'), url('/admin/fonts/helveticaneue-webfont.svg#webfontfybaK2GR') format('svg'); font-weight: normal; font-style: normal; }
+*/
+
+/* Generic classes
+--------------------------------------------------------------------------------------------------*/
+
+body
+{
+	background: #474747;/*#393b3a;*/
+}
+
+.left
+{
+	float: left;
+}
+
+.right
+{
+	float: right;
+}
+
+.clear
+{
+	clear: both;
+}
+
+/* Typography
+--------------------------------------------------------------------------------------------------*/
+
+h1
+{
+	font-size: 28px;
+	font-family: HelveticaLight, arial, verdana, sans-serif;
+	color: #3a6b9e;
+	margin: 0 0 10px 0;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.9);
+}
+
+#header h3
+{
+	font-size: 28px;
+	font-family: HelveticaLight, arial, verdana, sans-serif;
+	color: #fff;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+p
+{
+	margin: 0 0 15px 0;
+}
+
+p.introduction
+{
+	font-family: HelveticaLight, arial, verdana, sans-serif;
+	font-size: 16px;
+	color: #999;
+	display: block;
+	margin: 0 0 20px 0;
+	padding: 0 0 20px 0;
+	border-bottom: 1px solid #d6d8d8;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.9);
+}
+
+/* Buttons
+--------------------------------------------------------------------------------------------------*/
+
+a.button_large:link,
+a.button_large:visited
+{
+	margin-bottom: 15px;
+	padding: 6px 13px;
+	background: url(../../bundles/rotinschrijf/images/bg-button-large.png) 0 0 repeat-x #e4e4e4;
+	color: #535353;
+	font-size: 13px;
+	text-shadow: 0 1px 1px rgba(255,255,255,1);
+	border: 1px solid #c8c8c8;
+	font-weight: bold;
+	text-decoration: none;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+a.button_large:hover,
+a.button_large:active
+{
+	background: url(../../bundles/rotinschrijf/images/bg-button-large-hover.png) 0 0 repeat-x #fbfbfb;
+	text-shadow: 0 -1px 1px rgba(255,255,255,1);
+	border: 1px solid #c1c1c1;
+}
+
+a.button_small:link,
+a.button_small:visited
+{
+	padding: 3px 7px;
+	background: url(../../bundles/rotinschrijf/images/bg-button-small.png) 0 0 repeat-x #e4e4e4;
+	color: #535353;
+	font-size: 11px;
+	text-shadow: 0 1px 1px rgba(255,255,255,1);
+	border: 1px solid #c8c8c8;
+	font-weight: bold;
+	text-decoration: none;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+a.button_small:hover,
+a.button_small:active
+{
+	background: url(../../bundles/rotinschrijf/images/bg-button-small-hover.png) 0 0 repeat-x #fbfbfb;
+	text-shadow: 0 -1px 1px rgba(255,255,255,1);
+	border: 1px solid #c1c1c1;
+}
+
+a.button_small.button_negative:hover,
+a.button_small.button_negative:active
+{
+	color: #d10000;
+}
+
+a.setting_choice
+{
+	line-height: 27px;
+	font-size: 11px;
+	color: #0d56dd;
+}
+
+.overview_sortable_item .item_link:link,
+.overview_sortable_item .item_link:active
+{
+	width: 250px;
+	display: inline-block;
+	text-decoration: underline;
+}
+
+.overview_sortable_item .item_link:hover,
+.overview_sortable_item .item_link:active
+{
+	color: #3a6b9e;
+}
+
+.overview_sortable_item .dragme
+{
+	margin-right: 3px;
+	cursor: pointer;
+}
+
+/* Layout
+--------------------------------------------------------------------------------------------------*/
+
+#header
+{
+	background: #91E8F5;
+	padding: 35px 0;
+}
+
+#content
+{
+	background-color: #fff;
+	padding: 20px 0;
+}
+
+#footer
+{
+	padding: 25px 0 35px 0;
+}
+
+#footer p,
+#footer p a
+{
+	color: #999;
+	font-size: 11px;
+}
+
+
+/* Settings
+--------------------------------------------------------------------------------------------------*/
+
+.settings_publication
+{
+	background: #323232;
+}
+
+.settings_actions
+{
+	background: #fff;
+}
+
+.settings_publication,
+.settings_actions
+{
+	border-radius: 5px;
+	border: 1px solid #c3c3c3;
+	margin-bottom: 15px;
+}
+
+.settings_publication .settings_holder,
+.settings_actions .settings_holder
+{
+	padding: 14px;
+	overflow: hidden;
+}
+
+.settings_actions .settings_holder
+{
+	padding-bottom: 0;
+}
+
+.settings_publication .settings_holder
+{
+	border-top: 1px solid #4f4e4e;
+}
+
+.settings_publication h3
+{
+	border-bottom: 1px solid #161616;
+}
+
+.settings_actions .button_large
+{
+	margin-right: 8px;
+}
+
+.settings_publication h3,
+.settings_actions h3
+{
+	text-transform: uppercase;
+	font-family: HelveticaLight, arial, verdana, sans-serif;
+	font-size: 10px;
+	letter-spacing: 1px;
+	padding: 9px 14px;
+	color: #fff;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.9);
+	background: url(../../bundles/rotinschrijf/images/bg-header-settings.png) 0 100% repeat-x #4a4949;
+}
+
+span.copy_pagestatus
+{
+	float: left;
+	font-size: 11px;
+	color: #fff;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.9);
+	line-height: 32px;
+}
+
+.jquery-checkbox
+{
+	float: left;
+	margin: 0 10px 0 0;
+	display: inline-block; 
+	width: 81px; 
+	height: 32px;
+	cursor: pointer; 
+	cursor: hand;
+}
+
+.jquery-checkbox .mark
+{
+	display: none;
+}
+
+.jquery-checkbox img
+{
+	display: none;
+	vertical-align: middle; 
+	width: 81px; 
+	height: 32px;
+}
+
+.jquery-checkbox
+{
+	background: transparent url(../../bundles/rotinschrijf/images/bg-switch-pagestatus.png) no-repeat;
+	background-position: 0px -64px;
+}
+
+.jquery-checkbox:hover
+{
+	background-position: 0px -96px;
+}
+
+.jquery-checkbox-checked
+{
+	background-position: 0 0;
+}
+
+.jquery-checkbox-checked:hover
+{
+	background-position: 0px -32px;
+}
+
+/* Form elements
+--------------------------------------------------------------------------------------------------*/
+
+/*#content_edit
+{
+	float: left;
+	width: 580px;
+}*/
+
+#content_actions
+{
+	width: 315px;
+	position: fixed;
+	margin-left: 585px;
+}
+
+label{
+}
+
+label.boldlabel {
+	display: block;
+	font-weight:bold;
+	padding: 0 0 5px 0;
+}
+
+label span
+{
+	color: #999;
+	font-weight: normal;
+}
+
+input[type=text], input[type=password]
+{
+	color: #464646;
+	width: 300px;
+	border: 1px solid #999;
+}
+textarea
+{
+	color: #464646;
+/*	width:450px;*/
+	margin-bottom: 15px;
+	border: 1px solid #999;
+	padding: 5px;
+}
+
+input.important
+{
+	font-size: 21px;
+}
+
+textarea
+{
+/*	height: 120px;*/
+	line-height: 17px;
+}
+
+input:focus,
+textarea:focus
+{
+	border: 1px solid #555;
+}
+
+.selection_group
+{
+	margin-bottom: 15px;
+}
+
+/* Registratie.css  */
+/*
+Deze stylesheet is bedoeld voor het inschrijfsysteem waarmee zeilers zich opgeven
+voor de Ronde om Texel
+
+Deze stylesheet zal screen.css op verschillende punten overschrijven
+
+
+Auteur:     Jos Verhaar
+e-mail:     jos@h-o.nl
+website:    www.h-o.nl
+
+/*------------------------------------------------------------------------------------------------*/
+
+
+/* Imports & Fonts */
+
+
+/*------------------------------------------------------------------------------------------------*/
+
+
+
+
+/* Algemene opmaak van de pagina */
+
+#page { width: 900px; margin: 0 auto; padding: 25px; }
+
+#header { height: 110px; background: url("../../bundles/rotinschrijf/images/bg_rotn.jpg") bottom center no-repeat; border-bottom: solid 2px #D9010F;}
+
+.navigation_inschrijf {background: transparent; position: absolute; top: 165px; left: 190px; }
+.navigation_inschrijf ul {position: relative; width: 900px; margin: 0 auto; }
+.navigation_inschrijf ul li {background: #D3D3D3; padding: 10px 15px; margin-left: 20px; float: left; border: 1px solid #D9010F;}
+.navigation_inschrijf ul li:hover, .navigation_inschrijf ul li a:hover {background: #D9010F;}
+.navigation_inschrijf ul li a:link, #navigation ul li a:link:visited {font-family: HelveticaLight, arial, verdana, sans-serif; text-decoration: none; text-shadow: 0 1px 2px rgba(0,0,0,0.4);}
+.navigation_inschrijf .first {margin-left: 110px;}
+
+.navigation_inschrijf ul li a:link, .navigation_inschrijf ul li a:visited { font-family: HelveticaLight, arial, verdana, sans-serif; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.4);}
+
+.navigation_inschrijf .current {background: #D9010F;}
+
+.boldlabel {font-weight: bold; }
+
+.clear-both {clear: both; }
+.clear-left {clear: left; }
+.clear-right {clear: right; }
+
+.text-wrapper { margin-bottom: 50px; border-style: solid; border-color: grey; border-width: 1px; padding: 15px;background: lightgrey; }
+
+.important {color: #D9010F;}
+
+/*.develop {display: none;}*/
+
+.pagina-text{font-size: 15px;}
+
+.configuration-content { font-weight: bold;}
+
+.downloadable-content { margin-bottom: 25px; height: 50px;}
+.downloadable-content span { float: left;}
+
+/*------------------------------------------------------------------------------------------------*/
+
+
+
+/* Buttons */
+.button-wrapper {float: left; margin-right: 25px;}
+
+.button:link,
+.button:visited,
+.button { margin-bottom: 15px; background: lightgray; padding: 6px 13px; width: 100px; font-size: 13px; border: 1px solid #c8c8c8;}
+.buttonSluiten { margin-bottom: 15px; background: lightgray; padding: 6px 13px; width: 150px; font-size: 13px; border: 1px solid #c8c8c8; alignment-adjust: central;}
+
+.button:hover,
+.button:active {background: #fbfbfb; text-shadow: 0 -1px 1px rgba(255,255,255,1); border: 1px solid #c1c1c1; }
+.button input { }
+.button a { }
+
+
+
+
+
+/*------------------------------------------------------------------------------------------------*/
+
+/* Forms */
+
+.inschrijf-block { margin-bottom: 50px; }
+.inschrijf-naw { height: 320px; }
+.inschrijf-watersport { height: 150px; }
+.inschrijf-contact { height: 210px; }
+.inschrijf-boot { min-width: 300px; height: 250px; }
+.inschrijf-algemene-gegevens { height: 250px; }
+.inschrijf-row { margin-left: 15px; }
+
+.text-wrapper-boot {margin-top: 320px;}
+
+.controle-sub-titel {margin-left: 210px}
+.controle-block { margin-bottom: 50px; }
+.controle-row { margin-left: 15px; }
+.controle-stuurman, .controle-fokmaat {width: 200px}
+.controle-stuurman {}
+.controle-fokmaat {}
+.controle-stap4 {width: 200px; float: left; margin-left: 40px;}
+.controle-stap5 {width: 200px; float: left; margin-left: 65px;}
+.controle-stap6 {width: 200px; float: left; margin-left: 40px;}
+
+.controle-label {width: 200px; float: left; margin-left: 40px;}
+.controle-label .label {margin-bottom: 5px;}
+.controle-label-gegevens {padding-top: 80px; }
+
+/* This next 2 classes is special to generate a space between Person->NAW and rest info */
+.controle-spacer {margin-top: 40px;}
+.controle-spacer-field {margin-bottom: 5px;}
+/***********************************************/
+
+.input { float: left; }
+
+.label-input { float: left; width: 300px; }
+.label-input-extend { height: 35px; width: 270px; margin-right: 30px; }
+
+.field-input { float: left; }
+
+.field-input-text-field { }
+.field-input-text-field input { width: 207px;}
+
+#stap6_kenteken { text-transform: uppercase; }
+
+.field-input-number {}
+.field-input-number input {width: 207px;}
+
+.field-input-email {}
+.field-input-email input { width: 207px;}
+
+.iframe-NOR { width: 900px; height: 2000px; margin-bottom: 50px;}
+.iframe-mail { width: 817px; height: 605px; margin-bottom: 50px;}
+
+.form-buttons {margin-top: 25px; clear: both; float: left; }
+
+/* Taalselectie (uitzondering op de regel) */
+.flag {float: left; margin: 5px 10px 7px 10px;}
+#stap1_taal_0 {float: left;}
+#stap1_taal_1 {float: left; clear: both;}
+#stap1_taal {float: left;}
+#stap1_taal label {float: left; padding: 5px;}
+/*----------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------------*/
+
+
+
+
+/*  */
+
+/*------------------------------------------------------------------------------------------------*/

@@ -1,0 +1,18 @@
+{{ include('ROTIISBundle:Deelname:_deelnemer_object.html.twig', {'deelnemer': stuurman.deelnemer}) }}
+</br>
+<table>
+    <thead>
+        <h3>Startlicentie</h3>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Startlicentie</td>
+            <td>{{ show_row('', stuurman.startlicentie ? 'Ja' : 'Nee') }}</td>
+        </tr>
+        <tr>
+            <td>Startlicentienummer</td>
+            <td>{{ show_row('', stuurman.startlicentienummer)}}</td>
+        </tr>
+    </tbody>
+</table>
+

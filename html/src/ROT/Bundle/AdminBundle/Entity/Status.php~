@@ -1,0 +1,144 @@
+<?php
+
+namespace ROT\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Status
+ *
+ * @ORM\Table(name="status")
+ * @ORM\Entity
+ */
+class Status
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="deelnemerstatus", type="integer", nullable=false)
+     */
+    private $deelnemerstatus;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="memberstatus", type="integer", nullable=false)
+     */
+    private $memberstatus;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="racestatus", type="integer", nullable=false)
+     */
+    private $racestatus;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="aanwezigheidstatus", type="integer", nullable=false)
+     */
+    private $aanwezigheidstatus;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="uitzonderingid", type="integer", nullable=false)
+     */
+    private $uitzonderingid;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="verzekeringsbewijsstatus", type="boolean", nullable=false)
+     */
+    private $verzekeringsbewijsstatus;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="xcbstatus", type="integer", nullable=false)
+     */
+    private $xcbstatus;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="dutchopenstatus", type="boolean", nullable=false)
+     */
+    private $dutchopenstatus;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="aanmeldingmailstatus", type="integer", nullable=false)
+     */
+    private $aanmeldingmailstatus;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="bevestigingmailstatus", type="boolean", nullable=false)
+     */
+    private $bevestigingmailstatus;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="bevestigingmaildatum", type="date", nullable=false)
+     */
+    private $bevestigingmaildatum;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="bevestigingbriefstatus", type="boolean", nullable=false)
+     */
+    private $bevestigingbriefstatus;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="helaasbriefstatus", type="boolean", nullable=false)
+     */
+    private $helaasbriefstatus;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="parkeerkaartstatus", type="boolean", nullable=false)
+     */
+    private $parkeerkaartstatus;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="horstochtstatus", type="boolean", nullable=false)
+     */
+    private $horstochtstatus;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="nacrachampstatus", type="boolean", nullable=false)
+     */
+    private $nacrachampstatus;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="tochtnoordstatus", type="boolean", nullable=false)
+     */
+    private $tochtnoordstatus;
+
+
+}

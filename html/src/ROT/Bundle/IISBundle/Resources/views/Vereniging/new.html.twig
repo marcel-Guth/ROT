@@ -1,0 +1,10 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Nieuwe vereniging{% endblock %}
+{% block inner_content %}
+    {{ include('ROTIISBundle:Vereniging:_object_actions.html.twig') }}
+    <form novalidate action="{{path('rot_iis_vereniging_create')}}" method="POST" {{form_enctype(form)}}>
+        {{ include('ROTIISBundle:Vereniging:_form.html.twig', {'form': form}) }}
+        {{ form_rest(form) }}
+        <input type="submit" value="Aanmaken" />
+    </form>
+{% endblock %}

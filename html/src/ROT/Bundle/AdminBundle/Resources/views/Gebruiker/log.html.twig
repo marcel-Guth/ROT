@@ -1,0 +1,17 @@
+{% extends "ROTAdminBundle::layout.html.twig" %}
+{% block title %}Gebruiker "{{gebruiker}}"{% endblock %}
+{% block inner_content %}
+    {{ include('ROTAdminBundle:Gebruiker:_object_actions.html.twig', {"gebruiker": gebruiker}) }}
+    <table>
+        <thead>
+            <tr>
+                <th>Versie</th>
+                <th>Wijziging</th>
+                <th>Door</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+{% endblock %}

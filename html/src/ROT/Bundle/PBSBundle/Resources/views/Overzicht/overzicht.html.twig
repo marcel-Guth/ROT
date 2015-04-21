@@ -1,0 +1,85 @@
+{% extends "ROTPBSBundle::layout.html.twig" %}
+{% block title %}Overzicht{% endblock %}
+{% block inner_content %}
+<h3>vergunningen</h3>
+<h3>Parkeerkaarten</h3>
+<table class="overzichtstabel">
+    <thead>
+        <tr>
+            <th>kaarttype</th>
+            <th>Aantal</th>
+        </tr>
+    </thead>
+    <tbody>
+            {% if overzicht%}
+                {% for row in kaarten %}
+        <tr>
+            <td>{{row.kaarttype}}</td>
+            <td>{{row.aantalKaarttype}}</td>
+        </tr>
+                {% endfor %}
+            
+
+        {% else%}
+        <tr>
+            <td>Geen Parkeerkaarten uitgegeven.</td>
+        </tr>
+        {% endif%}
+    </tbody>
+</table>
+<br />
+
+<table class="overzichtstabel">
+    <thead>
+        <tr>
+            <th>Vergunning</th>
+            <th>Aantal</th>
+        </tr>
+    </thead>
+    <tbody>
+            {% if overzicht%}
+                {% for row in overzicht %}
+        <tr>
+            <td>{{row.soort}}</td>
+            <td>{{row.aantal}}</td>
+        </tr>
+                {% endfor %}
+            
+
+        {% else%}
+        <tr>
+            <td>Geen Parkeerkaarten uitgegeven.</td>
+        </tr>
+        {% endif%}
+    </tbody>
+</table>
+<br />
+<br />
+
+<table class="overzichtstabel">
+    <thead>
+        <tr>
+            <th>Vergunning</th>
+            <th>Kenteken</th>
+            <th>Datum uitgave</th>
+        </tr>
+    </thead>
+    <tbody>
+            {% if vergunningen%}
+                {% for row in vergunningen %}
+        <tr>
+            <td>{{row.strandvergunningsoort}}</td>
+            <td>{{row.kenteken}}</td>
+            <td>{{row.uitgavedatum|date('Y-m-d')}}</td>
+        </tr>
+                {% endfor %}
+            
+
+        {% else%}
+        <tr>
+            <td>Geen vergunningen uitgegeven.</td>
+        </tr>
+        {% endif%}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,32 @@
+<?php
+
+namespace ROT\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Organisatie
+ *
+ * @ORM\Table(name="organisatie")
+ * @ORM\Entity
+ */
+class Organisatie
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="organisatie", type="string", length=255, nullable=false)
+     */
+    private $organisatie;
+
+
+}

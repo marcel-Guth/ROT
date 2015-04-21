@@ -1,0 +1,17 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Deelname "{{deelname}}"{% endblock %}
+{% block inner_content %}
+    {{ include('ROTIISBundle:Deelname:_object_actions.html.twig', {"deelname": deelname}) }}
+    <table>
+        <thead>
+            <tr>
+                <th>Versie</th>
+                <th>Wijziging</th>
+                <th>Door</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+{% endblock %}

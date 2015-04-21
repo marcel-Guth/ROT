@@ -1,0 +1,664 @@
+{% extends "ROTInschrijfBundle::layout.html.twig" %}
+
+{# Zorgen dat de pagina titel, Hoofdtitel en subtitel worden aangepast aan de taal van de user #}
+
+{% block pageTitle %}
+    {% if lang == 'nl' %}
+        {{ siteRegistratieTitel | raw }}
+    {% else %}
+        {{ siteRegistratieTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{%  block siteTitle %}
+    {% if lang == 'nl' %}
+        {{ siteTitel | raw }}
+    {% else %}
+        {{ siteTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{%  block subTitle %}
+    {% if lang == 'nl' %}
+        {{ siteOnderTitel | raw }}
+    {% else %}
+        {{ siteOnderTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{% block page %}
+
+    <div class="text-wrapper" {% if content == NULL %}style="display: none"{% endif %}>
+        <div class="NL" {% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="boldlabel">{{ content | raw }}</span><div class="clear-both"></div>
+        </div>
+        <div class="EN" {% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="boldlabel">{{ contentENG | raw }}</span><div class="clear-both"></div>
+        </div>
+    </div>
+
+    {#
+    {% set filter = app.session.get('filter') %}
+    {% set account-filter = filter['accounts'] %}
+    {% if app.session.foo %}
+    #}
+
+    <div class="inschrijving">
+
+        {% if app.session.has('inschrijf.stap3') %}
+            {% set stap3 = app.session.get('inschrijf.stap3') %}
+        {% else %}
+            {% set stap3 = 'leeg' %}
+        {% endif %}
+        {% if app.session.has('inschrijf.stap4') %}
+            {% set stap4 = app.session.get('inschrijf.stap4') %}
+        {% else %}
+           {% set stap4 = 'leeg' %}
+        {% endif %}
+        {% if app.session.has('inschrijf.stap5') %}
+            {% set stap5 = app.session.get('inschrijf.stap5') %}
+        {% else %}
+           {% set stap5 = 'leeg' %}
+        {% endif %}
+        {% if app.session.has('inschrijf.stap6') %}
+            {% set stap6 = app.session.get('inschrijf.stap6') %}
+        {% else %}
+           {% set stap6 = 'leeg' %}
+        {% endif %}
+
+        <div class="controle controle-stap3" {% if stap3 == 'leeg' %} style="display: none" {% endif %}>
+            {# Gegevens van stap3 #}
+
+            {# Kijk of er gegevens zijn opgeslagen in sessie
+                -> ja dan variabelen setten en laten zien
+                -> nee dan geen variabelen setten
+                #}
+            {% if stap3 != 'leeg' %}
+                {# Variabelen setten #}
+             {#   {% set [twig.variabele] = stap3['sessievariabele'] %} #}
+
+            {# Er staan een aantal namen tussen [] dat zijn voorbeelden en dienen aangepast te worden wanneer
+                stap 3 (selectie van verschillende races (4-6-2013)) wordt gebruikt!
+            #}
+
+            <div class="controle-block controle-[omschrijving_blok_uniek]">
+
+               <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input field-input-text-field">
+
+                       </div>
+                   </div>
+               </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="text-wrapper">
+            <div class="NL" {% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+                <span class="boldlabel">Gegevens
+                    <span class="controle-sub-titel">Stuurman
+                    </span>
+                    <span class="wijzig"><a href="{{ path('rot_inschrijf_inschrijf_stap4') }}">Wijzig</a>
+                        <span class="controle-sub-titel" {% if stap5 == 'leeg' %} style="display: none" {% endif %}>Fokkemaat 
+                            <span class="wijzig"><a href="{{ path('rot_inschrijf_inschrijf_stap5') }}">Wijzig</a>
+                            </span>
+                        </span>
+                    </span>
+                <div class="clear-both"></div>
+            </div>
+            <div class="EN" {% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+                <span class="boldlabel">Personalia 
+                    <span class="controle-sub-titel">Sailor
+                    </span>
+                    <span class="wijzig"><a href="{{ path('rot_inschrijf_inschrijf_stap4') }}">Change</a>
+                        <span class="controle-sub-titel"{% if stap5 == 'leeg' %} style="display: none" {% endif %}>Co-sailor
+                            <span class="wijzig"><a href="{{ path('rot_inschrijf_inschrijf_stap5') }}">Change</a>
+                            </span>
+                        </span>
+                    </span>
+                <div class="clear-both"></div>
+            </div>
+        </div>
+        <div class="controle-label controle-label-gegevens">
+        <div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-DOB">Geboortedatum</span>
+        </div>
+        <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-DOB">Date of birth</span>
+        </div>
+
+        <div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-Nat">Nationaliteit</span>
+        </div>
+        <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-Nat">Nationality</span>
+        </div>
+                
+        <div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-Gender">Geslacht</span>
+        </div>
+        <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-Gender">Gender</span>
+        </div>
+                
+        <div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-Watersport">Lidmaatschap watersportverbond</span>
+        </div>
+        <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-Watersport">Member watersportverbond</span>
+        </div>
+       
+        <div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-Mobiel">Telefoonnummer</span>
+        </div>
+        <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-Mobiel">Phone number</span>
+        </div>                
+
+        <div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-Noodnr">Telefoonnummer bij nood</span>
+        </div>
+        <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-Noodnr">Emergency number</span>
+        </div>
+                
+        <div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-Email">E-mail</span>
+        </div>
+        <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-Email">E-mail</span>
+        </div> 
+    </div>
+        {# Stap4 (gegevens van de stuurman) behoeft geen IF-statement
+            Een inschrijving bestaat minimaal uit een stuurman en een boot
+        #}
+        <div class="controle controle-stap4">
+            {# Gegevens van stap4 #}
+            {% set stuurmanVoornaam = stap4['stuurmanVoornaam'] %}
+            {% set stuurmanTussenvoegsel = stap4['stuurmanTussenVoegsel'] %}
+            {% set stuurmanAchternaam = stap4['stuurmanAchternaam'] %}
+
+            {% set stuurmanAdres = stap4['stuurmanAdres'] %}
+            {% set stuurmanHuisnummer = stap4['stuurmanHuisnummer'] %}
+            {% set stuurmanPostcode = stap4['stuurmanPostcode'] %}
+            {% set stuurmanWoonplaats = stap4['stuurmanWoonplaats'] %}
+
+            {% set stuurmanDOB = stap4['stuurmanDOB'] %}
+            {% set stuurmanNationaliteit = stap4['stuurmanNationaliteit'] %}
+            {% set stuurmanGeslacht = stap4['stuurmanGeslacht'] %}
+                
+            {% if stap4['watersportStuurman'] == '1' %}
+                {% set watersportStuurman = 'Ja' %}
+            {% else %}
+                {% set watersportStuurman = 'Nee' %}
+            {% endif %}
+            
+            {% set watersportNrStuurman = stap4['watersportNrStuurman'] %}
+            {% set stuurmanMobielNr = stap4['stuurmanMobielnr'] %}
+            {% set stuurmanNoodNr = stap4['stuurmanNoodnr'] %}
+            {% set stuurmanEmail = stap4['stuurmanEmail'] %}
+
+            <div class="controle-block controle-stuurman clear-both">
+
+               <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input field-input-text-field">
+                           {{ stuurmanVoornaam }} {{ stuurmanTussenvoegsel }} {{ stuurmanAchternaam }}
+                       </div>
+                   </div>
+               </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input field-input-text-field">
+                          {{ stuurmanAdres }}  {{ stuurmanHuisnummer }}
+                       </div>
+                   </div>
+               </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input field-input-text-field">
+                           {{ stuurmanPostcode }} {{ stuurmanWoonplaats }}
+                       </div>
+                   </div>
+               </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input controle-spacer input-date-field">
+                       <div class="field-input controle-spacer-field field-input-date-field">
+                            {{ stuurmanDOB|date('d-m-Y') }}
+                       </div>
+                   </div>
+                </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ stuurmanNationaliteit }}
+                       </div>
+                   </div>
+                </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ stuurmanGeslacht }}
+                       </div>
+                   </div>
+                </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ watersportStuurman }}
+                       </div>
+                   </div>
+                </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ watersportNrStuurman }}
+                       </div>
+                   </div>
+                </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ stuurmanMobielNr }}
+                       </div>
+                   </div>
+                </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ stuurmanNoodNr }}
+                       </div>
+                   </div>
+                </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ stuurmanEmail }}
+                       </div>
+                   </div>
+                </div>
+
+            </div>
+        </div>
+
+        {# Stap5 behoeft wel een IF-statement, immers een Fokmaat is niet verplicht #}
+        <div class="controle controle-stap5" {% if stap5 == 'leeg' %} style="display: none" {% endif %}>
+            {# Gegevens van stap5 #}
+            {% if stap5 != 'leeg' %}
+                {% set fokmaatVoornaam = stap5['fokmaatVoornaam'] %}
+                {% set fokmaatTussenvoegsel = stap5['fokmaatTussenVoegsel'] %}
+                {% set fokmaatAchternaam = stap5['fokmaatAchternaam'] %}
+
+                {% set fokmaatAdres = stap5['fokmaatAdres'] %}
+                {% set fokmaatHuisnummer = stap5['fokmaatHuisnummer'] %}
+                {% set fokmaatPostcode = stap5['fokmaatPostcode'] %}
+                {% set fokmaatWoonplaats = stap5['fokmaatWoonplaats'] %}
+
+                {% set fokmaatDOB = stap5['fokmaatDOB'] %}
+                {% set fokmaatNationaliteit = stap5['fokmaatNationaliteit'] %}
+                {% set fokmaatGeslacht = stap5['fokmaatGeslacht'] %}
+                {% if stap5['fokmaatBemanningslicentie'] == '1' %}
+                    {% set fokmaatBemanningslicentie = 'Ja' %}
+                {% else %}
+                    {% set fokmaatBemanningslicentie = 'Nee' %}
+                {% endif %}
+                {% set watersportNrFokmaat = stap5['fokmaatBemanningslicentieNr'] %}
+                {% set fokmaatMobielNr = stap5['fokmaatMobielnr'] %}
+                {% set fokmaatNoodNr = stap5['fokmaatNoodnr'] %}
+                {% set fokmaatEmail = stap5['fokmaatEmail'] %}
+
+            <div class="controle-block controle-fokmaat clear-both">
+
+               <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input field-input-text-field">
+                           {{ fokmaatVoornaam }} {{ fokmaatTussenvoegsel }} {{ fokmaatAchternaam }}
+                       </div>
+                   </div>
+               </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input field-input-text-field">
+                          {{ fokmaatAdres }}  {{ fokmaatHuisnummer }}
+                       </div>
+                   </div>
+               </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input field-input-text-field">
+                           {{ fokmaatPostcode }} {{ fokmaatWoonplaats }}
+                       </div>
+                   </div>
+               </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input controle-spacer input-text-field">
+                       <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ fokmaatDOB|date('d-m-Y') }}
+                       </div>
+                   </div>
+               </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ fokmaatNationaliteit }}
+                       </div>
+                   </div>
+               </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ fokmaatGeslacht }}
+                       </div>
+                   </div>
+               </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ fokmaatBemanningslicentie }}
+                       </div>
+                   </div>
+               </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ watersportNrFokmaat }}
+                       </div>
+                   </div>
+               </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ fokmaatMobielNr }}
+                       </div>
+                   </div>
+               </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ fokmaatNoodNr }}
+                       </div>
+                   </div>
+               </div>
+
+                <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ fokmaatEmail }}
+                       </div>
+                   </div>
+               </div>
+
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="text-wrapper text-wrapper-boot">
+           <div class="NL" {% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+               <span class="boldlabel">Bootgegevens</span>
+               <span class="wijzig"><a href="{{ path('rot_inschrijf_inschrijf_stap6') }}">Wijzig</a></span>
+               <div class="clear-both"></div>
+           </div>
+           <div class="EN" {% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+               <span class="boldlabel">Boat information</span>
+               <span class="wijzig"><a href="{{ path('rot_inschrijf_inschrijf_stap6') }}">Change</a></span>
+               <div class="clear-both"></div>
+           </div>
+        </div>
+
+        {# Labels Bootgegevens  #}
+        <div class="controle-label controle-label-boot">
+            
+        <div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-boottype">Boottype</span>
+        </div>
+        <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-boottype">Type of boat</span>
+        </div>
+        
+        <div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-zeilnummer">Zeilnummer</span>
+        </div>
+        <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-zeilnummer">Sailnumber</span>
+        </div>    
+
+        <div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-spinnaker">Spinnaker</span>
+        </div>
+        <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-spinnaker">spinnaker</span>
+        </div>            
+        
+        <div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-meetbrief">Meetbrief / Meetbriefnummer</span>
+        </div>
+        <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-meetbrief">Tonnage certificate / certificate number</span>
+        </div>  
+
+        <div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-reclame">Reclame op de boot / licentienummer</span>
+        </div>
+        <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-reclame">Advertisement on the boat / licence number</span>
+        </div>              
+
+        <div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-vereniging">Vereniging</span>
+        </div>
+        <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-vereniging">Association</span>
+        </div>              
+
+        <div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-spinnaker">Kenteken</span>
+        </div>
+        <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-spinnaker">Licence plate number</span>
+        </div>                          
+            
+            <div class="label label-input">
+              <span class="label-dutchOpen">Dutch Open</span>
+            </div>
+            <div class="label label-input">
+              <span class="label-horstocht">Horstocht</span>
+            </div>
+            <div class="label label-input">
+              <span class="label-tochtNoord">Tocht naar Noord</span>
+            </div>
+            
+        <div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-akkoordSponsor">Delen van uw gegevens</span>
+        </div>
+        <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-akkoordSponsor">Use of information</span>
+        </div>              
+            
+       </div>
+
+        {# Stap6 behoeft geen IF-statement, een inschrijving heeft een boot #}
+        <div class="controle controle-stap6">
+            {# Gegevens van stap6 #}
+            {% set boottype = stap6['boottype'] %}
+            {% set boottypeCustom = stap6['boottypeCustom'] %}
+            {% set zeilnummer = stap6['zeilnummer'] %}
+            {% if stap6['spinnaker'] == '1' %}
+                {% set spinnaker = 'Ja' %}
+            {% else %}
+                {% set spinnaker = 'Nee' %}
+            {% endif %}
+            {% if stap6['meetbrief'] == '1' %}
+                {% set meetbrief = 'Ja' %}
+            {% else %}
+                {% set meetbrief = 'Nee' %}
+            {% endif %}
+            {% set meetbriefNr = stap6['meetbriefNr'] %}
+            {% if stap6['reclame'] == '1' %}
+                {% set reclame = 'Ja' %}
+            {% else %}
+                {% set reclame = 'Nee' %}
+            {% endif %}
+            {% set reclameLicentie = stap6['reclameLicentie'] %}
+            {% if stap6['vereniging'] == '' %}
+                {% set vereniging = 'Geen' %}
+            {% else %}
+                {% set vereniging = stap6['vereniging'] %}
+            {% endif %}
+            {% set verenigingCustom = stap6['verenigingCustom'] %}
+            {% if stap6['kenteken'] == '' %}
+                {% set kenteken = 'Geen' %}
+            {% else %}
+                {% set kenteken = stap6['kenteken'] %}
+            {% endif %}
+            {% if stap6['DutchOpen'] == '1' %}
+                {% set DutchOpen = 'Ja' %}
+            {% else %}
+                {% set DutchOpen = 'Nee' %}
+            {% endif %}
+            {% if stap6['horstocht'] == '1' %}
+                {% set horstocht = 'Ja' %}
+            {% else %}
+                {% set horstocht = 'Nee' %}
+            {% endif %}
+            {% if stap6['tochtNoord'] == '1' %}
+                {% set tochtNoord = 'Ja' %}
+            {% else %}
+                {% set tochtNoord = 'Nee' %}
+            {% endif %}
+            {% if stap6['akkoordSponsor'] == '1' %}
+                {% set akkoordSponsor = 'Ja' %}
+            {% else %}
+                {% set akkoordSponsor = 'Nee' %}
+            {% endif %}
+
+
+            <div class="controle-block controle-boot">
+
+                 <div class="controle-row clear-both">
+                    <div class="input input-text-field">
+                        <div class="field-input controle-spacer-field field-input-text-field">
+                              {{ boottype }} {{ boottypeCustom }}
+                        </div>
+                    </div>
+                 </div>
+
+                <div class="controle-row clear-both">
+                    <div class="input input-text-field">
+                        <div class="field-input controle-spacer-field field-input-text-field">
+                              {{ zeilnummer }}
+                        </div>
+                    </div>
+                 </div>
+
+                <div class="controle-row clear-both">
+                    <div class="input input-text-field">
+                        <div class="field-input controle-spacer-field field-input-text-field">
+                              {{ spinnaker }}
+                        </div>
+                    </div>
+                 </div>
+
+                <div class="controle-row clear-both">
+                    <div class="input input-text-field">
+                        <div class="field-input controle-spacer-field field-input-text-field">
+                              {{ meetbrief }} / {{ meetbriefNr }}
+                        </div>
+                    </div>
+                 </div>
+
+                <div class="controle-row clear-both">
+                    <div class="input input-text-field">
+                        <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ reclame }} / {{ reclameLicentie }}
+                        </div>
+                    </div>
+                 </div>
+
+                <div class="controle-row clear-both">
+                    <div class="input input-text-field">
+                        <div class="field-input controle-spacer-field field-input-text-field">
+                              {{ vereniging }} {{ verenigingCustom }}
+                        </div>
+                    </div>
+                 </div>
+
+                <div class="controle-row clear-both">
+                    <div class="input input-text-field">
+                        <div class="field-input controle-spacer-field field-input-text-field">
+                              {{ kenteken }}
+                        </div>
+                    </div>
+                 </div>
+
+                <div class="controle-row clear-both">
+                    <div class="input input-text-field">
+                        <div class="field-input controle-spacer-field field-input-text-field">
+                              {{ DutchOpen }}
+                        </div>
+                    </div>
+                 </div>
+
+                <div class="controle-row clear-both">
+                    <div class="input input-text-field">
+                        <div class="field-input controle-spacer-field field-input-text-field">
+                              {{ horstocht }}
+                        </div>
+                    </div>
+                 </div>
+
+                <div class="controle-row clear-both">
+                    <div class="input input-text-field">
+                        <div class="field-input controle-spacer-field field-input-text-field">
+                              {{ tochtNoord }}
+                        </div>
+                    </div>
+                 </div>
+
+                <div class="controle-row clear-both">
+                    <div class="input input-text-field">
+                        <div class="field-input controle-spacer-field field-input-text-field">
+                              {{ akkoordSponsor }}
+                        </div>
+                    </div>
+                </div>
+
+
+
+       </div>
+
+        </div>
+
+
+
+    </div>
+
+    <form class="inschrijving" name="inschrijfStap7" action="{{ path('rot_inschrijf_inschrijf_savestap7') }}" method="post">
+
+        {{ form_rest(form) }}
+
+        {{ include('ROTInschrijfBundle:Inschrijf:formControls.html.twig', {
+            step: step,
+            pStep: pStep
+        }) }}
+    </form>
+{% endblock %}

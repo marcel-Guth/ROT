@@ -1,0 +1,153 @@
+
+/* Registratie.css  */
+/*
+Deze stylesheet is bedoeld voor het inschrijfsysteem waarmee zeilers zich opgeven
+voor de Ronde om Texel
+
+Deze stylesheet zal screen.css op verschillende punten overschrijven
+
+
+Auteur:     Jos Verhaar
+e-mail:     jos@h-o.nl
+website:    www.h-o.nl
+
+/*------------------------------------------------------------------------------------------------*/
+
+
+/* Imports & Fonts */
+
+
+/*------------------------------------------------------------------------------------------------*/
+
+
+
+
+/* Algemene opmaak van de pagina */
+
+#page { width: 900px; margin: 0 auto; padding: 25px; }
+
+#header { height: 110px; background: url("../../bundles/rotinschrijf/images/bg_rotn.jpg") bottom center no-repeat; border-bottom: solid 2px #D9010F;}
+
+.navigation_inschrijf {background: transparent; position: absolute; top: 165px; left: 190px; }
+.navigation_inschrijf ul {position: relative; width: 900px; margin: 0 auto; }
+.navigation_inschrijf ul li {background: #D3D3D3; padding: 10px 15px; margin-left: 20px; float: left; border: 1px solid #D9010F;}
+.navigation_inschrijf ul li:hover, .navigation_inschrijf ul li a:hover {background: #D9010F;}
+.navigation_inschrijf ul li a:link, #navigation ul li a:link:visited {font-family: HelveticaLight, arial, verdana, sans-serif; text-decoration: none; text-shadow: 0 1px 2px rgba(0,0,0,0.4);}
+.navigation_inschrijf .first {margin-left: 110px;}
+
+.navigation_inschrijf ul li a:link, .navigation_inschrijf ul li a:visited { font-family: HelveticaLight, arial, verdana, sans-serif; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.4);}
+
+.navigation_inschrijf .current {background: #D9010F;}
+
+.boldlabel {font-weight: bold; }
+
+.clear-both {clear: both; }
+.clear-left {clear: left; }
+.clear-right {clear: right; }
+
+.text-wrapper { margin-bottom: 50px; border-style: solid; border-color: grey; border-width: 1px; padding: 15px;background: lightgrey; }
+
+.important {color: #D9010F;}
+
+/*.develop {display: none;}*/
+
+.pagina-text{font-size: 15px;}
+
+.configuration-content { font-weight: bold;}
+
+.downloadable-content { margin-bottom: 25px; height: 50px;}
+.downloadable-content span { float: left;}
+
+/*------------------------------------------------------------------------------------------------*/
+
+
+
+/* Buttons */
+.button-wrapper {float: left; margin-right: 25px;}
+
+.button:link,
+.button:visited,
+.button { margin-bottom: 15px; background: lightgray; padding: 6px 13px; width: 100px; font-size: 13px; border: 1px solid #c8c8c8;}
+.buttonSluiten { margin-bottom: 15px; background: lightgray; padding: 6px 13px; width: 150px; font-size: 13px; border: 1px solid #c8c8c8; alignment-adjust: central;}
+
+.button:hover,
+.button:active {background: #fbfbfb; text-shadow: 0 -1px 1px rgba(255,255,255,1); border: 1px solid #c1c1c1; }
+.button input { }
+.button a { }
+
+
+
+
+
+/*------------------------------------------------------------------------------------------------*/
+
+/* Forms */
+
+.inschrijf-block { margin-bottom: 50px; }
+.inschrijf-naw { height: 320px; }
+.inschrijf-watersport { height: 150px; }
+.inschrijf-contact { height: 210px; }
+.inschrijf-boot { min-width: 300px; height: 250px; }
+.inschrijf-algemene-gegevens { height: 250px; }
+.inschrijf-row { margin-left: 15px; }
+
+.text-wrapper-boot {margin-top: 320px;}
+
+.controle-sub-titel {margin-left: 210px}
+.controle-block { margin-bottom: 50px; }
+.controle-row { margin-left: 15px; }
+.controle-stuurman, .controle-fokmaat {width: 200px}
+.controle-stuurman {}
+.controle-fokmaat {}
+.controle-stap4 {width: 200px; float: left; margin-left: 40px;}
+.controle-stap5 {width: 200px; float: left; margin-left: 65px;}
+.controle-stap6 {width: 200px; float: left; margin-left: 40px;}
+
+.controle-label {width: 200px; float: left; margin-left: 40px;}
+.controle-label .label {margin-bottom: 5px;}
+.controle-label-gegevens {padding-top: 80px; }
+
+/* This next 2 classes is special to generate a space between Person->NAW and rest info */
+.controle-spacer {margin-top: 40px;}
+.controle-spacer-field {margin-bottom: 5px;}
+/***********************************************/
+
+.input { float: left; }
+
+.label-input { float: left; width: 300px; }
+.label-input-extend { height: 35px; width: 270px; margin-right: 30px; }
+
+.field-input { float: left; }
+
+.field-input-text-field { }
+.field-input-text-field input { width: 207px;}
+
+#stap6_kenteken { text-transform: uppercase; }
+
+.field-input-number {}
+.field-input-number input {width: 207px;}
+
+.field-input-email {}
+.field-input-email input { width: 207px;}
+
+.iframe-NOR { width: 900px; height: 2000px; margin-bottom: 50px;}
+.iframe-mail { width: 817px; height: 605px; margin-bottom: 50px;}
+
+.form-buttons {margin-top: 25px; clear: both; float: left; }
+
+/* Taalselectie (uitzondering op de regel) */
+.flag {float: left; margin: 5px 10px 7px 10px;}
+#stap1_taal_0 {float: left;}
+#stap1_taal_1 {float: left; clear: both;}
+#stap1_taal {float: left;}
+#stap1_taal label {float: left; padding: 5px;}
+/*----------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------------*/
+
+
+
+
+/*  */
+
+/*------------------------------------------------------------------------------------------------*/

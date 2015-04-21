@@ -1,0 +1,17 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Vereniging "{{vereniging}}"{% endblock %}
+{% block inner_content %}
+    {{ include('ROTIISBundle:Vereniging:_object_actions.html.twig', {"vereniging": vereniging}) }}
+    <table>
+        <thead>
+            <tr>
+                <th>Versie</th>
+                <th>Wijziging</th>
+                <th>Door</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+{% endblock %}

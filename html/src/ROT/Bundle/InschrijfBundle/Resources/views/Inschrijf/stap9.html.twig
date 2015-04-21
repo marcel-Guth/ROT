@@ -1,0 +1,38 @@
+{% extends "ROTInschrijfBundle::layout_stap9.html.twig" %}
+
+{# Zorgen dat de pagina titel, Hoofdtitel en subtitel worden aangepast aan de taal van de user #}
+
+{% block pageTitle %}
+    {% if lang == 'nl' %}
+        {{ siteRegistratieTitel | raw }}
+    {% else %}
+        {{ siteRegistratieTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{%  block siteTitle %}
+    {% if lang == 'nl' %}
+        {{ siteTitel | raw }}
+    {% else %}
+        {{ siteTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{%  block subTitle %}
+    {% if lang == 'nl' %}
+        {{ siteOnderTitel | raw }}
+    {% else %}
+        {{ siteOnderTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{% block page %}
+    <div>
+        {% if lang == 'nl' %} Onderstaand bericht is naar u toe verzonden en is binnen enkele minuten te vinden in uw mailbox. {% else %} This message has also been sent to you by e-mail. You will receive it within the next few minutes. {% endif %} </br></br>
+    </div>
+        {{ mailHTML | raw }}
+    
+    <div class="button-wrapper">
+        <button type="button" class="buttonSluiten" onclick="location.href='http://www.roundtexel.com'; ">{% if lang == 'nl' %} Inschrijving afronden. {% else %} Finish registration. {% endif %}</button>
+    </div>
+{% endblock %}

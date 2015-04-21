@@ -1,0 +1,6 @@
+{% extends "ROTPBSBundle::layout.html.twig" %}
+{% block title %}Parkeerkaart "{{parkeerkaart}}"{% endblock %}
+{% block inner_content %}
+    {{ include('ROTPBSBundle:Parkeerkaart:_object_actions.html.twig', {"parkeerkaart": parkeerkaart}) }}
+    {{ include('ROTPBSBundle:Parkeerkaart:_object.html.twig', {"parkeerkaart": parkeerkaart}) }}
+{% endblock %}

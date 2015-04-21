@@ -1,0 +1,18 @@
+{% extends "ROTAdminBundle::admin_layout.html.twig" %}
+{% block title %}Overzicht{% endblock %}
+{% block inner_content %}
+<table class="overzichtstabel">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Aantal</th>
+		</tr>
+	</thead>
+	<tbody>
+        <tr>
+            <th>Gebruikers</th>
+            <td>{{ overzicht.gebruikers.aantal }}</td>
+        </tr>
+	</tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,59 @@
+jms_security_extra:
+    secure_all_services: false
+    expressions: true
+
+security:
+    encoders:
+        Symfony\Component\Security\Core\User\User: 
+            algorithm: sha1
+            iterations: 1
+            encode_as_base64: false
+        ROT\Bundle\AdminBundle\Entity\Gebruiker: 
+            id: rot.admin.security.encoder
+
+    role_hierarchy:
+        ROLE_SUPERUSER: 
+            - ROLE_BEKIJK_GEBRUIKERS
+            - ROLE_WIJZIG_GEBRUIKERS
+            - ROLE_CONFIGUREER_RACE
+            - ROLE_CONFIGUREER_APPLICATIE
+            - ROLE_CONFIGUREER_INSCHRIJF
+            - ROLE_WIJZIG_IIS
+            - ROLE_WIJZIG_PBS
+            - ROLE_WIJZIG_RBS
+
+    providers:
+        chain_provider:
+            chain:
+                providers: [memory_provider, entity_provider]
+        memory_provider:
+            memory:
+                users:
+                    root: 
+                        password: b310b766743f494ef0ddbc55c9ca202755f4e52b
+                        roles: [ROLE_SUPERUSER]
+        entity_provider:
+            entity: 
+                class: ROT\Bundle\AdminBundle\Entity\Gebruiker
+                property: username
+              
+                
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        login:
+            pattern:  ^/admin/login$
+            security: false
+        admin:
+            pattern:    ^/admin
+            form_login:
+                check_path: /admin/login_check
+                login_path: /admin/login
+                default_target_path: /admin
+            logout:
+                path:   /admin/logout
+                target: /admin
+
+    access_control:
+        - { path: ^/admin, roles: IS_AUTHENTICATED_FULLY }

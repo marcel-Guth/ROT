@@ -1,0 +1,78 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Corrigeren{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+        'bundles/rotiis/js/corrigeren.js'
+    %}
+<script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+        'bundles/rotiis/css/corrigeren.css'
+        filter="cssrewrite"
+    %}
+<link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+{% block inner_content %}
+<h1>Handmatig corrigeren finishtijden</h1><br>
+<div>
+    <form>
+        <label for="filter">Zoek op startnummer</label>
+        <input name="filter" type="text" onkeyup="filterDeelnames(this.value);" />
+    </form>
+</div><br>
+{% if deelnames != null %}
+    <table>
+        <tr>
+            <th>
+                Startnummer
+            </th>
+            <th>
+                Finishtijd 
+            </th>
+            <th>
+                Gecorrigeerd
+            </th>
+            <th>
+                Correctiefactor
+            </th>
+            <th>
+                Correctie
+            </th>
+            <th>
+                Herbereken
+            </th>
+        </tr>
+                {% for deelname in deelnames %}
+        <tr>
+            <td class="startnummer">
+                       {{deelname.startnummer}} 
+            </td>
+            <td id="{{deelname.id}}" class="finishtijd">
+                        {{deelname.getFinishtijdString()}}
+            </td>
+            <td>
+                {{deelname.getGecorrigeerdeFinishtijdString()}}
+            </td>
+            <td>
+                <input type="text" name="correctiefactor{{deelname.id}}" id="correctiefactor{{deelname.id}}" value="1"/>
+            </td>
+            <td>
+                <input type="text" name="correctie{{deelname.id}}" id="correctie{{deelname.id}}" value="0"/>
+            </td>
+            <td>
+                <button onclick="herberekenGecorrigeerdeFinishtijd({{deelname.id}}, parseFloat(document.getElementById('correctiefactor{{deelname.id}}').value), parseFloat(document.getElementById('correctie{{deelname.id}}').value));">
+                    Corrigeer
+                </button>
+            </td>
+        </tr>
+                  {% endfor %}
+    </table>
+{% else %}
+<p>Er zijn nog geen finishtijden om te corrigeren.</p>
+{% endif %}
+{% endblock %}

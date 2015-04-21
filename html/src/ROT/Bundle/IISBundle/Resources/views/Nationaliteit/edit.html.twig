@@ -1,0 +1,11 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Wijzig nationaliteit "{{nationaliteit}}"{% endblock %}
+{% block inner_content %}
+    {{ include('ROTIISBundle:Nationaliteit:_object_actions.html.twig', {"nationaliteit": nationaliteit}) }}
+    <form novalidate action="{{path('rot_iis_nationaliteit_update', {'id': nationaliteit.id})}}" method="POST" {{form_enctype(form)}}>
+        {{  include('ROTIISBundle:Nationaliteit:_form.html.twig', {'form': form}) }}
+        {{ form_rest(form) }}
+        <input type="hidden" name="_method" value="PUT" />
+        <input type="submit" value="Opslaan" />
+    </form>
+{% endblock %}

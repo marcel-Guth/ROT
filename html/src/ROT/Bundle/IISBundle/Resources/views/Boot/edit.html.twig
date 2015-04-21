@@ -1,0 +1,11 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Wijzig boot "{{boot}}"{% endblock %}
+{% block inner_content %}
+    {{ include('ROTIISBundle:Boot:_object_actions.html.twig', {"boot": boot}) }}
+    <form novalidate action="{{ path('rot_iis_boot_update', {'id': boot.id}) }}" method="POST" {{ form_enctype(form) }}>
+        {{ include('ROTIISBundle:Boot:_form.html.twig', {'form': form}) }}
+        {{ form_rest(form) }}
+        <input type="hidden" name="_method" value="PUT" />
+        <input type="submit" value="Opslaan" />
+    </form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Nationaliteit "{{nationaliteit}}"{% endblock %}
+{% block inner_content %}
+    {{ include('ROTIISSBundle:Nationaliteit:_object_actions.html.twig', {"nationaliteit": nationaliteit}) }}
+    <table>
+        <thead>
+            <tr>
+                <th>Versie</th>
+                <th>Wijziging</th>
+                <th>Door</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+{% endblock %}

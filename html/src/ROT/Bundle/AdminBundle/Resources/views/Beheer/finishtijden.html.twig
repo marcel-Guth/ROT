@@ -1,0 +1,15 @@
+{% extends "ROTAdminBundle::beheer_layout.html.twig" %}
+{% block title %}Finishtijden{% endblock %}
+{% block inner_content %}
+    <h3>Upload finishtijden</h3>
+    <form action="{{ path('rot_admin_beheer_uploadfinishtijden') }}" method="POST" {{ form_enctype(upload_form) }}>
+        {{ form_row(upload_form.bestand) }}
+        {{ form_rest(upload_form) }}
+        <input type="submit" value="Uploaden" />
+    </form>
+    <h3>Bereken gecorrigeerde finishtijden</h3>
+    <form action="{{ path('rot_admin_beheer_generatecorrectedfinishtijden') }}" method="POST" {{ form_enctype(correct_form) }}>
+        {{ form_rest(correct_form) }}
+        <input type="submit" value="Uitvoeren" />
+    </form>
+{% endblock %}

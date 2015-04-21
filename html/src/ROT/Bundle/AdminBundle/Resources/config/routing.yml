@@ -1,0 +1,23 @@
+admin:
+    resource: "@ROTAdminBundle/Controller"
+    type:     annotation
+
+iis:
+    resource: "@ROTIISBundle/Resources/config/routing.yml"
+    prefix:   /iis
+  
+pbs:
+    resource: "@ROTPBSBundle/Resources/config/routing.yml"
+    prefix:   /pbs
+    
+rbs:
+    resource: "@ROTRBSBundle/Resources/config/routing.yml"
+    prefix:   /rbs
+    
+# deze routes zijn nodig voor het security mechanisme:
+rot_admin_login_check:
+    path:			/login_check
+    methods:	POST
+    
+rot_admin_logout:
+    path:			/logout

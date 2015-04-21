@@ -1,0 +1,45 @@
+<h2>Er zijn {{aantal}} boten aangemeld.</h2>
+<table>
+    <tr>
+    <th>
+        #
+    </th>
+    <th>
+        Voornaam
+    </th>
+    <th>
+        Achternaam
+    </th>
+    </tr>
+  {% for deelname in deelnames %}
+    <tr {%if loop.index % 2%}style="background-color: #ddddff"{% endif%}>
+        <td>
+        {{loop.index}}
+        </td>
+        <td>
+            <table>
+                <tr>
+                    <td>{{deelname.stuurman.deelnemer.voornaam}}</td>
+                </tr>
+                {% if deelname.fokkemaat != null %}
+                <tr>
+                    <td>{{deelname.fokkemaat.deelnemer.voornaam}}</td>
+                </tr>
+                {% endif %}
+            </table>
+        </td>
+        <td>
+            <table>
+                <tr>
+                    <td>{{deelname.stuurman.deelnemer.tussenvoegsel}} {{deelname.stuurman.deelnemer.achternaam}}</td>
+                </tr>
+                {% if deelname.fokkemaat != null %}
+                <tr>
+                    <td>{{deelname.fokkemaat.deelnemer.tussenvoegsel}} {{deelname.fokkemaat.deelnemer.achternaam}}</td>
+                </tr>
+                {% endif %}
+            </table>
+        </td>
+    </tr>
+  {% endfor %}
+</table>

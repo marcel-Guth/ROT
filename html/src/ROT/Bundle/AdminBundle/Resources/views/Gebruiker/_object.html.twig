@@ -1,0 +1,43 @@
+<tbody>
+    <tr>
+        <td>Naam:</td>
+        <td>{{ show_row('', gebruiker.naam) }}</td>
+    </tr>
+    <tr>
+        <td>Username:</td>
+        <td>{{ show_row('', gebruiker.username) }}</td>
+    </tr>
+    <tr>
+        <td>Gebruikers bekijken</td>
+        <td>{{ show_row('', "ROLE_BEKIJK_GEBRUIKERS" in gebruiker.roles ? 'Ja' : 'Nee') }}</td>
+    </tr>
+    <tr>
+        <td>Gebruikers wijzigen</td>
+        <td>{{ show_row('', "ROLE_WIJZIG_GEBRUIKERS" in gebruiker.roles ? 'Ja' : 'Nee') }}</td>
+    </tr>
+    <tr>
+        <td>Race configureren</td>
+        <td>{{ show_row('', "ROLE_CONFIGUREER_RACE" in gebruiker.roles ? 'Ja' : 'Nee') }}</td>
+    </tr>
+    <tr>
+        <td>Applicatie configureren</td>
+        <td>{{ show_row('', "ROLE_CONFIGUREER_APPLICATIE" in gebruiker.roles ? 'Ja' : 'Nee') }}</td>
+    </tr>
+    <tr>
+        <td>Inschrijfapplicatie configureren</td>
+        <td>{{ show_row('', "ROLE_CONFIGUREER_INSCHRIJF" in gebruiker.roles ? 'Ja' : 'Nee') }}</td>
+    </tr>
+    <tr>
+        <td>IIS gegevens wijzigen</td>
+        <td>{{ show_row('', "ROLE_WIJZIG_IIS" in gebruiker.roles ? 'Ja' : 'Nee') }}</td>
+    </tr>
+    <tr>
+        <td>PBS gegevens wijzigen</td>
+        <td>{{ show_row('', "ROLE_WIJZIG_PBS" in gebruiker.roles ? 'Ja' : 'Nee') }}</td>
+    </tr>
+    <tr>
+        <td>RBS gegevens wijzigen</td>
+        <td>{{ show_row('', "ROLE_WIJZIG_RBS" in gebruiker.roles ? 'Ja' : 'Nee') }}</td>
+    </tr>
+</tbody>
+</table>

@@ -1,0 +1,18 @@
+<div class="form-row {% if form.bedrag.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.bedrag) }}</div>
+    <div class="widget">{{ form_widget(form.bedragmodifier) }}{{ form_widget(form.bedrag) }}</div>
+    <div class="error">{{ form_errors(form.bedrag) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.betaaldatum.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.betaaldatum) }}</div>
+    <div class="widget">{{ form_widget(form.betaaldatummodifer) }}{{ form_widget(form.betaaldatum) }}</div>
+    <div class="error">{{ form_errors(form.betaaldatum) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.afschriftnummer.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.afschriftnummer) }}</div>
+    <div class="widget">{{ form_widget(form.afschriftnummer) }}</div>
+    <div class="error">{{ form_errors(form.afschriftnummer) }}</div>
+    <div class="clearfix"></div>
+</div>

@@ -1,0 +1,67 @@
+<?php
+
+namespace ROT\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Betrokkene
+ *
+ * @ORM\Table(name="betrokkene")
+ * @ORM\Entity
+ */
+class Betrokkene
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="parkeerkaartid", type="integer", nullable=true)
+     */
+    private $parkeerkaartid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="organisatieid", type="integer", nullable=true)
+     */
+    private $organisatieid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="voornaam", type="string", length=100, nullable=false)
+     */
+    private $voornaam;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tussenvoegsel", type="string", length=50, nullable=false)
+     */
+    private $tussenvoegsel;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="achternaam", type="string", length=100, nullable=false)
+     */
+    private $achternaam;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="soort", type="string", length=50, nullable=false)
+     */
+    private $soort;
+
+
+}

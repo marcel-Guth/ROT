@@ -1,0 +1,156 @@
+{% extends "ROTCoreBundle::layout.html.twig" %}
+{% block pageTitle %} RoT - Finishlijst {% endblock %}
+{% block title %}Resultaten{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+        'bundles/rotiis/js/results.js'
+    %}
+<script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+        'bundles/rotiis/css/finish.css'
+        filter="cssrewrite"
+    %}
+<link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+{% block body %}
+<h1>Resultaten</h1>
+{% if klassen != null %}
+    {% for klasse in klassen %}
+        {% if klasse.getNaam() == 'First 3 Finishers' %}
+            {% set klassedeelnames = klasse.getFirst3()%}
+        {% else %}
+            {% set klassedeelnames = klasse.getDeelnamesSorted()%}
+        {% endif %}
+        {% if klassedeelnames|length > 0 %}
+            <br><br>
+            <p><a href="javascript:toggleTable('{{klasse.getNaam()}}table')"><b>{{klasse.getNaam()}}</b></a></p>
+            <table class="admin-table dataTable" id="{{klasse.getNaam()}}table" style="display: none">
+                <thead>
+                <tr>
+                    <th>
+                        Positie / Position
+                    </th>
+                    <th>
+                        Startnummer / Start#
+                    </th>
+                    {% if klasse.getType() != 'Boot' %}
+                    <th>
+                        Boottype
+                    </th>
+                    {% endif %}
+                    <th>
+                        Spinnaker
+                    </th>
+                    <th>
+                        Texelrating
+                    </th>
+                    <th>
+                        Team
+                    </th>
+                    <th>
+                        Finishtijd / finish time
+                    </th>
+                    <th>
+                        Gecorrigeerde tijd / corrected time
+                    </th>
+                </tr>    
+                </thead>
+                <tbody>
+            {% for klassedeelname in klassedeelnames %}
+                <tr>
+                    <td>
+                        {{loop.index}}
+                    </td>
+                    <td>
+                        {{klassedeelname.getStartnummer()}} 
+                    </td>
+                    {% if klasse.getType() != 'Boot' %}
+                    <td>
+                        {{klassedeelname.getBoot().getType()}}
+                    </td>
+                    {% endif %}
+                    <td>
+                        {%if (klassedeelname.getSpinnaker())%}
+                        Ja / Yes
+                        {%else%}
+                        Nee / No
+                        {%endif%}
+                    </td>
+                    <td>
+                        {%if (klassedeelname.getSpinnaker())%}
+                            {{klassedeelname.getBoot().getSpinnakerrating()}}
+                        {%else%}
+                            {{klassedeelname.getBoot().getNormalrating()}}
+                        {%endif%}
+                    </td>
+                    <td>
+                    {% if(klassedeelname.fokkemaat is null) %}
+                        {{klassedeelname.stuurman.deelnemer.getNaam()}}
+                    {% else %}
+                        {{klassedeelname.stuurman.deelnemer.getNaam()}}/{{klassedeelname.fokkemaat.deelnemer.getNaam()}}
+                    {% endif %}
+                    </td>
+                    <td>
+                        {{klassedeelname.getFinishtijdString()}}
+                    </td>
+                    <td>
+                        {{klassedeelname.getGecorrigeerdeFinishtijdString()}}
+                    </td>
+                </tr>
+            {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    {% endfor %}
+    {% if verenigingklassen != null %}
+            {% if verenigingklassen|length > 0 %}
+                    <br><br>
+                    <p><a href="javascript:toggleTable('gemiddeldentable')"><b>Vereniginggemiddelden</b></a></p>
+                    <table class="admin-table dataTable" id="gemiddeldentable" style="display: none">
+                        <thead>
+                        <tr>
+                            <th>
+                                Positie / Position
+                            </th>
+                            <th>
+                                Vereniging
+                            </th>
+                            <th>
+                                Finishtijd / finish time
+                            </th>
+                            <th>
+                                Gecorrigeerde tijd / corrected time
+                            </th>
+                        </tr>    
+                        </thead>
+                        <tbody>
+                    {% for key, verenigingklasse in verenigingklassen %}
+                        <tr>
+                            <td>
+                                {{loop.index}}
+                            </td>
+                            <td>
+                                {{ key }} 
+                            </td>
+                            <td>
+                                {{verenigingklasse.getGemiddeldeFinishtijdString()}}
+                            </td>
+                            <td>
+                                {{verenigingklasse.getGemiddeldeGecorrigeerdeFinishtijdString()}}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                        </tbody>
+                    </table>
+            {% endif %}
+    {% endif %}
+{% else %}
+<p>Er zijn geen klassen gegenereerd.</p>
+{% endif %}
+{% endblock %}

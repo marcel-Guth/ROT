@@ -1,0 +1,144 @@
+<?php
+
+namespace ROT\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Street
+ *
+ * @ORM\Table(name="street")
+ * @ORM\Entity
+ */
+class Street
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created", type="datetime", nullable=false)
+     */
+    private $created;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated", type="datetime", nullable=false)
+     */
+    private $updated;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="active", type="boolean", nullable=true)
+     */
+    private $active;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="source_id", type="integer", nullable=false)
+     */
+    private $sourceId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="chars", type="string", length=2, nullable=true)
+     */
+    private $chars;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="street", type="string", length=255, nullable=true)
+     */
+    private $street;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="even", type="boolean", nullable=false)
+     */
+    private $even;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="low", type="integer", nullable=true)
+     */
+    private $low;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="high", type="integer", nullable=true)
+     */
+    private $high;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="lowcapped", type="boolean", nullable=true)
+     */
+    private $lowcapped;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="highcapped", type="boolean", nullable=true)
+     */
+    private $highcapped;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="lat", type="decimal", nullable=true)
+     */
+    private $lat;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="lng", type="decimal", nullable=true)
+     */
+    private $lng;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="postcode_id", type="integer", nullable=true)
+     */
+    private $postcodeId;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="pobox", type="boolean", nullable=true)
+     */
+    private $pobox;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="unsure", type="boolean", nullable=true)
+     */
+    private $unsure;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="subtitle", type="string", length=255, nullable=true)
+     */
+    private $subtitle;
+
+
+}

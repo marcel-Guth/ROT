@@ -1,0 +1,34 @@
+{% extends "ROTRBSBundle::layout.html.twig" %}
+{% block title %}Betrokkene "{{betrokkene}}"{% endblock %}
+{% block inner_content %}
+    {{ include('ROTRBSBundle:Betrokkene:_object_actions.html.twig', {"betrokkene": betrokkene}) }}
+    <table>
+        <thead>
+            <tr>
+                <th>Versie</th>
+                <th>Wijziging</th>
+                <th>Door</th>
+                <th>Acties</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log_entry in log_entries %}
+                <tr>
+                    <td>{{ log_entry.version }}</td>
+                    <td>
+                        <pre>{{ log_entry.data|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+                    </td>
+                    <td>{{ log_entry.username }}</td>
+                    <td>
+                        {% if is_granted('ROLE_WIJZIG_RBS') %}
+                            <a href="{{ path('rot_rbs_betrokkene_revert', {
+                                'id': betrokkene.id,
+                                'version': log_entry.version
+                            }) }}" data-method="POST"><img src="{{ asset('bundles/rotadmin/images/revert.png') }}" /></a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

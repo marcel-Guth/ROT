@@ -1,0 +1,6 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Nationaliteit {{nationaliteit}}{% endblock %}
+{% block inner_content %}
+    {{ include('ROTIISBundle:Nationaliteit:_object_actions.html.twig', {"nationaliteit": nationaliteit}) }}
+    {{ include('ROTIISBundle:Nationaliteit:_object.html.twig', {"nationaliteit": nationaliteit}) }}
+{% endblock %}

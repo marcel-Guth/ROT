@@ -1,0 +1,22 @@
+{% set route = app.request.attributes.get('_route') %}
+<table>
+    <thead>
+        <th colspan="2"><a href="{{path('rot_admin_gebruiker_index')}}">Index</a>
+            {% if route != 'rot_admin_gebruiker_new' %}
+                {% if route != 'rot_admin_gebruiker_show' %}
+                <a href="{{path('rot_admin_gebruiker_show', {'id': gebruiker.id})}}">Bekijk</a>
+            {% endif %}
+            {% if is_granted('ROLE_WIJZIG_GEBRUIKERS') %}
+                {% if route != 'rot_admin_gebruiker_edit' %}
+                    <a href="{{path('rot_admin_gebruiker_edit', {'id': gebruiker.id})}}">Wijzig</a>
+                {% endif %}
+                {% if route != 'rot_admin_gebruiker_editpassword' %}
+                    <a href="{{path('rot_admin_gebruiker_editpassword', {'id': gebruiker.id})}}">Wijzig wachtwoord</a>
+                {% endif %}
+                <a href="{{path('rot_admin_gebruiker_delete', {'id': gebruiker.id})}}" data-method="DELETE">Verwijder</a>
+            {% endif %}
+            {% if route != 'rot_admin_gebruiker_log' %}
+                <a href="{{ path('rot_admin_gebruiker_log', {'id': gebruiker.id}) }}">Log</a>
+            {% endif %}
+        {% endif %}
+    </thead>

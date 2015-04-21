@@ -1,0 +1,34 @@
+{% extends "ROTPBSBundle::layout.html.twig" %}
+{% block title %}Parkeerkaart "{{parkeerkaart}}"{% endblock %}
+{% block inner_content %}
+    {{ include('ROTPBSBundle:Betrokkene:_object_actions.html.twig', {"betrokkene": betrokkene}) }}
+    <table>
+        <thead>
+            <tr>
+                <th>Versie</th>
+                <th>Wijziging</th>
+                <th>Door</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log_entry in log_entries %}
+                <tr>
+                    <td>{{ log_entry.version }}</td>
+                    <td>
+                        <pre>{{ log_entry.data|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+                    </td>
+                    <td>{{ log_entry.username }}</td>
+                    <td>
+                        {% if is_granted('ROLE_WIJZIG_PBS') %}
+                            <a href="{{ path('rot_pbs_parkeerkaart_revert', {
+                                'id': parkeerkaart.id,
+                                'version': log_entry.version
+                            }) }}" data-method="POST"><img src="{{ asset('bundles/rotadmin/images/revert.png') }}" /></a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

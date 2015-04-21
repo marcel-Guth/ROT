@@ -1,0 +1,146 @@
+<table>
+    <thead>
+        <h3>Algemene informatie</h3>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ form_row(form.inschrijfdatum) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.nederlands) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.reserveringscode) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.zeilnummer) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.startnummer) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.meetbrief) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.meetbriefnummer) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.persoonlijkereclamelicentie) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.persoonlijkereclamelicentienummer) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.reclame) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.sponsor) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.spinnaker) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.fleet) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.boot) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.vereniging) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.bootklasse) }}</td>
+        </tr>
+    </tbody>
+</table>
+<br />
+<table>
+    <thead>
+        <h3>Ingeschreven voor</h3>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ form_row(form.dutchopenstatus) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.horstochtstatus) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.nacrachampstatus) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.tochtnoordstatus) }}</td>
+        </tr>
+    </tbody>
+</table>
+<br />
+<table>
+    <thead>
+        <h3>Statussen</h3>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ form_row(form.aangemeld) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.afgemeld) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.racestatus) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.verzekeringsbewijsstatus) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.xcbstatus) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.bevestigingbriefstatus) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.helaasbriefstatus) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.memberstatus) }}</td>
+        </tr>
+    </tbody>
+</table>
+<br />
+<table>
+    <thead>
+    <h3>Finishtijd</h3>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ form_row(form.finishtijd) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.modrating) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.gecorrigeerde_finishtijd) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_row(form.uitzondering) }}</td>
+        </tr>
+    </tbody>
+</table>
+<br />
+
+<h3>{{ form_label(form.stuurman) }}</h3>
+<div class="admin-subform">
+    {{ include('ROTIISBundle:Deelname:_stuurman_form.html.twig', {'form': form.stuurman}) }}
+</div>
+<h3>{{ form_label(form.fokkemaat) }} {{ form_widget(form.fokkemaat.toggle) }}</h3>
+<div id="deelname_fokkemaat_subform" class="admin-subform">
+    {{ include('ROTIISBundle:Deelname:_fokkemaat_form.html.twig', {'form': form.fokkemaat.subtype}) }}
+</div>
+<h3>{{ form_label(form.betaling) }} {{ form_widget(form.betaling.toggle) }}</h3>
+<div id="deelname_betaling_subform" class="admin-subform">
+    {{ include('ROTIISBundle:Deelname:_betaling_form.html.twig', {'form': form.betaling.subtype}) }}
+</div>
+<h3>{{ form_label(form.borg) }} {{ form_widget(form.borg.toggle) }}</h3>
+<div id="deelname_borg_subform" class="admin-subform">
+    {{ include('ROTIISBundle:Deelname:_borg_form.html.twig', {'form': form.borg.subtype}) }}
+</div>
+{{ form_errors(form) }}

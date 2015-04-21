@@ -1,0 +1,347 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Corrigeren{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+        'bundles/rotiis/js/NAWExport.js'
+    %}
+<script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+        'bundles/rotiis/css/NAWExport.css'
+        filter="cssrewrite"
+    %}
+<link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+{% block inner_content %}
+<select id="tableSelect" onchange="showHideTable();">
+    <option value="NAWExportTable">NAW</option>
+    <option value="StartbewijzenTable">Startbewijzen</option>
+    <option value="DiversenTable">Diversen</option>
+</select>
+<input type="button" id="NAWExportTableButton" onclick="tableToExcel('NAWExportTable', 'export tabel');" value="Export to Excel">
+<input type="button" id="StartbewijzenTableButton" style="display: none" onclick="tableToExcel('StartbewijzenTable', 'export tabel');" value="Export to Excel">
+<input type="button" id="DiversenTableButton" style="display: none" onclick="tableToExcel('DiversenTable', 'export tabel');" value="Export to Excel">
+<br>
+{% if deelnames != null %}
+<table class="admin-table" id="NAWExportTable">
+    <tr>
+        <th>
+            Startnummer
+        </th>
+        <th>
+            Naam 
+        </th>
+        <th>
+            Adres
+        </th>
+        <th>
+            Postcode
+        </th>
+        <th>
+            Woonplaats
+        </th>
+        <th>
+            Land
+        </th>
+    </tr>
+{% for deelname in deelnames %}
+    <tr {%if loop.index % 2%}style="background-color: #ddddff"{% endif%}>
+        <td>
+            {{deelname.startnummer}}
+        </td>
+        <td>
+            {{deelname.stuurman.deelnemer.naam}}
+        </td>
+        <td>
+            {{deelname.stuurman.deelnemer.adres}} {{deelname.stuurman.deelnemer.huisnummer}}
+        </td>
+        <td>
+            {{deelname.stuurman.deelnemer.postcode}}
+        </td>
+        <td>
+            {{deelname.stuurman.deelnemer.woonplaats}}
+        </td>
+        <td>
+            {{deelname.stuurman.deelnemer.land}}
+        </td>
+    </tr>
+{% endfor %}
+</table>
+
+<table class="admin-table" id="StartbewijzenTable" style="display: none">
+    <tr>
+        <th>
+            Boottype
+        </th>
+        <th>
+            Bootklasse
+        </th>
+        <th>
+            Bootrating
+        </th>
+        <th>
+            Spinnakerrating
+        </th>
+        <th>
+            Custom boot
+        </th>
+        <th>
+            Voornaam stuurman
+        </th>
+        <th>
+            Achternaam stuurman
+        </th>
+        <th>
+            Voornaam fokkemaat
+        </th>
+        <th>
+            Achternaam fokkemaat
+        </th>
+        <th>
+            Zeilnummer
+        </th>
+        <th>
+            Startnummer
+        </th>
+        <th>
+            Spinnaker
+        </th>
+    </tr>
+{% for deelname in deelnames %}
+    <tr {%if loop.index % 2%}style="background-color: #ddddff"{% endif%}>
+        <td>
+            {{deelname.boot.type}}
+        </td>
+        <td>
+            {{deelname.boot.klasse}}
+        </td>
+        <td>
+            {{deelname.boot.normalrating}}
+        </td>
+        <td>
+            {{deelname.boot.spinnakerrating}}
+        </td>
+        <td>
+            {{deelname.boot.iscustom ? "Ja" : "Nee"}}
+        </td>
+        <td>
+            {{deelname.stuurman.deelnemer.voornaam}}
+        </td>
+        <td>
+            {{deelname.stuurman.deelnemer.tussenvoegsel}} {{deelname.stuurman.deelnemer.achternaam}}
+        </td>
+        <td>
+            {% if deelname.fokkemaat is not null %}
+                {{deelname.fokkemaat.deelnemer.voornaam}}
+            {% endif %}
+        </td>
+        <td>
+            {% if deelname.fokkemaat is not null %}
+                {{deelname.fokkemaat.deelnemer.tussenvoegsel}} {{deelname.fokkemaat.deelnemer.achternaam}}
+            {% endif %}
+        </td>
+        <td>
+            {{deelname.zeilnummer}}
+        </td>
+        <td>
+            {{deelname.startnummer}}
+        </td>
+        <td>
+            {{deelname.spinnaker == 1 ? "Ja" : "Nee"}}
+        </td>
+    </tr>
+{% endfor %}
+</table>
+
+<table class="admin-table" id="DiversenTable" style="display: none;">
+    <tr>
+	<th>
+            Boottype
+	</th>
+	<th>
+            Bootklasse
+	</th>
+	<th>
+            Bootrating
+	</th>
+	<th>
+            Spinnakerrating
+	</th>
+	<th>
+            Custom boot
+	</th>
+	<th>
+            Kenteken inschrijving / kenteken parkeerkaart
+	</th>
+	<th>
+            Voornaam stuurman
+	</th>
+	<th>
+            Achternaam stuurman
+	</th>
+        <th>
+            Leeftijd stuurman
+        </th>
+	<th>
+            Voornaam fokkemaat
+	</th>
+	<th>
+            Achternaam fokkemaat
+	</th>
+        <th>
+            Leeftijd fokkemaat
+        </th>
+	<th>
+            Achterschriftnummer betaling
+	</th>
+	<th>
+            Bedrag betaling
+	</th>
+	<th>
+            Datum betaling
+	</th>
+	<th>
+            Achterschriftnummer betaling2
+	</th>
+	<th>
+            Bedrag betaling2
+	</th>
+	<th>
+            Datum betaling2
+	</th>
+	<th>
+            Reserveringscode
+	</th>
+	<th>
+            Zeilnummer
+	</th>
+	<th>
+            Startnummer
+	</th>
+	<th>
+            Spinnaker
+	</th>
+	<th>
+            Dutch Open
+	</th>
+	<th>
+            Aangemeld
+	</th>
+	<th>
+            Afgemeld
+	</th>
+	<th>
+            Borg betaalwijze
+	</th>
+	<th>
+            Borg betaaldatum
+	</th>
+	<th>
+            Borg terugbetaald
+	</th>
+    </tr>
+{% for deelname in deelnames %}
+    <tr {%if loop.index % 2%}style="background-color: #ddddff"{% endif%}>
+        <td>
+            {{deelname.boot.type}}
+        </td>
+        <td>
+            {{deelname.boot.klasse}}
+        </td>
+        <td>
+            {{deelname.boot.normalrating}}
+        </td>
+        <td>
+            {{deelname.boot.spinnakerrating}}
+        </td>
+        <td>
+            {{deelname.boot.iscustom ? "Ja" : "Nee"}}
+        </td>
+        <td>
+            {{deelname.kenteken}} / {{deelname.parkeerkaart is not null ? deelname.parkeerkaart.kenteken}}
+        </td>
+        <td>
+            {{deelname.stuurman.deelnemer.voornaam}}
+        </td>
+        <td>
+            {{deelname.stuurman.deelnemer.tussenvoegsel}} {{deelname.stuurman.deelnemer.achternaam}}
+        </td>
+        <td>
+            {{deelname.stuurman.deelnemer.leeftijd}}
+        </td>
+        <td>
+            {% if deelname.fokkemaat is not null %}
+                {{deelname.fokkemaat.deelnemer.voornaam}}
+            {% endif %}
+        </td>
+        <td>
+            {% if deelname.fokkemaat is not null %}
+                {{deelname.fokkemaat.deelnemer.tussenvoegsel}} {{deelname.fokkemaat.deelnemer.achternaam}}
+            {% endif %}
+        </td>
+        <td>
+            {% if deelname.fokkemaat is not null %}
+                {{deelname.fokkemaat.deelnemer.leeftijd}}
+            {% endif %}
+        </td>
+        
+        <td>
+            {{deelname.betaling is not null ? deelname.betaling.afschriftnummer : ""}}
+        </td>
+        <td>
+            {{deelname.betaling is not null ? deelname.betaling.bedrag : ""}}
+        </td>
+        <td>
+            {{deelname.betaling is not null ? deelname.betaling.betaaldatum|date('Y-m-d') : ""}}
+        </td>
+        <td>
+            {{deelname.betaling is not null and deelname.betaling.afschriftnummer2 is not null ? deelname.betaling.afschriftnummer2 : ""}}
+        </td>
+        <td>
+            {{deelname.betaling is not null and deelname.betaling.bedrag2 is not null ? deelname.betaling.bedrag2 : ""}}
+        </td>
+        <td>
+            {{deelname.betaling is not null and deelname.betaling.betaaldatum2 is not null ? deelname.betaling.betaaldatum2|date('Y-m-d') : ""}}
+        </td>
+        <td>
+            {{deelname.reserveringscode}}
+        </td>
+        <td>
+            {{deelname.zeilnummer}}
+        </td>
+        <td>
+            {{deelname.startnummer}}
+        </td>
+        <td>
+            {{deelname.spinnaker == 1 ? "Ja" : "Nee"}}
+        </td>
+        <td>
+            {{deelname.dutchopenstatus == 1 ? "Ja" : "Nee"}}
+        </td>
+        <td>
+            {{deelname.aangemeld == 1 ? "Ja" : "Nee"}}
+        </td>
+        <td>
+            {{deelname.afgemeld == 1 ? "Ja" : "Nee"}}
+        </td>
+        <td>
+            {{deelname.borg is not null ? deelname.borg.betaalwijze : ""}}
+        </td>
+        <td>
+            {{deelname.borg is not null ? deelname.borg.betaaldatum|date('Y-m-d') : ""}}
+        </td>
+        <td>
+            {{deelname.borg is not null ? deelname.borg.terugbetaald : ""}}
+        </td>
+    </tr>
+{% endfor %}
+</table>
+{% else %}
+<p>Er zijn geen deelnames om te exporteren.</p>
+{% endif %}
+{% endblock %}

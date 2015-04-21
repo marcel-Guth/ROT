@@ -1,0 +1,80 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Finishtijden{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+        'bundles/rotiis/js/finish.js'
+    %}
+<script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+        'bundles/rotiis/css/finish.css'
+        filter="cssrewrite"
+    %}
+<link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+{% block inner_content %}
+<h1>Finishtijden</h1>
+<div>
+    <h2>Race is gestart op 
+        <span id="startRace">{{startRaceDate|date('d-m-Y H:i:s')}}</span>
+    </h2>
+    <button onclick="setStarttijd();">Nu starten</button>
+    <button onclick="saveToDatabase();">Save to database</button>
+    <button onclick="exportFinish();">Exporteer Finishtijden</button>
+    <form>
+        <label for="filter">Zoeken</label>
+        <input name="filter" type="text" onkeyup="filterDeelnames(this.value);" />
+    </form>
+</div>
+{% if deelnames != null %}
+<form>
+    <table>
+        <tr>
+            <th>
+                Startnummer
+            </th>
+            <th>
+                Zeilnummer
+            </th>
+            <th>
+                Stop de tijd
+            </th>
+            <th>
+                Finishtijd 
+            </th>
+            <th>
+                Gecorrigeerde finishtijd
+            </th>
+        </tr>
+                {% for deelname in deelnames %}
+        <tr>
+            <td class="startnummer">
+                       {{deelname.startnummer}} 
+            </td>
+            <td id="zeilnummer{{deelname.startnummer}}">
+                {{deelname.zeilnummer}}
+            </td>
+            <td>
+                <button onclick="return setFinishtijd({{deelname.id}});">
+                    Stop de tijd
+                </button>
+            </td>
+            <td id="finishtijd{{deelname.id}}" class="finishtijd">
+                        {{deelname.getFinishtijdString()}}
+            </td>
+            <td>
+                {{deelname.getGecorrigeerdeFinishtijdString()}}
+            </td>
+        </tr>
+                {% endfor %}
+    </table>
+</form>
+{% else %}
+<p>Er zijn nog geen startnummers toegewezen.</p>
+{% endif %}
+{% endblock %}

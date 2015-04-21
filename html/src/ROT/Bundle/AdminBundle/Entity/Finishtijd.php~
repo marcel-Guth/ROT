@@ -1,0 +1,53 @@
+<?php
+
+namespace ROT\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Finishtijd
+ *
+ * @ORM\Table(name="finishtijd")
+ * @ORM\Entity
+ */
+class Finishtijd
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="finishtijd", type="float", nullable=false)
+     */
+    private $finishtijd;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="rating", type="integer", nullable=false)
+     */
+    private $rating;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="modrating", type="integer", nullable=false)
+     */
+    private $modrating;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="correctefinishtijd", type="float", nullable=false)
+     */
+    private $correctefinishtijd;
+
+
+}

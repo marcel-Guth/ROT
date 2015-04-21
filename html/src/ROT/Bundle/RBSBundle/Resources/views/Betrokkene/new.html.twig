@@ -1,0 +1,10 @@
+{% extends "ROTRBSBundle::layout.html.twig" %}
+{% block title %}Nieuwe betrokkene{% endblock %}
+{% block inner_content %}
+    {{ include('ROTRBSBundle:Betrokkene:_object_actions.html.twig') }}
+    <form novalidate action="{{path('rot_rbs_betrokkene_create')}}" method="POST" {{form_enctype(form)}}>
+        {{ include('ROTRBSBundle:Betrokkene:_form.html.twig', {'form': form}) }}
+        {{ form_rest(form) }}
+        <input type="submit" value="Aanmaken" />
+    </form>
+{% endblock %}

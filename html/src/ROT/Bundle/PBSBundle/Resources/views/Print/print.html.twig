@@ -1,0 +1,188 @@
+{% extends "ROTPBSBundle::layout.html.twig" %}
+{% block title %}Print{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+        'bundles/rotpbs/js/print.js'
+        'bundles/rotpbs/js/qrcode.js'
+    %}
+<script src="{{ asset_url }}" type="text/javascript"></script>
+<script src="http://labelwriter.com/software/dls/sdk/js/DYMO.Label.Framework.latest.js"
+        type="text/javascript" charset="UTF-8"></script>
+    {% endjavascripts %}
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+{% block inner_content %}
+        <style type="text/css">
+            
+            .vrijwilliger
+            {
+                display:table-row;
+            }
+            .vergunning
+            {
+                display:none;
+            }
+            .perssponsor
+            {
+                display:none;
+            }
+            .zeiler
+            {
+                display:table-row;
+            }
+            .medewerker
+            {
+                display:none;
+            }
+        </style>
+
+        <form name="inputFields" id="inputFields" action="print" method="post">
+            <table>
+                
+                <tr name="soortRow" id="soortRow">
+                    <td align="left">Soort</td>
+                    <td align="left">
+                        <select name="soort" id="soort">
+                            <option value="zeiler">Zeiler</option>
+                            <option value="medewerker">Medewerker</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr name="soortMedewerkerRow" id="soortMedewerkerRow" class="medewerker">
+                    <td align="left">Soort medewerker</td>
+                    <td align="left">
+                        <select name ="soortMedewerker" id="soortMedewerker">
+                            <option value="vrijwilliger">Vrijwilliger</option>
+                            <option value="pers/sponsor">Pers/sponsor</option>
+                            <option value="strandhuisje">Strandhuisje</option>
+                            <option value="vergunning">Vergunning</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr name="onderdeelVrijwilligerRow" id="onderdeelVrijwilligerRow" class="vrijwilliger medewerker">
+                    <td align="left">Onderdeel</td>
+                    <td align="left">
+                        <select name="onderdeelVrijwilliger" id="onderdeelVrijwilliger">
+                            <option value="transport">Transport</option>
+                            <option value="regatta office">Info/Regatta Office</option>
+                            <option value="veiligheid">Veiligheid</option>
+                            <option value="EHBO">EHBO</option>
+                            <option value="jury">Jury</option>
+                            <option value="wedstrijd">Wedstrijd</option>
+                            <option value="centrale post">Centrale post</option>
+                            <option value="strandpaviljoen">Strandpaviljoen</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr name="bedrijfsnaamRow" id="bedrijfsnaamRow" class="perssponsor medewerker" style="display:none">
+                    <td align="left">Bedrijfsnaam</td>
+                    <td align="left"><input type="text" name="bedrijfsnaam" id="bedrijfsnaam"/></td>
+                </tr>
+
+                <tr name="soortVergunningRow" id="soortVergunningRow" class="vergunning medewerker" style="display:none">
+                    <td align="left">Soort vergunning</td>
+                    <td align="left">
+                        <select name="soortVergunning" id="soortVergunning">
+                            <option value="Strand17">Strand 17</option>
+                            <option value="1000m">1000m</option>
+                            <option value="heleStrand">Hele strand</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr name="onderdeelVergunningRow" id="onderdeelVergunningRow" class="vergunning medewerker" style="display:none">
+                    <td align="left">Onderdeel</td>
+                    <td align="left">
+                        <select name="onderdeelVergunning" id="onderdeelVergunning">
+                            <option value="transport">Transport</option>
+                            <option value="veiligheid">Veiligheid</option>
+                            <option value="EHBO">EHBO</option>
+                            <option value="wedstrijd">Wedstrijd</option>
+                            <option value="strand">Strand</option>
+                        </select>
+                    </td>
+                </tr>
+                    
+                <tr name="naamRow" id="naamRow" class="always">
+                    <td align="left">Naam</td>
+                    <td align="left"><input type="text" name="naam" id="naam" /></td>
+                </tr>
+                
+                <tr name="kentekenRow" id="kentekenRow" class="always">
+                    <td align="left">Kenteken</td>
+                    <td align="left"><input type="text" style='text-transform:uppercase;'name="kenteken" id="kenteken" /></td>
+                </tr>
+                
+                <tr name="donderdagRow" id="donderdagRow" class="medewerker">
+                    <td align="left">Donderdag</td>
+                    <td align="left"><input type="checkbox" name="don" id="don" checked /></td>
+                </tr>
+
+                <tr name="vrijdagRow" id="vrijdagRow" class="medewerker">
+                    <td align="left">Vrijdag</td>
+                    <td align="left"><input type="checkbox" name="vrij" id="vrij" checked /></td>
+                </tr>
+
+                <tr name="zaterdagRow" id="zaterdagRow" class="medewerker">
+                    <td align="left">Zaterdag</td>
+                    <td align="left"><input type="checkbox" name="zat" id="zat" checked /></td>
+                </tr>
+      
+                <tr name="06nummerRow" id="06nummerRow" class="always">
+                    <td align="left">06-nummer</td>
+                    <td align="left"><input type="text" name="06nummer" id="06nummer" /></td>
+                </tr>
+                
+            </table>
+            <input type="hidden" name="hidden1" id="hidden1" />
+            <input type="hidden" name="hidden2" id="hidden2" />
+            <button type="button" onclick="alert(print(false));">Save</button>
+            <button type="button" onclick="alert(print(true));">Save & Print</button>
+            <button type="button" onclick="resetForm();">Reset</button>
+        </form>
+        <br>
+        <img id='qrcodeElement' style='display:none'/>
+        <form class="zeiler">
+            <label for="filter">Zoeken:</label>
+            <input name="filter" type="text" onkeyup="filterResultaten(this.value);" />
+            <table>
+                <tr>
+                    <th>Startnummer</th>
+                    <th>Naam stuurman</th>
+                    <th>Naam fokkemaat</th>
+                    <th>Kenteken</th>
+                    <th>Al uitgegeven</th>
+                    <th>Inladen</th>
+                </tr>
+                {% for deelname in deelnames %}
+                <tr class="resultRow">
+                    <td id="startnummer">
+                        {{deelname.getStartnummer()}}
+                    </td>
+                    <td id="stuurmanNaam">
+                        {{deelname.stuurman.deelnemer.getNaam()}}
+                    </td>
+                    <td id="fokkemaatNaam">
+                        {{deelname.fokkemaat != null ? deelname.fokkemaat.deelnemer.getNaam() : "" }}
+                    </td>
+                    <td id="kenteken">
+                        {{deelname.getKenteken()}}
+                    </td>
+                    <td>
+                        {{deelname.parkeerkaart is null ? "Nee" : "Ja"}}
+                    </td>
+                    <td>
+                        <button type="button" onclick="loadLabelData('{{deelname.getId()}}','{{deelname.stuurman.deelnemer.getNaam()}}', '{{deelname.getKenteken()}}', '{{deelname.stuurman.deelnemer.getTelefoon()}}', '{{deelname.getReserveringscode()}}' );">Laad</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </form>
+        
+{% endblock %}

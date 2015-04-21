@@ -1,0 +1,49 @@
+{% extends "ROTAdminBundle::configuratie_layout.html.twig" %}
+{% block title %}{{ mail_type|capitalize }}smail{% endblock %}
+{% block inner_content %}
+<form novalidate action={{ path('rot_admin_configuratie_updatemail', {'mail_type': mail_type}) }} method="POST" enctype="{{ form_enctype(form) }}">
+    <h3>Onderwerp</h3>
+    <div class="form-row {% if form.subject_nl.content.vars.errors %}form-row-error{% endif %}">
+        <div class="label"><label>Nederlands</label></div>
+        <div class="widget">{{ form_widget(form.subject_nl.content) }}</div>
+        <div class="error">{{ form_errors(form.subject_nl.content) }}</div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="form-row {% if form.subject_en.content.vars.errors %}form-row-error{% endif %}">
+        <div class="label"><label>Engels</label></div>
+        <div class="widget">{{ form_widget(form.subject_en.content) }}</div>
+        <div class="error">{{ form_errors(form.subject_en.content) }}</div>
+        <div class="clearfix"></div>
+    </div>
+    <h3>Inhoud HTML</h3>
+    <p>De teksten `[aanmelder]`,  `[reserveringscode]` & `[fleetchoice]` worden automatisch vervangen.</p>
+    <div class="form-row {% if form.html_nl.content.vars.errors %}form-row-error{% endif %}">
+        <div class="label"><label>Nederlands</label></div>
+        <div class="widget">{{ form_widget(form.html_nl.content) }}</div>
+        <div class="error">{{ form_errors(form.html_nl.content) }}</div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="form-row {% if form.html_en.content.vars.errors %}form-row-error{% endif %}">
+        <div class="label"><label>Engels</label></div>
+        <div class="widget">{{ form_widget(form.html_en.content) }}</div>
+        <div class="error">{{ form_errors(form.html_en.content) }}</div>
+        <div class="clearfix"></div>
+    </div>
+    <h3>Inhoud plain</h3>
+    <div class="form-row {% if form.plain_nl.content.vars.errors %}form-row-error{% endif %}">
+        <div class="label"><label>Nederlands</label></div>
+        <div class="widget">{{ form_widget(form.plain_nl.content) }}</div>
+        <div class="error">{{ form_errors(form.plain_nl.content) }}</div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="form-row {% if form.plain_en.content.vars.errors %}form-row-error{% endif %}">
+        <div class="label"><label>Engels</label></div>
+        <div class="widget">{{ form_widget(form.plain_en.content) }}</div>
+        <div class="error">{{ form_errors(form.plain_en.content) }}</div>
+        <div class="clearfix"></div>
+    </div>
+    {{ form_rest(form) }}
+    <input type="hidden" name="_method" value="PUT" />
+    <input type="submit" value="Opslaan" />
+</form>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "ROTAdminBundle::admin_layout.html.twig" %}
+{% block title %}Gebruikers{% endblock %}
+{% block inner_content %}
+    <ul class="buttons_large">
+        <li>
+            <a href="#" id="admin-filter-toggle">Filter</a>
+        </li>
+        {% if is_granted('ROLE_WIJZIG_GEBRUIKERS') %}
+        <li>
+            <a href="{{path('rot_admin_gebruiker_new')}}">Nieuw</a>
+        </li>
+        {% endif %}
+    </ul>
+    <div id="admin-filter" style="{{ active_filter ? '' : 'display: none'}}" class="ui-widget-header ui-corner-all">
+        <ul class="buttons_small">
+            <li>Filters</li>
+            <li>
+                <select id="admin-filter-select">
+                    <option value="{{ path('rot_admin_gebruiker_index') }}">-</option>
+                    {% for filter in filters %}
+                        <option value="{{ path('rot_admin_gebruiker_filter', {'id': filter.id}) }}" {{ active_filter == filter ? 'selected' : '' }}>{{ filter.name }}</option>
+                    {%  endfor %}
+                </select>
+            </li>
+            <li><a href="{{ path('rot_admin_gebruiker_newfilter') }}">Nieuwe filter</a></li>
+            {% if active_filter %}
+                <li><a href="{{ path('rot_admin_gebruiker_editfilter', {'id': active_filter.id}) }}">Wijzig filter</a></li>
+                <li><a href="{{ path('rot_admin_gebruiker_deletefilter', {'id': active_filter.id}) }}" data-method="DELETE">Verwijder filter</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Naam</th>
+                <th>Gebruikersnaam</th>
+                <th>Rechten</th>
+                <th>Acties</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for gebruiker in gebruikers %}
+            <tr>
+                <td>{{gebruiker.naam}}</td>
+                <td>{{gebruiker.username}}</td>
+                {% set rollen = gebruiker.roles|join(', ') %}
+                <td>{{rollen|replace({'ROLE_BEKIJK_GEBRUIKERS': 'Gebruikers bekijken', 'ROLE_WIJZIG_GEBRUIKERS': 'Gebruikers wijzigen', 'ROLE_CONFIGUREER_RACE': 'Race configureren', 'ROLE_CONFIGUREER_APPLICATIE': 'Applicatie configureren', 'ROLE_CONFIGUREER_INSCHRIJF': 'Inschrijfapplicatie configureren', 'ROLE_WIJZIG_IIS': 'IIS gegevens wijzigen', 'ROLE_WIJZIG_PBS': 'PBS gegevens wijzigen', 'ROLE_WIJZIG_RBS': 'RBS gegevens wijzigen'})}}</td>
+                <td>
+                    <a href="{{path('rot_admin_gebruiker_show', {'id': gebruiker.id})}}"><img src="{{asset('bundles/rotadmin/images/show.png')}}" /></a>
+                    {% if is_granted('ROLE_WIJZIG_GEBRUIKERS') %}
+                        <a href="{{path('rot_admin_gebruiker_edit', {'id': gebruiker.id})}}"><img src="{{asset('bundles/rotadmin/images/edit.png')}}" /></a>
+                        <a href="{{path('rot_admin_gebruiker_editpassword', {'id': gebruiker.id})}}"><img src="{{asset('bundles/rotadmin/images/password.png')}}" /></a>
+                        <a href="{{path('rot_admin_gebruiker_delete', {'id': gebruiker.id})}}" data-method="DELETE"><img src="{{asset("bundles/rotadmin/images/trash.png")}}" /></a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

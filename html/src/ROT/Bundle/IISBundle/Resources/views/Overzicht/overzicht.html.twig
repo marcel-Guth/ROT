@@ -1,0 +1,182 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Overzicht{% endblock %}
+{% block inner_content %}
+{#<h3>Deelnemers</h3>#}
+{#<table class="overzichtstabel">#}
+	{#<thead>#}
+		{#<tr>#}
+			{#<th></th>#}
+			{#<th>Totaal</th>#}
+			{#<th>Nederlands</th>#}
+			{#<th>Buitenlands</th>#}
+		{#</tr>#}
+	{#</thead>#}
+	{#<tbody>#}
+		{#<tr>#}
+			{#<th>Iedereen</th>#}
+			{#<td>{{deelnemers.iedereen.totaal}}</td>#}
+			{#<td>{{deelnemers.iedereen.nederlands}}</td>#}
+			{#<td>{{deelnemers.iedereen.buitenlands}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Aanmelder</th>#}
+			{#<td>{{deelnemers.aanmelder.totaal}}</td>#}
+			{#<td>{{deelnemers.aanmelder.nederlands}}</td>#}
+			{#<td>{{deelnemers.aanmelder.buitenlands}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Potentiele deelnemer</th>#}
+			{#<td>{{deelnemers.potentiele_deelnemers.totaal}}</td>#}
+			{#<td>{{deelnemers.potentiele_deelnemers.nederlands}}</td>#}
+			{#<td>{{deelnemers.potentiele_deelnemers.buitenlands}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Definitieve deelnemer</th>#}
+			{#<td>{{deelnemers.definitieve_deelnemers.totaal}}</td>#}
+			{#<td>{{deelnemers.definitieve_deelnemers.nederlands}}</td>#}
+			{#<td>{{deelnemers.definitieve_deelnemers.buitenlands}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Silver fleet</th>#}
+			{#<td>{{deelnemers.silver_fleet.totaal}}</td>#}
+			{#<td>{{deelnemers.silver_fleet.nederlands}}</td>#}
+			{#<td>{{deelnemers.silver_fleet.buitenlands}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Gold fleet</th>#}
+			{#<td>{{deelnemers.gold_fleet.totaal}}</td>#}
+			{#<td>{{deelnemers.gold_fleet.nederlands}}</td>#}
+			{#<td>{{deelnemers.gold_fleet.buitenlands}}</td>#}
+		{#</tr>#}
+	{#</tbody>#}
+{#</table>#}
+{#<h3>Statussen</h3>#}
+{#<table class="overzichtstabel">#}
+	{#<thead>#}
+		{#<tr>#}
+			{#<th></th>#}
+			{#<th>Aantal</th>				#}
+		{#</tr>#}
+	{#</thead>#}
+	{#<tbody>#}
+		{#<tr>#}
+			{#<th>Niet aangemeld</th>#}
+			{#<td>{{statussen.niet_aangemeld.aantal}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Wel aangemeld</th>#}
+			{#<td>{{statussen.wel_aangemeld.aantal}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Niet afgemeld</th>#}
+			{#<td>{{statussen.niet_afgemeld.aantal}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Wel afgemeld</th>#}
+			{#<td>{{statussen.wel_afgemeld.aantal}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Niet gestart</th>#}
+			{#<td>{{statussen.niet_gestart.aantal}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Gestart</th>#}
+			{#<td>{{statussen.gestart.aantal}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Uitzondering</th>#}
+			{#<td>{{statussen.uitzondering.aantal}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Correct gefinisht</th>#}
+			{#<td>{{statussen.correct_gefinisht.aantal}}</td>#}
+		{#</tr>#}
+	{#</tbody>#}
+{#</table>#}
+{#<h3>Andere races</h3>#}
+{#<table class="overzichtstabel">#}
+	{#<thead>#}
+		{#<tr>#}
+			{#<th></th>#}
+			{#<th>Doen wel mee</th>#}
+			{#<th>Doen niet mee</th>#}
+		{#</tr>#}
+	{#</thead>#}
+	{#<tbody>#}
+		{#<tr>#}
+			{#<th>Dutch open</th>#}
+			{#<td>{{andere_races.dutch_open.doen_wel_mee}}</td>#}
+			{#<td>{{andere_races.dutch_open.doen_niet_mee}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Horstocht</th>#}
+			{#<td>{{andere_races.horstocht.doen_wel_mee}}</td>#}
+			{#<td>{{andere_races.horstocht.doen_niet_mee}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Nacrachamp</th>#}
+			{#<td>{{andere_races.nacrachamp.doen_wel_mee}}</td>#}
+			{#<td>{{andere_races.nacrachamp.doen_niet_mee}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Tocht naar de noord</th>#}
+			{#<td>{{andere_races.tocht_naar_de_noord.doen_wel_mee}}</td>#}
+			{#<td>{{andere_races.tocht_naar_de_noord.doen_niet_mee}}</td>#}
+		{#</tr>#}
+	{#</tbody>#}
+{#</table>#}
+{#<h3>Betaling</h3>#}
+{#<table class="overzichtstabel">#}
+	{#<thead>#}
+		{#<tr>#}
+			{#<th></th>#}
+			{#<th>Totaal</th>#}
+		{#</tr>#}
+	{#</thead>#}
+	{#<tbody>#}
+		{#<tr>#}
+			{#<th>Inschrijfgeld</th>#}
+			{#<td>€ {{betaling.inschrijfgeld.totaal}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Inschrijfgeld niet betaald</th>#}
+			{#<td>{{betaling.inschrijfgeld_niet_betaald.totaal}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Inschrijfgeld wel betaald</th>#}
+			{#<td>{{betaling.inschrijfgeld_wel_betaald.totaal}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Borg niet terugbetaald</th>#}
+			{#<td>{{betaling.borg_niet_terugbetaald.totaal}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Borg wel terugbetaald</th>#}
+			{#<td>{{betaling.borg_wel_terugbetaald.totaal}}</td>#}
+		{#</tr>#}
+	{#</tbody>#}
+{#</table>#}
+{#<h3>Overig</h3>#}
+{#<table class="overzichtstabel">#}
+	{#<thead>#}
+		{#<tr>#}
+			{#<th></th>#}
+			{#<th>Totaal</th>#}
+		{#</tr>#}
+	{#</thead>#}
+	{#<tbody>#}
+		{#<tr>#}
+			{#<th>Boten</th>#}
+			{#<td>{{overig.boten.totaal}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Verenigingen</th>#}
+			{#<td>{{overig.verenigingen.totaal}}</td>#}
+		{#</tr>#}
+		{#<tr>#}
+			{#<th>Nationaliteiten</th>#}
+			{#<td>{{overig.nationaliteiten.totaal}}</td>#}
+		{#</tr>#}
+	{#</tbody>#}
+{#</table>#}
+{% endblock %}

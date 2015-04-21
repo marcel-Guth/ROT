@@ -1,0 +1,10 @@
+{% extends "ROTRBSBundle::layout.html.twig" %}
+{% block title %}Wijzig organisaties filter "{{ filter.name }}"{% endblock %}
+{% block inner_content %}
+<form novalidate action="{{path('rot_rbs_organisatie_updatefilter', {'id': filter.id})}}" method="POST" {{form_enctype(form)}}>
+	{{ include('ROTAdminBundle:FilterWrapping:_form.html.twig', {'form': form, 'content_template': 'ROTRBSBundle:Organisatie:_form_filter.html.twig'}) }}
+    {{ form_rest(form) }}
+    <input type="hidden" name="_method" value="PUT" />
+	<input type="submit" value="Opslaan" />
+</form>
+{% endblock %}

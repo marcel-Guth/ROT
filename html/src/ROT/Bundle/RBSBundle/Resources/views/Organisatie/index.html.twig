@@ -1,0 +1,54 @@
+{% extends "ROTRBSBundle::layout.html.twig" %}
+{% block title %}Organisaties{% if active_filter %} (gefilterd - "{{ active_filter.name }}"){% endif %}{% endblock %}
+{% block inner_content %}
+    <ul class="buttons_large">
+        <li>
+            <a href="#" id="admin-filter-toggle">Filter</a>
+        </li>
+        {% if is_granted('ROLE_WIJZIG_RBS') %}
+        <li>
+            <a href="{{path('rot_rbs_organisatie_new')}}">Nieuw</a>
+        </li>
+        {% endif %}
+    </ul>
+    <div id="admin-filter" style="{{ active_filter ? '' : 'display: none'}}" class="ui-widget-header ui-corner-all">
+        <ul class="buttons_small">
+            <li>Filters</li>
+            <li>
+                <select id="admin-filter-select">
+                    <option value="{{ path('rot_rbs_organisatie_index') }}">-</option>
+                    {% for filter in filters %}
+                        <option value="{{ path('rot_rbs_organisatie_filter', {'id': filter.id}) }}" {{ active_filter == filter ? 'selected' : '' }}>{{ filter.name }}</option>
+                    {%  endfor %}
+                </select>
+            </li>
+            <li><a href="{{ path('rot_rbs_organisatie_newfilter') }}">Nieuwe filter</a></li>
+            {% if active_filter %}
+                <li><a href="{{ path('rot_rbs_organisatie_editfilter', {'id': active_filter.id}) }}">Wijzig filter</a></li>
+                <li><a href="{{ path('rot_rbs_organisatie_deletefilter', {'id': active_filter.id}) }}" data-method="DELETE">Verwijder filter</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Organisatie</th>
+                <th>Acties</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for organisatie in organisaties %}
+            <tr data-id="{{organisatie.id}}">
+                <td>{{organisatie.organisatie}}</td>
+                <td>
+                    <a href="{{path('rot_rbs_organisatie_show', {'id': organisatie.id})}}"><img src="{{asset("bundles/rotadmin/images/show.png")}}" /></a>
+                    {% if is_granted("ROLE_WIJZIG_IIS") %}
+                        <a href="{{path('rot_rbs_organisatie_edit', {'id': organisatie.id})}}"><img src="{{asset("bundles/rotadmin/images/edit.png")}}" /></a>
+                        <a href="{{path('rot_rbs_organisatie_delete', {'id': organisatie.id})}}" data-method="DELETE"><img src="{{asset("bundles/rotadmin/images/trash.png")}}" /></a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

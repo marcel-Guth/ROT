@@ -1,0 +1,18 @@
+{% set route = app.request.attributes.get('_route') %}
+<ul class="buttons_large">
+    <li><a href="{{path('rot_iis_boot_index')}}">Index</a></li>
+    {% if route != 'rot_iis_boot_new' %}
+        {% if route != 'rot_iis_boot_show' %}
+            <li><a href="{{path('rot_iis_boot_show', {'id': boot.id})}}">Bekijk</a></li>
+        {% endif %}
+        {% if is_granted('ROLE_WIJZIG_IIS') %}
+            {% if route != 'rot_iis_boot_edit' %}
+                <li><a href="{{path('rot_iis_boot_edit', {'id': boot.id})}}">Wijzig</a></li>
+            {% endif %}
+            <li><a href="{{path('rot_iis_boot_delete', {'id': boot.id})}}" data-method="DELETE">Verwijder</a></li>
+        {% endif %}
+        {% if route != 'rot_iis_boot_log' %}
+            <li><a href="{{ path('rot_iis_boot_log', {'id': boot.id}) }}">Log</a></li>
+        {% endif %}
+    {% endif %}
+</ul>

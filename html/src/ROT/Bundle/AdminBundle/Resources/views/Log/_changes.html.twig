@@ -1,0 +1,24 @@
+{% if entry.changes.added is not empty %}
+    <h4>Nieuw</h4>
+    {% for change in entry.changes.added %}
+        <div>
+            <em>{{ change.property }}:</em> <code>{{ change.value }}</code>
+        </div>
+    {% endfor %}
+{% endif %}
+{% if entry.changes.removed is not empty %}
+    <h4>Verwijdert</h4>
+    {% for change in entry.changes.removed %}
+        <div>
+            <em>{{ change.property }}:</em> <code>{{ change.value }}</code>
+        </div>
+    {% endfor %}
+{% endif %}
+{% if entry.changes.updated is not empty %}
+    <h4>Gewijzigd</h4>
+    {% for change in entry.changes.updated %}
+        <div>
+            <em>{{ change.property }}:</em> <code>{{ change.from }}</code> > <code>{{ change.to }}</code>
+        </div>
+    {% endfor %}
+{% endif %}

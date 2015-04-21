@@ -1,0 +1,11 @@
+{{ show_row('Voornaam', betrokkene.voornaam) }}
+{{ show_row('Tussenvoegsel', betrokkene.tussenvoegsel) }}
+{{ show_row('Achternaam', betrokkene.achternaam) }}
+{{ show_row('Organisatie', betrokkene.organisatie) }}
+{{ show_row('Soort', betrokkene.soort) }}
+{% if betrokkene.parkeerkaart %}
+    <h3>Parkeerkaart</h3>
+    <div class="sub">
+        {{ include('ROTPBSBundle:Parkeerkaart:_object.html.twig', {'parkeerkaart': betrokkene.parkeerkaart}) }}
+    </div>
+{% endif %}

@@ -1,0 +1,11 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Wijzig klasse "{{klasse}}"{% endblock %}
+{% block inner_content %}
+    {{ include('ROTIISBundle:Klasse:_object_actions.html.twig', {"klasse": klasse}) }}
+    <form novalidate action="{{ path('rot_iis_klasse_update', {'id': klasse.id}) }}" method="POST" {{ form_enctype(form) }}>
+        {{ include('ROTIISBundle:Klasse:_form.html.twig', {'form': form}) }}
+        {{ form_rest(form) }}
+        <input type="hidden" name="_method" value="PUT" />
+        <input type="submit" value="Opslaan" />
+    </form>
+{% endblock %}

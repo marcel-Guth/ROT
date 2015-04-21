@@ -1,0 +1,10 @@
+<div class="form-row {% if form.name.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.name) }}</div>
+    <div class="widget">{{ form_widget(form.name) }}</div>
+    <div class="error">{{ form_errors(form.name) }}</div>
+    <div class="clearfix"></div>
+</div>
+<h3>Content</h3>
+<div>
+    {{ include(content_template, {"form": form.content}) }}
+</div>

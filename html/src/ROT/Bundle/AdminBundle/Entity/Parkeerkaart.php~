@@ -1,0 +1,95 @@
+<?php
+
+namespace ROT\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Parkeerkaart
+ *
+ * @ORM\Table(name="parkeerkaart")
+ * @ORM\Entity
+ */
+class Parkeerkaart
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="kenteken", type="string", length=255, nullable=false)
+     */
+    private $kenteken;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="kaarttype", type="string", length=255, nullable=false)
+     */
+    private $kaarttype;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="kaartstatus", type="boolean", nullable=false)
+     */
+    private $kaartstatus;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vergunningsoort", type="string", length=255, nullable=false)
+     */
+    private $vergunningsoort;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="donderdag", type="boolean", nullable=false)
+     */
+    private $donderdag;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="vrijdag", type="boolean", nullable=false)
+     */
+    private $vrijdag;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="zaterdag", type="boolean", nullable=false)
+     */
+    private $zaterdag;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="zondag", type="boolean", nullable=false)
+     */
+    private $zondag;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="uitgavecount", type="integer", nullable=false)
+     */
+    private $uitgavecount;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="uitgavedatum", type="datetime", nullable=false)
+     */
+    private $uitgavedatum;
+
+
+}

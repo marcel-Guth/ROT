@@ -1,0 +1,12 @@
+<div class="form-row {% if form.naam.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.naam) }}</div>
+    <div class="widget">{{ form_widget(form.naam) }}</div>
+    <div class="error">{{ form_errors(form.naam) }}</div>
+    <div class="clearfix"></div>
+</div>
+<div class="form-row {% if form.iscustom.vars.errors %}form-row-error{% endif %}">
+    <div class="label">{{ form_label(form.iscustom) }}</div>
+    <div class="widget">{{ form_widget(form.iscustom) }}</div>
+    <div class="error">{{ form_errors(form.iscustom) }}</div>
+    <div class="clearfix"></div>
+</div>

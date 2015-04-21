@@ -1,0 +1,4 @@
+iis:
+    resource: "@ROTIISBundle/Controller"
+    type:     annotation
+    

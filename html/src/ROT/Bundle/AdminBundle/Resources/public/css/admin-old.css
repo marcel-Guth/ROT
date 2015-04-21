@@ -1,0 +1,404 @@
+/*warning style*/
+.warning {
+/*	font-size: 15px;*/
+	font-weight:bold;
+	color: red;
+	display: block;
+	padding: 0 0 5px 0;
+}
+.good {
+/*	font-size: 15px;*/
+	font-weight:bold;
+	color: green;
+	display: block;
+	padding: 0 0 5px 0;
+}
+
+.invisible{
+	display:none;
+}
+
+.addbutton {
+	padding: 30px 0 0 0;	
+}
+
+.adminlabel{
+    display: block;
+	padding: 0 0 5px 0;
+}
+
+.bold{
+	font-weight:bold;
+}
+
+.button_large
+{
+	margin-bottom: 15px;
+	padding: 6px 13px;
+	background: url(../images/bg-button-large.png) 0 0 repeat-x #e4e4e4;
+	color: #535353;
+	font-size: 13px;
+	text-shadow: 0 1px 1px rgba(255,255,255,1);
+	border: 1px solid #c8c8c8;
+	font-weight: bold;
+	text-decoration: none;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+.onClickImage {
+	cursor: pointer;
+}
+
+.searchButtons {	
+	width: 49%;
+	padding: 15px 0 0 0;	
+}
+
+table.dataTable tr.even {
+    background-color: #E2E2E2;
+}
+
+table.dataTable tr:hover {
+    background-color: #CCCCCC;
+}
+
+.content {
+	width: 100%;
+	float: left;
+}
+
+.email {
+	float: right;
+	margin-top: 20px;
+}
+
+label.parkeerkaartlabel{
+	float: left;
+	height: 22px;
+	clear: both;
+}
+
+label.type {
+	color: #464646;
+	font-weight: bold;	
+	clear:both;
+}
+
+input[type=text].type {
+	float: left;
+	color: #464646;
+	background: none;
+	width:300px;
+	margin-bottom: 3px;
+	border: 1px solid #fff;
+	padding: 2px;	
+	font-weight: bold;	
+	clear: both;
+}
+
+input[type=radio].type {
+	float: left;
+	color: #464646;
+	background: none;
+	width:20px;
+	font-weight: bold;	
+	clear: both;
+}
+
+select.value {
+	/*
+font-size: 20px; 
+	/* font-size: 15px !important; 
+	margin-top: 2px;
+	margin-top: 0px !important;
+	margin-bottom: 0px;
+*/
+	clear: both;
+}
+
+label.value {
+	width : 200px;
+	margin-top: 6px;
+	clear: both;
+}
+
+input[type=text].value {
+	color: #464646;
+	width:250px;
+	margin-right: 50px;
+	margin-bottom: 3px;
+	border: 1px solid #999;
+	padding: 2px;
+	clear: both;
+}
+
+input[type=checkbox].value {
+	color: #464646;
+	margin-top: 3px;
+	margin-bottom: 6px;
+	border: 1px solid #999;
+	padding: 3px;
+	clear: both;
+}
+
+select {
+    max-width: 300px;
+}
+
+select.valuereadonly {
+	/*
+font-size: 10px !important;
+	margin-top: 0px;
+	margin-bottom: 0px;
+*/
+	clear: both;
+}
+
+label.valuereadonly {
+	margin-top: 6px;
+	margin-right: 200px;
+	clear: both;
+}
+
+input[type=text].valuereadonly {
+	color: #464646;
+	background: none;
+	width:250px;
+	margin-right: 50px;
+	margin-bottom: 3px;
+	border: 1px solid #fff;
+	padding: 2px;
+	clear: both;
+}
+
+input[type=checkbox].valuereadonly {
+	color: #464646;
+	margin-top: 3px;
+	margin-bottom: 6px;
+	border: 1px solid #999;
+	padding: 3px;
+	clear: both;
+}
+
+.space {
+	margin-bottom: 0px;
+}
+
+/*
+.buttonBottom {
+	position: fixed;
+}
+*/
+
+.clear {
+	clear: both;
+}
+
+.footleft{
+	float: left;
+	margin-top: 15px;
+}
+
+.footright{
+	float: right;
+	margin-top: 15px;
+}
+
+.totaalTable
+{
+	border: 1px solid gray;
+}
+
+.totaalHeader
+{
+	background-color: #B6B6B6;
+}
+
+.totaalKey
+{
+	background-color: #B6B6B6;
+	font-weight: bold;
+}
+
+.filter-container
+{
+    display: none;
+}
+
+.filter-container fieldset
+{
+    border: 1px solid;
+    padding: 10px;
+}
+
+h1 {
+	font-size: 26px;
+	color: white;
+	text-shadow: 0 .05em .1em rgba(0,0,0,0.4)
+}
+
+h2 {
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+h3 {
+	font-size: 16px;
+	margin-bottom: 8px;
+}
+
+.overzichtstabel {
+	border: 1px solid #474747;
+	border-collapse: collapse;
+	margin-bottom: 10px;
+}
+
+.overzichtstabel th, .overzichtstabel td {
+    width: 200px;
+	margin: 0;
+	padding: .1em .4em;
+}
+
+.overzichtstabel th {
+	background-color: #cccccc;
+}
+
+.overzichtstabel thead th {
+	border-bottom: 1px solid #474747;
+	text-align: center;
+}
+
+.overzichtstabel tbody th {
+	width: 250px;
+	border-right: 1px solid #474747
+}
+
+.overzichtstabel tbody td {
+	text-align: center;
+}
+
+.filters {
+}
+
+.form-row {
+    margin: 2px;
+}
+
+.form-row .label {
+    float: left;
+    width: 200px;
+    padding: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.form-row .label .required:before {
+    content: "*"
+}
+
+.form-row .widget {
+	float: left;
+    width: 600px;
+}
+
+.form-row .widget input[type=checkbox], .form-row .widget input[type=radio] {
+    float: left;
+    clear: left;
+}
+
+.form-row .widget label {
+    float: left;
+    padding: 5px;
+}
+
+.form-row .error {
+    float: left;
+    clear: both;
+    padding: 5px 210px;
+    color: #AA3333;
+}
+
+.form-row-error {
+    border: 1px solid #dd6666;
+    background-color: #ffdddd;
+}
+
+.clearfix {
+    clear: both
+}
+
+.admin-flash li {
+    margin: 2px;
+    padding: 5px;
+}
+
+.admin-flash .errors li {
+    color: #AA3333;
+    border: 1px solid #dd6666;
+    background-color: #ffdddd;
+}
+
+.admin-flash .notices li {
+    color: #009933;
+    border: 1px solid #009933;
+    background-color: #ddffdd;
+}
+
+.buttons_large {
+    margin: 5px 0;
+}
+
+.buttons_large li, .buttons_small li {
+    display: inline-block;
+}
+
+.buttons_large li a, .buttons_small li a {
+    display: inline-block;
+}
+
+fieldset {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+fieldset legend {
+    margin: 0 10px;
+    padding: 0 5px;
+}
+
+#admin-filter {
+    margin: 5px 0;
+    padding: 5px;
+}
+
+#admin-filter select {
+    max-width: 200px;
+}
+
+.admin-subform {
+    margin-left: 20px;
+}
+
+
+.show-row {
+    margin: 2px;
+}
+
+.show-row .label {
+    font-weight: bold;
+    float: left;
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.show-row .value {
+    float: left;
+    width: 600px;
+}
+
+.sub {
+    padding-left: 10px;
+}

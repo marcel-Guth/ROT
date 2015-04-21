@@ -1,0 +1,53 @@
+<?php
+
+namespace ROT\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Norfile
+ *
+ * @ORM\Table(name="norfile")
+ * @ORM\Entity
+ */
+class Norfile
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="norfilename", type="string", length=255, nullable=false)
+     */
+    private $norfilename;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="extension", type="string", length=255, nullable=false)
+     */
+    private $extension;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="selected", type="boolean", nullable=false)
+     */
+    private $selected;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
+     */
+    private $timestamp;
+
+
+}

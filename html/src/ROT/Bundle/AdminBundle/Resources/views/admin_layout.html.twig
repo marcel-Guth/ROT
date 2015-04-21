@@ -1,0 +1,20 @@
+{% extends "ROTAdminBundle::layout.html.twig" %}
+{% block navigation %}
+	{% set route = app.request.attributes.get('_route') %}
+    <ul id="tabnav">
+		<li class="{{"rot_admin_overzicht" in route ? 'actievetab' : ''}}"><a href="{{path("rot_admin_overzicht_overzicht")}}">Overzicht</a></li>
+		{% if is_granted('ROLE_BEKIJK_GEBRUIKERS') %}
+			<li class="{{"rot_admin_gebruiker" in route ? 'actievetab' : ''}}"><a href="{{path("rot_admin_gebruiker_index")}}">Gebruikers</a></li>
+		{% endif %}
+		{% if is_granted('ROLE_CONFIGUREER_RACE') or is_granted('ROLE_CONFIGUREER_APPLICATIE') %}
+			<li class="{{"rot_admin_beheer" in route ? 'actievetab' : ''}}"><a href="{{path("rot_admin_beheer_startnummers")}}">Beheer</a></li>
+		{% endif %}
+		{% if is_granted('ROLE_CONFIGUREER_INSCHRIJF') %}
+			<li class="{{"rot_admin_configuratie" in route ? 'actievetab' : ''}}"><a href="{{path("rot_admin_configuratie_algemeen")}}">Configuratie</a></li>
+		{% endif %}
+        <li class="{{"rot_iis" in route ? 'actievetab' : ''}}"><a href="{{path("rot_iis_overzicht_overzicht")}}">IIS</a></li>
+        <li class="{{"rot_pbs" in route ? 'actievetab' : ''}}"><a href="{{path("rot_pbs_overzicht_overzicht")}}">PBS</a></li>
+        <li class="{{"rot_rbs" in route ? 'actievetab' : ''}}"><a href="{{path("rot_rbs_overzicht_overzicht")}}">RBS</a></li>
+        <li><a href="{{path("rot_admin_logout")}}">Uitloggen</a></li>
+    </ul>
+{% endblock %}

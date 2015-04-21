@@ -1,0 +1,61 @@
+{% extends "ROTInschrijfBundle::layout.html.twig" %}
+
+{# Zorgen dat de pagina titel, Hoofdtitel en subtitel worden aangepast aan de taal van de user #}
+
+{% block pageTitle %}
+    {% if lang == 'nl' %}
+        {{ siteRegistratieTitel | raw }}
+    {% else %}
+        {{ siteRegistratieTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{%  block siteTitle %}
+    {% if lang == 'nl' %}
+        {{ siteTitel | raw }}
+    {% else %}
+        {{ siteTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{%  block subTitle %}
+    {% if lang == 'nl' %}
+        {{ siteOnderTitel | raw }}
+    {% else %}
+        {{ siteOnderTitelENG | raw }}
+    {% endif %}
+{% endblock %}
+
+{% block page %}
+
+    <div class="text-wrapper">
+        <div class="NL" {% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="boldlabel">Gold Fleet of Silver Fleet</span><div class="clear-both"></div>
+        </div>
+        <div class="EN" {% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="boldlabel">Gold Fleet or Silver Fleet</span><div class="clear-both"></div>
+        </div>
+    </div>
+
+
+    <form class="inschrijving" name="inschrijfStap3" action="{{ path('rot_inschrijf_inschrijf_savestap3') }}" method="post">
+        <div class="input input-radio-button">
+            {#<div class="label-input">  </div>#}
+            <div class="field-input field-input-radio-button"> {{ form_widget(form.vloot) }} </div>
+            <div class="clear-both"></div>
+        </div>
+        <div class="input input-radio-button">
+            {#<div class="label-input"> </div>#}
+            <div class="field-input field-input-radio-button"> {{ form_widget(form.vloot) }} </div>
+            <div class="clear-both"></div>
+        </div>
+
+        {{ form_rest(form) }}
+
+        {{ include('ROTInschrijfBundle:Inschrijf:formControls.html.twig', {
+            step: step,
+            pStep: pStep
+        }) }}
+    </form>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "ROTAdminBundle::admin_layout.html.twig" %}
+{% block title %}Wijzig gebruiker {{ gebruiker }}{% endblock %}
+{% block inner_content %}
+    {{ include('ROTAdminBundle:Gebruiker:_object_actions.html.twig', {"gebruiker": gebruiker}) }}
+    <form novalidate action="{{path('rot_admin_gebruiker_update', {'id': gebruiker.id})}}" method="POST" {{form_enctype(form)}}>
+        {{ include('ROTAdminBundle:Gebruiker:_form.html.twig', {'form': form}) }}
+        {{ form_rest(form) }}
+        <input type="hidden" name="_method" value="PUT" />
+        <input type="submit" value="Opslaan" />
+    </form>
+{% endblock %}

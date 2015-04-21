@@ -1,0 +1,72 @@
+{% extends "ROTIISBundle::layout.html.twig" %}
+{% block title %}Deelnames{% endblock %}
+{% block inner_content %}
+<ul class="buttons_large">
+    <li>
+        <a href="#" id="admin-filter-toggle">Filter</a>
+    </li>
+    {% if is_granted('ROLE_WIJZIG_IIS') %}
+	<li>
+		<a href="{{ path('rot_iis_deelname_new') }}">Toevoegen</a>
+	</li>
+    {% endif %}
+</ul>
+    <div id="admin-filter" style="{{ active_filter ? '' : 'display: none'}}" class="ui-widget-header ui-corner-all">
+        <ul class="buttons_small">
+            <li>Filters</li>
+            <li>
+                <select id="admin-filter-select">
+                    <option value="{{ path('rot_iis_deelname_index') }}">-</option>
+                    {% for filter in filters %}
+                        <option value="{{ path('rot_iis_deelname_filter', {'id': filter.id}) }}" {{ active_filter == filter ? 'selected' : '' }}>{{ filter.name }}</option>
+                    {%  endfor %}
+                </select>
+            </li>
+            <li><a href="{{ path('rot_iis_deelname_newfilter') }}">Nieuwe filter</a></li>
+            {% if active_filter %}
+                <li><a href="{{ path('rot_iis_deelname_editfilter', {'id': active_filter.id}) }}">Wijzig filter</a></li>
+                <li><a href="{{ path('rot_iis_deelname_deletefilter', {'id': active_filter.id}) }}" data-method="DELETE">Verwijder filter</a></li>
+            {% endif %}
+        </ul>
+    </div>
+<table class="admin-table">
+	<thead>
+		<tr>
+                    <th>Regelnummer</th>
+                    <th>Snr</th>
+                    <th>Znr</th>
+                    <th>Boottype</th>
+                    <th>HC</th>
+                    <th>Stuurman</th>
+                    <th>Fokkemaat</th>
+                    <th>IN</th>
+                    <th>Spin</th>
+                    <th>Fleet</th>
+                    <th>Acties</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for deelname in deelnames %}
+		<tr data-id="{{deelname.id}}">
+                    <td>{{loop.index}}</td>
+                    <td>{{deelname.startnummer}}</td>
+                    <td>{{deelname.zeilnummer}}</td>
+                    <td>{{deelname.boot.type}}</td>
+                    <td>{{deelname.spinnaker ? deelname.boot.spinnakerrating : deelname.boot.normalrating}}</td>
+                    <td>{{deelname.stuurman.deelnemer.naam}}</td>
+                    <td>{{deelname.fokkemaat ? deelname.fokkemaat.deelnemer.naam : ''}}</td>
+                    <td>{{deelname.aangemeld ? 'J' : 'N'}}</td>
+                    <td>{{deelname.spinnaker ? 'J' : 'N'}}</td>
+                    <td>{{deelname.fleet|replace({'Fleet': ''})}}</td>
+                    <td>
+                            <a href="{{path('rot_iis_deelname_show', {'id': deelname.id})}}"><img src="{{asset("bundles/rotadmin/images/show.png")}}" /></a>
+                            {% if is_granted("ROLE_WIJZIG_IIS") %}
+                                    <a href="{{path('rot_iis_deelname_edit', {'id': deelname.id})}}"><img src="{{asset("bundles/rotadmin/images/edit.png")}}" /></a>
+                                    <a href="{{path('rot_iis_deelname_delete', {'id': deelname.id})}}" data-method="DELETE"><img src="{{asset("bundles/rotadmin/images/trash.png")}}" /></a>
+                            {% endif %}
+                    </td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
