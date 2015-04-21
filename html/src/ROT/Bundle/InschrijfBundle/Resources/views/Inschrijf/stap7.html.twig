@@ -148,6 +148,13 @@
         <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
             <span class="label-Watersport">Member watersportverbond</span>
         </div>
+		
+		<div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-Watersport">Lidmaatschap watersportverbond nummer</span>
+        </div>
+        <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-Watersport">Member watersportverbond number</span>
+        </div>
        
         <div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
             <span class="label-Mobiel">Telefoonnummer</span>
@@ -156,6 +163,13 @@
             <span class="label-Mobiel">Phone number</span>
         </div>                
 
+		<div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-Mobiel">Mobiel</span>
+        </div>
+        <div class="label label-input"{% if lang != 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
+            <span class="label-Mobiel">Mobile</span>
+        </div>
+		
         <div class="label label-input"{% if lang == 'nl' %}style="display:block;" {% else %} style="display:none"{% endif %}>
             <span class="label-Noodnr">Telefoonnummer bij nood</span>
         </div>
@@ -196,6 +210,7 @@
             
             {% set watersportNrStuurman = stap4['watersportNrStuurman'] %}
             {% set stuurmanMobielNr = stap4['stuurmanMobielnr'] %}
+			{% set stuurmanMobiel = stap4['stuurmanMobiel'] %}
             {% set stuurmanNoodNr = stap4['stuurmanNoodnr'] %}
             {% set stuurmanEmail = stap4['stuurmanEmail'] %}
 
@@ -272,6 +287,14 @@
                        </div>
                    </div>
                 </div>
+				
+				<div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ stuurmanMobiel }}
+                       </div>
+                   </div>
+                </div>
 
                 <div class="controle-row clear-both">
                    <div class="input input-text-field">
@@ -315,6 +338,7 @@
                 {% endif %}
                 {% set watersportNrFokmaat = stap5['fokmaatBemanningslicentieNr'] %}
                 {% set fokmaatMobielNr = stap5['fokmaatMobielnr'] %}
+				{% set fokmaatMobiel = stap5['fokmaatMobiel'] %}
                 {% set fokmaatNoodNr = stap5['fokmaatNoodnr'] %}
                 {% set fokmaatEmail = stap5['fokmaatEmail'] %}
 
@@ -388,6 +412,14 @@
                    <div class="input input-text-field">
                        <div class="field-input controle-spacer-field field-input-text-field">
                             {{ fokmaatMobielNr }}
+                       </div>
+                   </div>
+               </div>
+			   
+			   <div class="controle-row clear-both">
+                   <div class="input input-text-field">
+                       <div class="field-input controle-spacer-field field-input-text-field">
+                            {{ fokmaatMobiel }}
                        </div>
                    </div>
                </div>

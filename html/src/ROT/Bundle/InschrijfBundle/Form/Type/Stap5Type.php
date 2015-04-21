@@ -54,6 +54,7 @@ class Stap5Type extends AbstractType
                        'empty_value' => ''))
            ->add('fokmaatBemanningslicentieNr', 'text')
            ->add('fokmaatMobielnr', 'text')
+		   ->add('fokmaatMobiel', 'text')
            ->add('fokmaatNoodnr', 'text')
            ->add('fokmaatEmail', 'email')
            ->add('fokmaatEmailConf', 'email')

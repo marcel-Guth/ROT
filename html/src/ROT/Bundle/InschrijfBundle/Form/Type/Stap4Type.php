@@ -91,6 +91,7 @@ class Stap4Type extends AbstractType
                         'empty_value' => '',))
             ->add('watersportNrStuurman', 'text')
             ->add('stuurmanMobielnr', 'text')
+			->add('stuurmanMobiel', 'text')
             ->add('stuurmanNoodnr', 'text')
             ->add('stuurmanEmail', 'email')
             ->add('stuurmanEmailConf', 'email')

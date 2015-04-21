@@ -266,6 +266,18 @@
             </div>
 
             <div class="inschrijf-row clear-both">
+                <div class="input label-input-number">
+                    <div class="label-input">
+                        {{ form_label(form.stuurmanMobiel, lang == 'nl' ? "mobielnummer" : "Mobile" ) }}
+
+                    </div>
+                    <div class="field-input field-input-number" minlength="10" maxlength="14">
+                        {{ form_widget(form.stuurmanMobiel) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="inschrijf-row clear-both">
                 <div class="input input-number">
                     <div class="label-input">
                         {{ form_label(form.stuurmanNoodnr, lang == 'nl' ? "Telefoonnummer bij nood" : "Emergency number" ) }}

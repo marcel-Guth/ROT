@@ -78,6 +78,7 @@ class InschrijfController extends Controller {
         $stuurmanDlnr->setNationaliteit($manager->getRepository('ROTIISBundle:Nationaliteit')->findOneBy(array('id' => $data_stap4['stuurmanNationaliteit'])));
         $stuurmanDlnr->setGeslacht($data_stap4['stuurmanGeslacht']);
         $stuurmanDlnr->setTelefoon($data_stap4['stuurmanMobielnr']);
+		$stuurmanDlnr->setMobiel($data_stap4['stuurmanMobiel']);
         $stuurmanDlnr->setNoodtelefoon($data_stap4['stuurmanNoodnr']);
         $stuurmanDlnr->setGeboortedatum($data_stap4['stuurmanDOB']);
         $stuurmanDlnr->setEmail($data_stap4['stuurmanEmail']);
@@ -104,6 +105,7 @@ class InschrijfController extends Controller {
             $fokkemaatDlnr->setNationaliteit($manager->getRepository('ROTIISBundle:Nationaliteit')->findOneBy(array('id' => $data_stap5['fokmaatNationaliteit'])));
             $fokkemaatDlnr->setGeslacht($data_stap5['fokmaatGeslacht']);
             $fokkemaatDlnr->setTelefoon($data_stap5['fokmaatMobielnr']);
+			$fokkemaatDlnr->setMobiel($data_stap5['fokmaatMobiel']);
             $fokkemaatDlnr->setNoodtelefoon($data_stap5['fokmaatNoodnr']);
             $fokkemaatDlnr->setGeboortedatum($data_stap5['fokmaatDOB']);
             $fokkemaatDlnr->setEmail($data_stap5['fokmaatEmail']);

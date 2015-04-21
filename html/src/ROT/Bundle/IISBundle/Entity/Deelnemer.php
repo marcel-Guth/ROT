@@ -116,6 +116,13 @@ class Deelnemer {
      * @ORM\Column(name="telefoon", type="string", length=255, nullable=true)
      */
     protected $telefoon;
+	
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="mobiel", type="string", length=255, nullable=true)
+     */
+    protected $mobiel;
 
     /**
      * @var \DateTime
@@ -412,8 +419,7 @@ class Deelnemer {
 
         return $this;
     }
-
-    /**
+	/**
      * Get telefoon
      *
      * @return string 
@@ -421,6 +427,27 @@ class Deelnemer {
     public function getTelefoon() {
         return $this->telefoon;
     }
+
+	/**
+     * Set mobiel
+     *
+     * @param string $telefoon
+     * @return Deelnemer
+     */
+    public function setMobiel($mobiel) {
+        $this->mobiel = $mobiel;
+
+        return $this;
+    }
+	
+    /**
+     * Get mobiel
+     *
+     * @return string 
+     */
+    public function getMobiel() {
+        return $this->mobiel;
+    } 
 
     /**
      * Set geboortedatum

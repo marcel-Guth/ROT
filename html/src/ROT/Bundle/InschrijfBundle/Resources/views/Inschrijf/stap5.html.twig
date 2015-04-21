@@ -260,6 +260,18 @@
                     </div>
                 </div>
             </div>
+			
+			<div class="inschrijf-row clear-both">
+                <div class="input label-input-number">
+                    <div class="label-input">
+                        {{ form_label(form.fokmaatMobiel, lang == 'nl' ? "mobielnummer" : "Mobile" ) }}
+
+                    </div>
+                    <div class="field-input field-input-number">
+                        {{ form_widget(form.fokmaatMobiel) }}
+                    </div>
+                </div>
+            </div>
 
             <div class="inschrijf-row clear-both">
                 <div class="input input-number">
